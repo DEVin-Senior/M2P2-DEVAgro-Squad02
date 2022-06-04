@@ -29,16 +29,17 @@ npm install
 ng serve
 npm start
 ```
-
 #
 
 ### Fluxo do desenvolvimento
 
 - Ingressar na tarefa que você quer desenvolver no board do Trello entrando no card da tarefa e clicando no botão `Ingressar`.
 
-- Mover a tarefa para a coluna `Doing` e criar um branch com o numero da sua tarefa em letras minúsculas, por exemplo `task01`.
+- Mover a tarefa para a coluna `Doing` e criar um branch com o número da sua tarefa em letras minúsculas, por exemplo `task01`.
 
-- Ao finalizar o desenvolvimento da tarefa, fazer commit das suas alterações na branch criada no passo anterior subir as alterações para o repositório remoto.
+- Ao finalizar o desenvolvimento da tarefa, fazer commit (em português) das suas alterações na branch criada no passo anterior conforme exemplo: " task09 - Atualização README.md  "
+
+- Subir as alterações para o repositório remoto.
 
 - No Git será necessário fazer o Pull Request conforme abaixo:
     - Entrar na aba Pull Requests;
