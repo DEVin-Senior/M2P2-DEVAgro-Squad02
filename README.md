@@ -37,7 +37,7 @@ npm start
 
 - Mover a tarefa para a coluna `Doing` e criar um branch com o número da sua tarefa em letras minúsculas, por exemplo `task01`.
 
-- Ao finalizar o desenvolvimento da tarefa, fazer commit (em português) das suas alterações na branch criada no passo anterior conforme exemplo: " task09 - Atualização README.md  "
+- Ao finalizar o desenvolvimento da tarefa, fazer commit (em português) das suas alterações na branch criada no passo anterior conforme exemplo: " task01 - Atualização README.md  "
 
 - Subir as alterações para o repositório remoto.
 
