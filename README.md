@@ -1,5 +1,5 @@
 # DEVInAgro - SQUAD 02
-#
+
 ### Padrões para desenvolvimento
 
 - Criar componentes, variáveis, serviços, interfaces... com nomeclaturas em inglês;
@@ -9,8 +9,10 @@
 - Auths na pasta `_auths`
 - Views na pasta `_views`
 
-### Requisitos
 #
+
+### Requisitos
+
 | Ferramenta | Versão |
 | ------ | ------ |
 | Angular | 13.3.5 |
@@ -27,19 +29,24 @@ npm install
 ng serve
 npm start
 ```
+#
 
 ### Fluxo do desenvolvimento
 
 - Ingressar na tarefa que você quer desenvolver no board do Trello entrando no card da tarefa e clicando no botão `Ingressar`.
 
-- Mover a tarefa para a coluna `Doing` e criar um branch com o numero da sua tarefa em letras minúsculas, por exemplo `task01`.
+- Mover a tarefa para a coluna `Doing` e criar um branch com o número da sua tarefa em letras minúsculas, por exemplo `task01`.
 
-- Ao finalizar o desenvolvimento da tarefa, fazer commit das suas alterações na branch criada no passo anterior subir as alterações para o repositório remoto.
+- Ao finalizar o desenvolvimento da tarefa, fazer commit (em português) das suas alterações na branch criada no passo anterior conforme exemplo: " task09 - Atualização README.md  "
+
+- Subir as alterações para o repositório remoto.
 
 - No Git será necessário fazer o Pull Request conforme abaixo:
-    1. Entrar na aba Pull Requests;
-    2. Clicar no botão `New pull request`;
-    3. Dentro de `Compare changes` selecionar sua branch conforme exemplo: `compare: <<Selecionar sua branch>>`;
-    4. Clicar em `Create new pull request`.
+    - Entrar na aba Pull Requests;
+    - Clicar no botão `New pull request`;
+    - Dentro de `Compare changes` selecionar sua branch conforme exemplo: `compare: <<Selecionar sua branch>>`;
+    - Clicar em `Create new pull request`.
+
+- Marcar o Product Owner do squad para aprovar o pull request;
 
 - Mover a tarefa para coluna `Code review` no Trello.
