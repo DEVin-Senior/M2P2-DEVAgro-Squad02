@@ -1,27 +1,45 @@
-# Projeto02Modulo2
+# DEVInAgro - SQUAD 02
+#
+### Padrões para desenvolvimento
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.5.
+- Criar componentes, variáveis, serviços, interfaces... com nomeclaturas em inglês;
+- Componentes na pasta `_components`;
+- Serviços na pasta `_services`;
+- Interfaces na pasta `_interfaces`
+- Auths na pasta `_auths`
+- Views na pasta `_views`
 
-## Development server
+### Requisitos
+#
+| Ferramenta | Versão |
+| ------ | ------ |
+| Angular | 13.3.5 |
+| Node | 16.14.2 |
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Clonar projeto do git para sua máquina.
+- Dentro da pasta do projeto clonado abrir o cmd e utilizar o comando abaixo:
 
-## Code scaffolding
+```
+npm install
+```
+- Apos a instalação do npm, utilizar um dos comandos abaixo para start da aplicação:
+```
+ng serve
+npm start
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Fluxo do desenvolvimento
 
-## Build
+- Ingressar na tarefa que você quer desenvolver no board do Trello entrando no card da tarefa e clicando no botão `Ingressar`.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Mover a tarefa para a coluna `Doing` e criar um branch com o numero da sua tarefa em letras minúsculas, por exemplo `task01`.
 
-## Running unit tests
+- Ao finalizar o desenvolvimento da tarefa, fazer commit das suas alterações na branch criada no passo anterior subir as alterações para o repositório remoto.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- No Git será necessário fazer o Pull Request conforme abaixo:
+    1. Entrar na aba Pull Requests;
+    2. Clicar no botão `New pull request`;
+    3. Dentro de `Compare changes` selecionar sua branch conforme exemplo: `compare: <<Selecionar sua branch>>`;
+    4. Clicar em `Create new pull request`.
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Mover a tarefa para coluna `Code review` no Trello.
