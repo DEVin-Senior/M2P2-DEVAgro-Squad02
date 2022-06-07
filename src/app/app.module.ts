@@ -5,10 +5,20 @@ import { AppComponent } from './app.component';
 import { UserNavBarComponent } from './_components/user-nav-bar/user-nav-bar.component';
 import { ButtonComponent } from './_components/button/button.component';
 import { LoginComponent } from './login/login.component';
+import { SidebarComponent } from './_components/sidebar/sidebar.component';
 
 @NgModule({
-  declarations: [AppComponent, ButtonComponent, LoginComponent, UserNavBarComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  declarations: [
+    AppComponent,
+    ButtonComponent,
+    LoginComponent,
+    SidebarComponent,
+    UserNavBarComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
