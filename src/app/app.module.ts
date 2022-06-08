@@ -8,9 +8,10 @@ import { LoginComponent } from './login/login.component';
 import { GrainFormComponent } from './_components/grain/grain-form/grain-form.component';
 import { SidebarComponent } from './_components/sidebar/sidebar.component';
 import { FarmFormComponent } from './_components/farm/farm-form/farm-form.component';
+import { FarmListComponent } from './_components/farm/farm-list/farm-list.component';
 
 @NgModule({
-  declarations: [AppComponent, ButtonComponent, LoginComponent, UserNavBarComponent, GrainFormComponent, SidebarComponent, FarmFormComponent],
+  declarations: [AppComponent, ButtonComponent, LoginComponent, UserNavBarComponent, GrainFormComponent, SidebarComponent, FarmFormComponent, FarmListComponent],
 
   imports: [
     BrowserModule,
