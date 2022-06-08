@@ -6,6 +6,10 @@ import { UserNavBarComponent } from './_components/user-nav-bar/user-nav-bar.com
 import { ButtonComponent } from './_components/button/button.component';
 import { LoginComponent } from './login/login.component';
 import { SidebarComponent } from './_components/sidebar/sidebar.component';
+import { CompanyFormComponent } from './_components/company/company-form/company-form.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from './_shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -13,11 +17,16 @@ import { SidebarComponent } from './_components/sidebar/sidebar.component';
     ButtonComponent,
     LoginComponent,
     SidebarComponent,
-    UserNavBarComponent
+    UserNavBarComponent,
+    CompanyFormComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule,
+    FormsModule,
+    ReactiveFormsModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent],
