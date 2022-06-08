@@ -1,27 +1,52 @@
-# Projeto02Modulo2
+# DEVInAgro - SQUAD 02
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.5.
+### Padrões para desenvolvimento
 
-## Development server
+- Criar componentes, variáveis, serviços, interfaces... com nomeclaturas em inglês;
+- Componentes na pasta `_components`;
+- Serviços na pasta `_services`;
+- Interfaces na pasta `_interfaces`
+- Auths na pasta `_auths`
+- Views na pasta `_views`
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+#
 
-## Code scaffolding
+### Requisitos
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+| Ferramenta | Versão |
+| ------ | ------ |
+| Angular | 13.3.5 |
+| Node | 16.14.2 |
 
-## Build
+- Clonar projeto do git para sua máquina.
+- Dentro da pasta do projeto clonado abrir o cmd e utilizar o comando abaixo:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```
+npm install
+```
+- Apos a instalação do npm, utilizar um dos comandos abaixo para start da aplicação:
+```
+ng serve
+npm start
+```
+#
 
-## Running unit tests
+### Fluxo do desenvolvimento
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Ingressar na tarefa que você quer desenvolver no board do Trello entrando no card da tarefa e clicando no botão `Ingressar`.
 
-## Running end-to-end tests
+- Mover a tarefa para a coluna `Doing` e criar um branch com o número da sua tarefa em letras minúsculas, por exemplo `task01`.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Ao finalizar o desenvolvimento da tarefa, fazer commit (em português) das suas alterações na branch criada no passo anterior conforme exemplo: " task01 - Atualização README.md  "
 
-## Further help
+- Subir as alterações para o repositório remoto.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- No Git será necessário fazer o Pull Request conforme abaixo:
+    - Entrar na aba Pull Requests;
+    - Clicar no botão `New pull request`;
+    - Dentro de `Compare changes` selecionar sua branch conforme exemplo: `compare: <<Selecionar sua branch>>`;
+    - Clicar em `Create new pull request`.
+
+- Marcar o Product Owner do squad para aprovar o pull request;
+
+- Mover a tarefa para coluna `Code review` no Trello.

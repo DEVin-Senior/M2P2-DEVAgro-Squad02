@@ -1,0 +1,30 @@
+.userNavBar {
+  margin-left: 15%;
+  width: 85%;
+  height: 3rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.userNavBar h4 {
+  margin: 0;
+  margin-left: 1rem;
+  color: var(--main-color);
+}
+
+.userInfo {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5%;
+  border-left: 2px solid rgba(194, 189, 189, 0.753);
+}
+
+.img {
+  margin-left: 1rem;
+  height: 30px;
+  border-radius: 50%;
+}

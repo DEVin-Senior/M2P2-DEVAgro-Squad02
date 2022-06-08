@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --main-color: #375F24;
+  --hover-main-color: #02600a;
+  --white: #fff;
+  --bg-gray-color: #DFE0EB;
+  --text-blue-color: #0E1D8E;
+  --red: #F12B2C;
+  --light-green-color: #29CC97;
+  --dark-gray: #4B506D;
+  --light-gray: #C5C7CD;
+  --box-shadow: rgba(55, 81, 255, 0.24);
+}
+
+.principal-bg {
+  background-color: var(--main-color);
+  color: var(--white);
+}
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
