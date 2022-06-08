@@ -1,0 +1,34 @@
+<app-user-nav-bar></app-user-nav-bar>
+<app-sidebar></app-sidebar>
+<div class="container-form">
+    <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+        <div class="mb-5 mt-4 pb-5 ms-4">
+            <form action="">
+                <div class="form-farm">
+                    <div class="form-group mt-4 me-4 ms-4">
+                        <label for="name-farm">NOME</label>
+                        <input type="text" class="form-control" id="name-farm" name="name-farm"
+                            placeholder="Nome da fazenda">
+                    </div>
+
+                    <div class="form-group mt-4 me-4 ms-4">
+                        <label for="grain-produced">GRÃOS</label>
+                        <input type="text" class="form-control" id="
+                        grain-produced" name="grain-produced" placeholder="Grãos produzidos">
+                    </div>
+
+                    <div class="form-group mt-4 mb-4 me-4 ms-4">
+                        <label for="last-harvest-date">DATA DA ÚLTIMA COLHEITA</label>
+                        <input type="text" class="form-control" id="
+                        last-harvest-date" name="last-harvest-date" placeholder="Data dd/mm/aaaa">
+                    </div>
+                </div>
+                <div class="container-btn-register mt-4">
+                    <app-button [text]="btnName" class="btn-register"></app-button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>

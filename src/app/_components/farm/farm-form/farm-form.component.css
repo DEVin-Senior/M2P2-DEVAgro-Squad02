@@ -1,0 +1,24 @@
+.form-farm {
+    border: 1px solid var(--main-color);
+    border-radius: 0.5rem;
+}
+
+input, select, button{
+    border-color: var(--main-color);
+}
+
+.container-form{
+    color: var(--main-color);
+    display: flex;
+    justify-content: center;
+}
+
+.btn-register{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.input-group-lg>.btn{
+    width: 100%;
+}
