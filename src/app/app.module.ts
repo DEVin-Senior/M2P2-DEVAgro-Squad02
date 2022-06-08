@@ -10,6 +10,10 @@ import { ButtonComponent } from './_components/button/button.component';
 import { LoginComponent } from './login/login.component';
 import { GrainFormComponent } from './_components/grain/grain-form/grain-form.component';
 import { SidebarComponent } from './_components/sidebar/sidebar.component';
+import { CompanyFormComponent } from './_components/company/company-form/company-form.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from './_shared/shared.module';
 import { FarmFormComponent } from './_components/farm/farm-form/farm-form.component';
 import { FarmListComponent } from './_components/farm/farm-list/farm-list.component';
 
@@ -24,12 +28,18 @@ import { FarmListComponent } from './_components/farm/farm-list/farm-list.compon
     UserNavBarComponent, 
     GrainFormComponent, 
     SidebarComponent, 
-    FarmFormComponent, 
-    FarmListComponent],
+    FarmFormComponent,
+    FarmListComponent,
+    CompanyFormComponent
+  ],
 
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule,
+    FormsModule,
+    ReactiveFormsModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent],
