@@ -10,6 +10,7 @@
               <h2 class="fw-bold mb-2">Dev-Agro</h2>
               <p class="text-white-50 mb-5">Entre comseu login e senha</p>
 
+
               <form class="row g-3 needs-validation" (ngSubmit)="submit()" [formGroup]="loginFormGroup"
               #formDir="ngForm" [ngClass]="{'was-validated' : loginFormGroup.invalid && formDir.submitted && !loginSuccessful}">
 
@@ -46,6 +47,7 @@
                   agora</a>
               </p>
             </div>
+          
           </div>
         </div>
       </div>

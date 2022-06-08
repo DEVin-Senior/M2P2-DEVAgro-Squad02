@@ -1,3 +1,6 @@
+import { Component, OnInit } from '@angular/core';
+import { UserServiceService } from './../_services/user-service.service';
+import { Router } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -8,11 +11,14 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
+  email: string = '';
+  password: string = '';
+  errorMsg: string = 'Usuário e/ou senha inválidos.';
   @Input() user: any = {}
   loginFormGroup!: FormGroup;
   loginSuccessful: boolean = false;
 
-  constructor() { }
+  constructor(private userService: UserServiceService, private route: Router) { }
 
   ngOnInit(): void {
     this.loginFormGroup = this.getFormConfiguration();
@@ -48,6 +54,15 @@ export class LoginComponent implements OnInit {
       return true;
     }
     return false;
+  }
+
+  verify() {
+    if (this.userService.verifyUser(this.email, this.password)) {
+      this.route.navigate(['/']);
+      localStorage.setItem('user', this.email);
+    } else {
+      // printa error msg na tela
+    }
   }
 
 }
