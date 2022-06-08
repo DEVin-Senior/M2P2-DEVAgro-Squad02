@@ -1,0 +1,27 @@
+.company-form-hero{
+  height: 100vh;
+  width: 100%;
+}
+
+.container-company-form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px 30% 0 30%;
+  height: 100%;
+}
+
+.company-form{
+  background-color: var(--white);
+  border-radius: 5px 5px 5px 5px;
+  padding: 15px;
+}
+
+.needs-validation{
+  justify-content: center;
+}
+
+.header-company-form{
+  color: var(--hover-main-color);
+}

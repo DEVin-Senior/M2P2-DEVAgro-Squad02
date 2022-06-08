@@ -10,20 +10,36 @@
               <h2 class="fw-bold mb-2">Dev-Agro</h2>
               <p class="text-white-50 mb-5">Entre comseu login e senha</p>
 
-              <div class="form-outline form-white mb-4">
-                <label class="form-label" for="typeEmailX">EMAIL</label>
-                <input type="email" id="typeEmailX" class="form-control form-control-lg" />
-              </div>
 
-              <div class="form-outline form-white mb-4">
-                <label class="form-label" for="typePasswordX">SENHA</label>
-                <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a>
-                </p>
-                <input type="password" id="typePasswordX" class="form-control form-control-lg" />
-              </div>
+              <form class="row g-3 needs-validation" (ngSubmit)="submit()" [formGroup]="loginFormGroup"
+              #formDir="ngForm" [ngClass]="{'was-validated' : loginFormGroup.invalid && formDir.submitted && !loginSuccessful}">
 
+                <div class="form-outline form-white mb-4">
+                  <label class="form-label" for="typeEmailX">EMAIL</label>
+                  <input type="email" id="typeEmailX" class="form-control form-control-lg" formControlName="email" required/>
+                  <div *ngIf="email.invalid && formDir.submitted">
+                    <small *ngIf="email.errors?.['required'] && !loginSuccessful">É necessário informar um e-mail. </small>
+                    <small *ngIf="email.errors?.['email'] && !loginSuccessful">O e-mail informado é inválido. </small>
+                  </div>
+                </div>
 
-              <button class="btn btn-outline-light btn-lg px-5" type="submit">Log in</button>
+                <div class="form-outline form-white mb-4">
+                  <label class="form-label" for="typePasswordX">SENHA</label>
+                  <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a>
+                  </p>
+                  <input type="password" id="typePasswordX" class="form-control form-control-lg" formControlName="password" required/>
+                  <div *ngIf="password.invalid && formDir.submitted">
+                    <p *ngIf="password.errors?.['required'] && !loginSuccessful">É necessário informar uma senha.</p>
+                  </div>
+                </div>
+
+                <button class="btn btn-outline-light btn-lg px-5" type="submit">Log in</button>
+
+                <div *ngIf="!this.validateUserLogin() && formDir.submitted" class="alert alert-danger" role="alert">
+                  <small>O usuário e/ou senha informado é inválido.</small>
+                </div>
+
+              </form>
             </div>
 
             <div>
@@ -31,7 +47,7 @@
                   agora</a>
               </p>
             </div>
-
+          
           </div>
         </div>
       </div>
