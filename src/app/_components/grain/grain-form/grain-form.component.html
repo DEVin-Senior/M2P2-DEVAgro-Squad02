@@ -1,0 +1,59 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<app-sidebar></app-sidebar>
+<div class="container-form">
+    <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+        <div class="mb-5 mt-4 pb-5 ms-4">
+            <form action="">
+                <div class="form-grain">
+                    <div class="form-group mt-4 me-4 ms-4">
+                        <label for="nameGrain">NOME</label>
+                        <input type="text" class="form-control" id="nameGrain" name="nameGrain"
+                            placeholder="Nome do Grão">
+                    </div>
+
+                    <div class="form-group mt-4 me-4 ms-4">
+                        <label for="farm">FAZENDA QUE PRODUZ</label>
+                        <select class="form-control" id="farm" name="farm">
+                            <option>Fazenda 1</option>
+                            <option>Fazenda 2</option>
+                            <option>Fazenda 3</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group mt-4 me-4 ms-4">
+                        <label for="harvestForecast">PREVISÃO DE COLHEITA</label>
+                        <input type="text" class="form-control" id="
+                harvestForecast" name="harvestForecast" placeholder="dd/mm/aaaa">
+                    </div>
+
+                    <div class="form-group mt-4 me-4 ms-4">
+                        <label for="nameGrain">INFORMAÇÕES ADICIONAIS</label>
+                        <input type="text" class="form-control" id="
+                harvestForecast" name="harvestForecast" placeholder="Informações">
+                    </div>
+
+                    <div class="form-group mt-4 me-4 ms-4">
+                        <label for="photo">FOTO</label>
+                    </div>
+                    <div class="container-photo col-12 col-md-6 col-lg-6 col-xl-6">
+                        <div class="form-group mt-4 mb-4 me-4 ms-4">
+                            <div class="btnPhoto input-group input-group-lg">
+                                <label class="btn btn-default btn-file">
+                                    <i class="fas fa-file"></i> <input type="file" name="photo" class="form-control"
+                                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"
+                                        required>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-btn-register mt-4">
+                    <app-button [text]="btnName" class="btn-register"></app-button>
+                </div>
+                
+            </form>
+
+        </div>
+    </div>
+</div>

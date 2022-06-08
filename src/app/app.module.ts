@@ -5,16 +5,12 @@ import { AppComponent } from './app.component';
 import { UserNavBarComponent } from './_components/user-nav-bar/user-nav-bar.component';
 import { ButtonComponent } from './_components/button/button.component';
 import { LoginComponent } from './login/login.component';
+import { GrainFormComponent } from './_components/grain/grain-form/grain-form.component';
 import { SidebarComponent } from './_components/sidebar/sidebar.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ButtonComponent,
-    LoginComponent,
-    SidebarComponent,
-    UserNavBarComponent
-  ],
+  declarations: [AppComponent, ButtonComponent, LoginComponent, UserNavBarComponent, GrainFormComponent, SidebarComponent],
+
   imports: [
     BrowserModule,
     AppRoutingModule
@@ -22,4 +18,4 @@ import { SidebarComponent } from './_components/sidebar/sidebar.component';
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
