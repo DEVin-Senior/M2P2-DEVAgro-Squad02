@@ -19,6 +19,7 @@ import { FarmListComponent } from './_components/farm/farm-list/farm-list.compon
     ButtonComponent,
     LoginComponent,
     UserNavBarComponent,
+    ShowWorkerComponent,
     GrainFormComponent,
     SidebarComponent,
     FarmFormComponent,
