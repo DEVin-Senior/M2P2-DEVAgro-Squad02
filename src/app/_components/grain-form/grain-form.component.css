@@ -9,6 +9,8 @@ input, select, button{
 
 .container-form{
     color: var(--main-color);
+    display: flex;
+    justify-content: center;
 }
 
 .btnPhoto > label > input{
