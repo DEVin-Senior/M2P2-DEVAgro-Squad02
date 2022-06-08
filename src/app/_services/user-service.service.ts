@@ -14,17 +14,9 @@ export class UserServiceService {
     this.http.get("https://m2p2-devagro-squad02-backend.herokuapp.com/company/list")
       .subscribe(
         (res: any) => {
-          console.log(res);
-
           this.isCorrect = res.some((user: any) => user.email === email && user.password === password)
         }
       );
-    console.log(this.isCorrect);
-
     return this.isCorrect;
-
-
-
-
   }
 }
