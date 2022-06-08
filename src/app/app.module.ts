@@ -11,12 +11,23 @@ import { LoginComponent } from './login/login.component';
 import { ShowWorkerComponent } from './_components/show-worker/show-worker.component';
 import { GrainFormComponent } from './_components/grain/grain-form/grain-form.component';
 import { SidebarComponent } from './_components/sidebar/sidebar.component';
+import { CompanyFormComponent } from './_components/company/company-form/company-form.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from './_shared/shared.module';
 import { FarmFormComponent } from './_components/farm/farm-form/farm-form.component';
 import { FarmListComponent } from './_components/farm/farm-list/farm-list.component';
 
 @NgModule({
 
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NgbModule,
+    FormsModule,
+    ReactiveFormsModule,
+    SharedModule
+  ],
 
   declarations: [
     AppComponent, 
@@ -29,8 +40,10 @@ import { FarmListComponent } from './_components/farm/farm-list/farm-list.compon
     ShowWorkerComponent, 
     GrainFormComponent, 
     SidebarComponent, 
-    FarmFormComponent, 
-    FarmListComponent],
+    FarmFormComponent,
+    FarmListComponent,
+    CompanyFormComponent
+  ],
 
   providers: [],
   bootstrap: [AppComponent],
