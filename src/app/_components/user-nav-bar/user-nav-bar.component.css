@@ -1,11 +1,7 @@
 .userNavBar {
-  margin-left: 15%;
-  width: 85%;
-  height: 3rem;
-
+  margin-top: 2rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 
 .userNavBar h4 {
@@ -15,11 +11,9 @@
 }
 
 .userInfo {
-  width: 20%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-right: 5%;
+  justify-content: flex-end;
   border-left: 2px solid rgba(194, 189, 189, 0.753);
 }
 
