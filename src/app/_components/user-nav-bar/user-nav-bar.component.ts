@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-user-nav-bar',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-nav-bar.component.css']
 })
 export class UserNavBarComponent implements OnInit {
+
+  @Input() menuName: string = "";
 
   constructor() { }
 
