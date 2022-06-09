@@ -1,6 +1,6 @@
 .container-workers {
   background-color: var(--bg-gray-color);
-  margin-left: 15vw;
+  margin-left: 12vw;
 }
 
 .page {
@@ -24,7 +24,21 @@
 
 .worker {
   background-color: white;
-  height: 70vh;
-  width: 75vw;
+  height: 80vh;
+  width: 78vw;
   margin-top: 3rem;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td,
+th {
+  width: 25%;
 }

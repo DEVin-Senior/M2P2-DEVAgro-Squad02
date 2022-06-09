@@ -4,6 +4,11 @@
   align-items: center;
 }
 
+.userInfo p {
+  margin: 0;
+  margin-left: 1rem;
+}
+
 .userNavBar h4 {
   margin: 0;
   margin-left: 1rem;
