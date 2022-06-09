@@ -1,4 +1,4 @@
-import { UserServiceService } from '../../_services/user-service.service';
+import { UserServiceService } from '../../_services/user/user-service.service';
 import { Router } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -45,9 +45,12 @@ export class LoginComponent implements OnInit {
   }
 
   validateUserLogin() {
+    this.loginSuccessful = this.userService.verifyUser(this.email.value, this.password.value);
     console.log(this.email.value);
+    console.log(this.password.value);
+    console.log(this.loginSuccessful);
 
-    if (this.userService.verifyUser(this.email.value, this.password.value)) {
+    if (this.loginSuccessful) {
       this.route.navigate(['/']);
       localStorage.setItem('user', this.email.value);
       this.loginSuccessful = true;
