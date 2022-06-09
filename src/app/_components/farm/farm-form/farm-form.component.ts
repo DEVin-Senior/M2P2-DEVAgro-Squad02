@@ -5,7 +5,7 @@ import { IFarm } from 'src/app/_interfaces/farm/ifarm';
 import { AlertService } from 'src/app/_shared/alert/alert.service';
 import { FarmService } from 'src/app/_services/farm/farm.service';
 import { ERROR, SUCCESS } from 'src/environments/environment';
-import { UserServiceService } from 'src/app/_services/user/user-service.service';
+import { GrainService } from 'src/app/_services/grain/grain.service';
 
 @Component({
   selector: 'app-farm-form',
@@ -19,15 +19,17 @@ export class FarmFormComponent implements OnInit {
   requestFinished: boolean = false;
   alertMessage!: IAlert;
   companyIdFromCurrentUser: string | null = localStorage.getItem('companyId');
+  grainsFromCompany: any = [];
 
   constructor(
     private farmService: FarmService,
     private alertService: AlertService,
-    private userService: UserServiceService
+    private grainService: GrainService
   ) {}
 
   ngOnInit(): void {
     this.farmForm = this.getFormConfiguration();
+    this.getAllGrainsByCompany();
   }
 
   getFormConfiguration() {
@@ -38,6 +40,14 @@ export class FarmFormComponent implements OnInit {
       lastHarvest: new FormControl('', [Validators.required]),
       stock: new FormControl(0, [Validators.required]),
     });
+  }
+
+  getAllGrainsByCompany(){
+    this.grainService.getAllGrains().subscribe(
+      data => {
+        this.grainsFromCompany = data;
+      }
+    );
   }
 
   get name() {
@@ -58,6 +68,10 @@ export class FarmFormComponent implements OnInit {
 
   get stock() {
     return this.farmForm.get('stock')!;
+  }
+
+  compareGrain(grain1: any, grain2: any){
+    return grain1 && grain2 ? (grain1.id === grain2.id) : grain1 === grain2;
   }
 
   createNewFarm(): IFarm {

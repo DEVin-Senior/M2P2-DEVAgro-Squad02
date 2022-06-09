@@ -28,8 +28,10 @@
 
           <div class="form-group mt-4 me-4 ms-4">
             <label for="grain-produced">GRÃO</label>
-            <input type="text" class="form-control" id="grain-produced" name="grain-produced" formControlName="grainId"
-              placeholder="ID do grão produzido" required>
+            <select class="form-select" aria-label="Default select example" formControlName="grainId">
+              <option selected disabled value="">Selecione o grão</option>
+              <option *ngFor="let grain of grainsFromCompany" [value]="grain.id">{{grain.id + ' - ' + grain.name}}</option>
+            </select>
             <div *ngIf="grainId.invalid && formDir.submitted && !formSended">
               <small *ngIf="grainId.errors?.['required']" class="alert-required">O ID do grão é obrigatório. </small>
             </div>
