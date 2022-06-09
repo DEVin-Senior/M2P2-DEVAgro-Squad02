@@ -50,10 +50,10 @@ export class LoginComponent implements OnInit {
     if (this.userService.verifyUser(this.email.value, this.password.value)) {
       this.route.navigate(['/']);
       localStorage.setItem('user', this.email.value);
-      return true;
+      this.loginSuccessful = true;
     }
 
-    return false;
+    this.loginSuccessful = false;
   }
 
 }

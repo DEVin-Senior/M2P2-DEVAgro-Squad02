@@ -39,7 +39,7 @@
 
                 <button class="btn btn-outline-light btn-lg px-5" type="submit">Log in</button>
 
-                <div *ngIf="!this.validateUserLogin() && formDir.submitted" class="alert alert-danger" role="alert">
+                <div *ngIf="!loginSuccessful && formDir.submitted" class="alert alert-danger" role="alert">
                   <small>O usuário e/ou senha informado é inválido.</small>
                 </div>
 
