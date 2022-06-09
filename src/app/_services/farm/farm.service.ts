@@ -5,13 +5,12 @@ import { IFarm } from 'src/app/_interfaces/farm/ifarm';
 import { API_BASE } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FarmService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  saveFarm(farm: IFarm): Observable<IFarm>{
+  saveFarm(farm: IFarm): Observable<IFarm> {
     return this.http.post<IFarm>(`${API_BASE}/farm`, farm);
   }
 }

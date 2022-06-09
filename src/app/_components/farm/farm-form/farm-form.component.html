@@ -1,5 +1,5 @@
 <app-sidebar></app-sidebar>
-<app-user-nav-bar></app-user-nav-bar>
+<app-user-nav-bar [menuName]="menuName"></app-user-nav-bar>
 <div class="container-form">
   <div class="col-12 col-md-12 col-lg-6 col-xl-6">
     <div class="mb-5 mt-4 pb-5 ms-4">
@@ -28,7 +28,7 @@
 
           <div class="form-group mt-4 me-4 ms-4">
             <label for="grain-produced">GRÃO</label>
-            <select class="form-select" aria-label="Default select example" formControlName="grainId">
+            <select class="form-select" aria-label="Default select example" formControlName="grainId" required>
               <option selected disabled value="">Selecione o grão</option>
               <option *ngFor="let grain of grainsFromCompany" [value]="grain.id">{{grain.id + ' - ' + grain.name}}</option>
             </select>
@@ -63,5 +63,5 @@
 
       </form>
     </div>
-  </div>
 </div>
+<router-outlet></router-outlet>

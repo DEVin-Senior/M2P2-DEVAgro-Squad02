@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class GrainFormComponent implements OnInit {
 
   btnName: string = 'CADASTRAR';
+  menuName: string = 'Grãos';
   
   constructor() { }
 

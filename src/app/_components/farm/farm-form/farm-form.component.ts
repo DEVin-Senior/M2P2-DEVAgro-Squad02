@@ -15,6 +15,7 @@ import { GrainService } from 'src/app/_services/grain/grain.service';
 export class FarmFormComponent implements OnInit {
   farmForm!: FormGroup;
   btnName: string = 'CADASTRAR';
+  menuName: string = 'Fazenda';
   formSended: boolean = false;
   requestFinished: boolean = false;
   alertMessage!: IAlert;
@@ -42,12 +43,10 @@ export class FarmFormComponent implements OnInit {
     });
   }
 
-  getAllGrainsByCompany(){
-    this.grainService.getAllGrains().subscribe(
-      data => {
-        this.grainsFromCompany = data;
-      }
-    );
+  getAllGrainsByCompany() {
+    this.grainService.getAllGrains().subscribe((data) => {
+      this.grainsFromCompany = data;
+    });
   }
 
   get name() {
@@ -70,8 +69,8 @@ export class FarmFormComponent implements OnInit {
     return this.farmForm.get('stock')!;
   }
 
-  compareGrain(grain1: any, grain2: any){
-    return grain1 && grain2 ? (grain1.id === grain2.id) : grain1 === grain2;
+  compareGrain(grain1: any, grain2: any) {
+    return grain1 && grain2 ? grain1.id === grain2.id : grain1 === grain2;
   }
 
   createNewFarm(): IFarm {
@@ -96,28 +95,34 @@ export class FarmFormComponent implements OnInit {
     this.postFarm(newFarm);
   }
 
-  private postFarm(newFarm: IFarm){
-    this.farmService.saveFarm(newFarm).subscribe({
-      complete: () => {
-        this.formSended = true;
-        this.alertMessage = {
-          title: '',
-          message: 'Fazenda cadastrada com sucesso!',
-          typeAlert: SUCCESS,
-        };
-        this.farmForm.reset();
-      },
-      error: (error) => {
-        this.formSended = false;
-        this.alertMessage = {
-          title: 'Ocorreu um erro ao cadastrar a fazenda',
-          message: error.error.message != null ? error.error.message : 'Entre em contato com o administrador do sistema.',
-          typeAlert: ERROR,
-        };
-      },
-    }).add(() => {
-      this.requestFinished = true;
-      this.alertService.showGenericAlert(this.alertMessage);
-    });
+  private postFarm(newFarm: IFarm) {
+    this.farmService
+      .saveFarm(newFarm)
+      .subscribe({
+        complete: () => {
+          this.formSended = true;
+          this.alertMessage = {
+            title: '',
+            message: 'Fazenda cadastrada com sucesso!',
+            typeAlert: SUCCESS,
+          };
+          this.farmForm.reset();
+        },
+        error: (error) => {
+          this.formSended = false;
+          this.alertMessage = {
+            title: 'Ocorreu um erro ao cadastrar a fazenda',
+            message:
+              error.error.message != null
+                ? error.error.message
+                : 'Entre em contato com o administrador do sistema.',
+            typeAlert: ERROR,
+          };
+        },
+      })
+      .add(() => {
+        this.requestFinished = true;
+        this.alertService.showGenericAlert(this.alertMessage);
+      });
   }
 }

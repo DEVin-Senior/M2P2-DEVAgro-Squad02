@@ -1,30 +1,42 @@
+import { lastValueFrom, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Injectable, Output } from '@angular/core';
-import { API_BASE } from 'src/environments/environment';
+import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class UserServiceService {
-  isCorrect: boolean = false;
-  companyId: number = 0;
 
-  constructor(private http: HttpClient) {}
+  // isCorrect!: Promise<boolean>;
+  users!: any;
+  api: string = 'https://m2p2-devagro-squad02-backend.herokuapp.com/company/list';
+  constructor(private http: HttpClient) {
+    this.getAll();
+  }
 
   verifyUser(email: string, password: string): boolean {
-    this.http.get(`${API_BASE}/company/list`).subscribe((res: any) => {
+    let isValid: boolean = false;
 
-      this.isCorrect = res.some(
-        (user: any) => user.email === email && user.password === password
-      );
+    this.users.some((user: any) => isValid = user.email === email && user.password === password);
 
-      if (this.isCorrect) {
-        this.companyId = res.find((user: any) => user.email == email).id;
-        localStorage.setItem('companyId', this.companyId.toString());
-      }
+    this.setCurrentCompanyIdFromUser(isValid, email);
 
-    });
+   return isValid;
 
-    return this.isCorrect;
   }
+
+  getAll(): void {
+    this.http.get(this.api).subscribe((users) => this.users = users);
+  }
+
+  private setCurrentCompanyIdFromUser(isValid: boolean, currentUserEmail: string){
+    if(!isValid || currentUserEmail == null || currentUserEmail == ''){
+      return;
+    }
+
+    let companyId: string = "";
+    companyId = this.users.find((user: any) => user.email == currentUserEmail).id;
+    localStorage.setItem('companyId', companyId.toString());
+  }
+
 }

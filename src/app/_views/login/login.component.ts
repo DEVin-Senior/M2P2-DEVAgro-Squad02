@@ -45,8 +45,6 @@ export class LoginComponent implements OnInit {
   }
 
   validateUserLogin() {
-    console.log(this.email.value);
-
     if (this.userService.verifyUser(this.email.value, this.password.value)) {
       this.route.navigate(['/']);
       localStorage.setItem('user', this.email.value);

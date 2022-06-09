@@ -14,6 +14,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './_shared/shared.module';
 import { FarmFormComponent } from './_components/farm/farm-form/farm-form.component';
+import { GrainsQueryComponent } from './_components/grain/grains-query/grains-query.component';
 import { FarmListComponent } from './_components/farm/farm-list/farm-list.component';
 
 @NgModule({
@@ -27,9 +28,9 @@ import { FarmListComponent } from './_components/farm/farm-list/farm-list.compon
     SidebarComponent,
     FarmFormComponent,
     FarmListComponent,
-    CompanyFormComponent
+    CompanyFormComponent,
+    GrainsQueryComponent
   ],
-
   imports: [
     BrowserModule,
     AppRoutingModule,

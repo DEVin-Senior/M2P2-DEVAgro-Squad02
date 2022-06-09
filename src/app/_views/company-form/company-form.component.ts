@@ -21,7 +21,7 @@ export class CompanyFormComponent implements OnInit {
   registerBtn: string = 'Cadastrar';
   registerSended: boolean = false;
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
     this.companyForm = this.getFormConfiguration();
@@ -67,7 +67,7 @@ export class CompanyFormComponent implements OnInit {
       this.registerSended = false;
       return;
     }
-    console.log('Formulário enviado');
+
     this.companyForm.reset();
     this.registerSended = true;
   }
