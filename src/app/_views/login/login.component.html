@@ -1,60 +1,44 @@
-<section class="vh-100 gradient-custom">
+<section class="vh-100 body-color">
   <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-        <div class="card bg-dark text-white" style="border-radius: 1rem;">
-          <div class="card-body p-5 text-center">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+              <div class="card bg-white" style="border-radius: 0.5rem;">
+                  <div class="card-body p-4">
 
-            <div class="mb-md-5 mt-md-4 pb-5">
+                      <div class="pb-4 text-center">
 
-              <h2 class="fw-bold mb-2">Dev-Agro</h2>
-              <p class="text-white-50 mb-5">Entre com seu login e senha</p>
+                          <img id="logo" src="./assets/img/logo.png" alt="">
+                          <h2 class="Poppins mb-5 text-center">Dev-Agro</h2>
+                          <p class="mb-0 mb-4 text-center">Entre com seu login e senha</p>
 
+                          <div class="form-outline form-white mb-4">
+                              <label class="form-label" for="typeEmailX">EMAIL</label>
+                              <input type="email" id="typeEmailX" class="form-control form-control-lg"
+                                  placeholder="Email" />
+                          </div>
 
-              <form class="row g-3 needs-validation" (ngSubmit)="submit()" [formGroup]="loginFormGroup"
-                #formDir="ngForm"
-                [ngClass]="{'was-validated' : loginFormGroup.invalid && formDir.submitted && !loginSuccessful}">
+                          <div class="form-outline form-white mb-4">
+                              <div class="box-senha">
+                                  <label class="form-label" for="typePasswordX">SENHA</label>
+                                  <p class="small mb-1 pb-lg-2"><a class="link" href="#!">Esqueceu a
+                                          senha?</a>
+                                  </p>
+                              </div>
+                              <input type="password" id="typePasswordX" class="form-control form-control-lg"
+                                  placeholder="Senha" />
+                          </div>
+                          <button class="btn btn-outline-light btn-lg" type="submit">Log in</button>
 
-                <div class="form-outline form-white mb-4">
-                  <label class="form-label" for="typeEmailX">EMAIL</label>
-                  <input type="email" id="typeEmailX" class="form-control form-control-lg" formControlName="email"
-                    required />
-                  <div *ngIf="email.invalid && formDir.submitted">
-                    <small *ngIf="email.errors?.['required'] && !loginSuccessful">É necessário informar um e-mail.
-                    </small>
-                    <small *ngIf="email.errors?.['email'] && !loginSuccessful">O e-mail informado é inválido. </small>
+                      </div>
+
+                      <div class="botton-link">
+                          <p class="mb-0 text-center">Sua empresa não possui conta?</p>
+                          <a href="#!" class="link text-center">Crie agora!</a>
+                      </div>
+
                   </div>
-                </div>
-
-                <div class="form-outline form-white mb-4">
-                  <label class="form-label" for="typePasswordX">SENHA</label>
-                  <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a>
-                  </p>
-                  <input type="password" id="typePasswordX" class="form-control form-control-lg"
-                    formControlName="password" required />
-                  <div *ngIf="password.invalid && formDir.submitted">
-                    <p *ngIf="password.errors?.['required'] && !loginSuccessful">É necessário informar uma senha.</p>
-                  </div>
-                </div>
-
-                <button class="btn btn-outline-light btn-lg px-5" type="submit">Log in</button>
-
-                <div *ngIf="!loginSuccessful && formDir.submitted" class="alert alert-danger" role="alert">
-                  <small>O usuário e/ou senha informado é inválido.</small>
-                </div>
-
-              </form>
-            </div>
-
-            <div>
-              <p class="mb-0">Sua empresa não possui conta?<a href="#!" class="text-white-50 fw-bold">Crie
-                  agora</a>
-              </p>
-            </div>
-
+              </div>
           </div>
-        </div>
       </div>
-    </div>
   </div>
 </section>
