@@ -1,7 +1,7 @@
-import { SweetAlertIcon } from "sweetalert2";
+import { SweetAlertIcon } from 'sweetalert2';
 
 export interface IAlert {
-  title?: string,
-  message: string,
-  typeError: SweetAlertIcon // info, success, error
+  title?: string;
+  message: string;
+  typeAlert?: SweetAlertIcon;
 }

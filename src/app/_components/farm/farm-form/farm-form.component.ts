@@ -2,8 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { IAlert } from 'src/app/_interfaces/alert/ialert';
 import { IFarm } from 'src/app/_interfaces/farm/ifarm';
-import { AlertService } from 'src/app/_services/alert/alert.service';
+import { AlertService } from 'src/app/_shared/alert/alert.service';
 import { FarmService } from 'src/app/_services/farm/farm.service';
+import { ERROR, SUCCESS } from 'src/environments/environment';
+import { UserServiceService } from 'src/app/_services/user/user-service.service';
 
 @Component({
   selector: 'app-farm-form',
@@ -11,17 +13,18 @@ import { FarmService } from 'src/app/_services/farm/farm.service';
   styleUrls: ['./farm-form.component.css'],
 })
 export class FarmFormComponent implements OnInit {
-  @Input() currentUser: any = {};
   farmForm!: FormGroup;
   btnName: string = 'CADASTRAR';
   formSended: boolean = false;
   requestFinished: boolean = false;
   alertMessage!: IAlert;
+  companyIdFromCurrentUser: string | null = localStorage.getItem('companyId');
 
   constructor(
     private farmService: FarmService,
-    private alertService: AlertService
-    ) {}
+    private alertService: AlertService,
+    private userService: UserServiceService
+  ) {}
 
   ngOnInit(): void {
     this.farmForm = this.getFormConfiguration();
@@ -33,67 +36,74 @@ export class FarmFormComponent implements OnInit {
       address: new FormControl('', [Validators.required]),
       grainId: new FormControl('', [Validators.required]),
       lastHarvest: new FormControl('', [Validators.required]),
-      stock: new FormControl(0, [Validators.required])
+      stock: new FormControl(0, [Validators.required]),
     });
   }
 
-  get name(){
+  get name() {
     return this.farmForm.get('name')!;
   }
 
-  get address(){
+  get address() {
     return this.farmForm.get('address')!;
   }
 
-  get grainId(){
+  get grainId() {
     return this.farmForm.get('grainId')!;
   }
 
-  get lastHarvest(){
+  get lastHarvest() {
     return this.farmForm.get('lastHarvest')!;
   }
 
-  get stock(){
-     return this.farmForm.get('stock')!;
+  get stock() {
+    return this.farmForm.get('stock')!;
   }
 
-  saveNewFarm() {
-    if(this.farmForm.invalid){
-      this.formSended = false;
-      return;
-    }
-
-    const newFarm: IFarm = {
+  createNewFarm(): IFarm {
+    return {
       name: this.name.value,
       address: this.address.value,
-      companyId: "1",
+      companyId: this.companyIdFromCurrentUser!,
       grainId: this.grainId.value,
       lastHarvest: this.lastHarvest.value,
       stock: this.stock.value,
     };
+  }
 
-    this.farmService
-      .saveFarm(newFarm)
-      .then((newFarm) => {
+  saveNewFarm() {
+    if (this.farmForm.invalid) {
+      this.formSended = false;
+      return;
+    }
+
+    const newFarm = this.createNewFarm();
+
+    this.postFarm(newFarm);
+  }
+
+  private postFarm(newFarm: IFarm){
+    this.farmService.saveFarm(newFarm).subscribe({
+      complete: () => {
         this.formSended = true;
         this.alertMessage = {
-          title: "",
-          message: "Fazenda cadastrada com sucesso!",
-          typeError: 'success'
+          title: '',
+          message: 'Fazenda cadastrada com sucesso!',
+          typeAlert: SUCCESS,
         };
         this.farmForm.reset();
-      })
-      .catch((error) => {
+      },
+      error: (error) => {
         this.formSended = false;
         this.alertMessage = {
-          title: "Ocorreu um erro ao cadastrar a fazenda",
-          message: error.error.message != null ? error.error.message : "Entre em contato com o administrador do sistema.",
-          typeError: 'error'
+          title: 'Ocorreu um erro ao cadastrar a fazenda',
+          message: error.error.message != null ? error.error.message : 'Entre em contato com o administrador do sistema.',
+          typeAlert: ERROR,
         };
-      })
-      .finally(() => {
-        this.requestFinished = true;
-        this.alertService.showAlert(this.alertMessage);
-      });
+      },
+    }).add(() => {
+      this.requestFinished = true;
+      this.alertService.showGenericAlert(this.alertMessage);
+    });
   }
 }
