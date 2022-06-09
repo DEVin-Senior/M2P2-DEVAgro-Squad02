@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GrainsQueryComponent implements OnInit {
 
+  menuName: string = 'Grãos';
+
   constructor() { }
 
   ngOnInit(): void {

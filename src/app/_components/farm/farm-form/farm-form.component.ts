@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class FarmFormComponent implements OnInit {
 
   btnName:string = 'CADASTRAR';
+  menuName: string = 'Fazenda';
 
   constructor() { }
 
