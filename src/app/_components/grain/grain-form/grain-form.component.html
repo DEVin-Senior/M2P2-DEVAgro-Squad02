@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
     integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 <app-sidebar></app-sidebar>
+<app-user-nav-bar [menuName]="menuName"></app-user-nav-bar>
 <div class="container-form">
     <div class="col-12 col-md-12 col-lg-6 col-xl-6">
         <div class="mb-5 mt-4 pb-5 ms-4">
@@ -56,3 +57,4 @@
         </div>
     </div>
 </div>
+<router-outlet></router-outlet>

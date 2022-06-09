@@ -1,0 +1,49 @@
+.container-table {
+    display: flex;
+    justify-content: center;
+    height: 60vh;
+}
+
+table {
+    width: 70vw;
+    margin: 0 auto;
+}
+
+.btn-include-grain {
+    display: flex;
+    justify-content: end;
+}
+
+.btn-include-grain>button {
+    background-color: var(--main-color);
+    border-radius: 50%;
+}
+
+.btn-include-grain {
+    width: 70vw;
+    margin: 0 auto;
+}
+
+.container-main{
+    border: 1px solid var(--light-gray);
+    width: 70vw;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+.pagination{
+    display: flex;
+    justify-content: end;
+}
+
+.edit-grain{
+    color: black;
+}
+
+.header-title-table{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
