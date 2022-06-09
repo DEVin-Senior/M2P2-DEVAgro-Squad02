@@ -1,0 +1,94 @@
+<app-sidebar></app-sidebar>
+<app-user-nav-bar></app-user-nav-bar>
+<div class="container-body">
+    <div class="container-main mt-4">
+        <div class="container-table">
+            <div class="table-responsive mt-4">
+                <div class="header-title-table">
+                    <h4 class="mt-4 mb-4 ms-2">Lista de Grãos</h4>
+                    <div>
+                        <i class="fa-solid fa-arrow-down-short-wide"></i><span class="me-2">Ordernar</span><i
+                            class="fa-solid fa-filter ms-1"></i>
+                        <span class="me-2">Filtrar</span>
+                    </div>
+                </div>
+
+                <table class="table table table-hover" id="table" data-search="true" data-show-columns="true"
+                    data-show-multi-sort="true">
+                    <thead>
+                        <tr>
+                            <th scope="col">Grão</th>
+                            <th scope="col">Fazenda plantado</th>
+                            <th scope="col">Colhido</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>
+                                <a class="edit-grain" href="#"><i class="fa-solid fa-ellipsis-vertical"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                            <td>
+                                <a class="edit-grain" href="#"><i class="fa-solid fa-ellipsis-vertical"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                            <td>
+                                <a class="edit-grain" href="#"><i class="fa-solid fa-ellipsis-vertical"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>
+                                <a class="edit-grain" href="#"><i class="fa-solid fa-ellipsis-vertical"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                            <td>
+                                <a class="edit-grain" href="#"><i class="fa-solid fa-ellipsis-vertical"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="btn-include-grain">
+            <button type="button" class="btn btn-success btn-lg me-4 mt-4 mb-4">+</button>
+        </div>
+        <nav>
+            <ul class="pagination">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Anterior">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Anterior</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Próximo">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Próximo</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
