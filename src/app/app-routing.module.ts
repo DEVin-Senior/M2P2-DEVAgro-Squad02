@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { CompanyFormComponent } from './_components/company/company-form/company-form.component';
+import { LoginComponent } from './_views/login/login.component';
+import { CompanyFormComponent } from './_views/company-form/company-form.component';
 import { FarmFormComponent } from './_components/farm/farm-form/farm-form.component';
 import { FarmListComponent } from './_components/farm/farm-list/farm-list.component';
 import { ShowWorkerComponent } from './_components/show-worker/show-worker.component';

@@ -1,7 +1,14 @@
+.container-userNavBar{
+  display: flex;
+  justify-content: end;
+  margin: 0 auto;
+}
+
 .userNavBar {
   margin-top: 2rem;
   display: flex;
-  align-items: center;
+  justify-content: space-between;
+  width: 85%;
 }
 
 .userInfo p {

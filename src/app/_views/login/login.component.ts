@@ -1,3 +1,5 @@
+import { UserServiceService } from '../../_services/user/user-service.service';
+import { Router } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -8,11 +10,11 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  @Input() user: any = {}
+  errorMsg: string = 'Usuário e/ou senha inválidos.';
   loginFormGroup!: FormGroup;
   loginSuccessful: boolean = false;
 
-  constructor() { }
+  constructor(private userService: UserServiceService, private route: Router) { }
 
   ngOnInit(): void {
     this.loginFormGroup = this.getFormConfiguration();
@@ -35,19 +37,21 @@ export class LoginComponent implements OnInit {
 
 
   submit() {
-    if (this.loginFormGroup.invalid || !this.validateUserLogin()) {
-      this.loginSuccessful = false;
+    if (this.loginFormGroup.invalid) {
       return;
     }
-    this.loginFormGroup.reset();
-    this.loginSuccessful = true;
+
+    this.validateUserLogin();
   }
 
-  validateUserLogin(){
-    if(this.email == this.user.email && this.password == this.user.password){
-      return true;
+  validateUserLogin() {
+    if (this.userService.verifyUser(this.email.value, this.password.value)) {
+      this.route.navigate(['/']);
+      localStorage.setItem('user', this.email.value);
+      this.loginSuccessful = true;
     }
-    return false;
+
+    this.loginSuccessful = false;
   }
 
 }
