@@ -7,7 +7,6 @@ import { Injectable } from '@angular/core';
 })
 export class UserServiceService {
 
-  // isCorrect!: Promise<boolean>;
   users!: any;
   api: string = 'https://m2p2-devagro-squad02-backend.herokuapp.com/company/list';
   constructor(private http: HttpClient) {
