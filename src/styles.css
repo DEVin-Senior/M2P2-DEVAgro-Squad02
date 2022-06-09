@@ -11,7 +11,7 @@
   --dark-gray: #4B506D;
   --light-gray: #C5C7CD;
   --box-shadow: rgba(55, 81, 255, 0.24);
-  --logo: url("assets/logo.png");
+  --logo: url("assets/img/logo.png");
 }
 
 .principal-bg {
