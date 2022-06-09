@@ -1,4 +1,6 @@
 :root {
+  margin: 0;
+  padding: 0;
   --main-color: #375F24;
   --hover-main-color: #02600a;
   --white: #fff;
@@ -9,6 +11,7 @@
   --dark-gray: #4B506D;
   --light-gray: #C5C7CD;
   --box-shadow: rgba(55, 81, 255, 0.24);
+  --logo: url("assets/logo.png");
 }
 
 .principal-bg {
@@ -18,4 +21,18 @@
 
 * {
   font-family: 'Poppins', sans-serif;
+}
+
+.company-form{
+  color: var(--hover-main-color);
+}
+
+.logo-dih-forms{
+  background-image: var(--logo);
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  background-size: 40%;
+  height: 90px;
+  margin: 10px;
 }

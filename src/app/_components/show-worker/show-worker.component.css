@@ -1,0 +1,30 @@
+.container-workers {
+  background-color: var(--bg-gray-color);
+  margin-left: 15vw;
+}
+
+.page {
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+
+.top {
+  display: flex;
+}
+
+.name {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  color: green;
+  width: 80vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.worker {
+  background-color: white;
+  height: 70vh;
+  width: 75vw;
+  margin-top: 3rem;
+}
