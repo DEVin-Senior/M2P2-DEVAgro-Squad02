@@ -20,7 +20,7 @@
       </div>
 
       <div class="form-floating mb-3">
-        <input type="text" class="form-control cnpj-mask" id="floatingInputCnpj" placeholder="Cnpj"
+        <input type="text" class="form-control" id="floatingInputCnpj" [mask]="'00.000.000/0000-99'" placeholder="Cnpj"
           formControlName="cnpj" required>
         <label for="floatingInputCnpj">CNPJ</label>
 
