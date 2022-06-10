@@ -5,32 +5,46 @@
 <div class="container-form">
     <div class="col-12 col-md-12 col-lg-6 col-xl-6">
         <div class="mb-5 mt-4 pb-5 ms-4">
-            <form action="">
+            <form class="needs-validation" [formGroup]="grainForm" name="grainForm" (ngSubmit)="createGrain()" #formDir="ngForm"
+                [ngClass]="{'was-validated' : grainForm.invalid && formDir.submitted && !formSended}">
                 <div class="form-grain">
                     <div class="form-group mt-4 me-4 ms-4">
                         <label for="nameGrain">NOME</label>
                         <input type="text" class="form-control" id="nameGrain" name="nameGrain"
-                            placeholder="Nome do Grão">
+                            placeholder="Nome do Grão" formControlName="name" required>
+                        <div *ngIf="grainForm.name?.invalid && formDir.submitted && !formSended">
+                            <small *ngIf="grainForm.name.errors?.['required']" class="alert-required">O nome do grão
+                                obrigatório. </small>
+                        </div>
                     </div>
 
                     <div class="form-group mt-4 me-4 ms-4">
                         <label for="farm">FAZENDA QUE PRODUZ</label>
-                        <select class="form-control" id="farm" name="farm">
-                            <option>Fazenda 1</option>
-                            <option>Fazenda 2</option>
-                            <option>Fazenda 3</option>
+                        <select class="form-control" id="farm" name="farm" formControlName="harvestForecast"  required>
+                            <option>1</option>
                         </select>
+                        <div *ngIf="grainForm.farm?.invalid && formDir.submitted && !formSended">
+                            <small *ngIf="grainForm.farm.errors?.['required']" class="alert-required">A fazenda que
+                                produz é
+                                obrigatório. </small>
+                        </div>
                     </div>
                     <div class="form-group mt-4 me-4 ms-4">
                         <label for="harvestForecast">PREVISÃO DE COLHEITA</label>
-                        <input type="text" class="form-control" id="
-                harvestForecast" name="harvestForecast" placeholder="dd/mm/aaaa">
+                        <input type="date" class="form-control" id="
+                harvestForecast" name="harvestForecast" placeholder="dd/mm/aaaa"
+                            required>
+                        <div *ngIf="grainForm.harvestForecast?.invalid && formDir.submitted && !formSended">
+                            <small *ngIf="grainForm.harvestForecast.errors?.['required']" class="alert-required">A
+                                previsão de colheita é obrigatório.</small>
+                        </div>
                     </div>
 
                     <div class="form-group mt-4 me-4 ms-4">
-                        <label for="nameGrain">INFORMAÇÕES ADICIONAIS</label>
+                        <label for="additionalInformation">INFORMAÇÕES ADICIONAIS</label>
                         <input type="text" class="form-control" id="
-                harvestForecast" name="harvestForecast" placeholder="Informações">
+                        additionalInformation" name="additionalInformation" placeholder="Informações"
+                            formControlName="companyId">
                     </div>
 
                     <div class="form-group mt-4 me-4 ms-4">
@@ -51,9 +65,7 @@
                 <div class="container-btn-register mt-4">
                     <app-button [text]="btnName" class="btn-register"></app-button>
                 </div>
-                
             </form>
-
         </div>
     </div>
 </div>
