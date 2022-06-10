@@ -1,0 +1,38 @@
+.form-employee {
+  border: 1px solid var(--main-color);
+  border-radius: 0.5rem;
+}
+
+input, select, button{
+  border-color: var(--main-color);
+}
+
+.container-form{
+  color: var(--main-color);
+  display: flex;
+  justify-content: center;
+}
+
+.btn-register{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.input-group-lg>.btn{
+  width: 100%;
+}
+
+.form-check-input:checked {
+  background-color: var(--main-color);
+  border-color: var(--main-color);
+}
+.form-employee {
+  height: 530px;
+}
+.form-switch .form-check-input {
+  width: 3em;
+}
+.form-check-input {
+  height: 1.5em;
+}

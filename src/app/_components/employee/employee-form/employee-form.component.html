@@ -1,0 +1,51 @@
+<app-sidebar></app-sidebar>
+<app-user-nav-bar [menuName]="menuName"></app-user-nav-bar>
+<div class="container-form">
+    <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+        <div class="mb-5 mt-4 pb-5 ms-4">
+            <form action="">
+                <div class="form-employee">
+                  <div class="form-group mt-4 me-4 ms-4">
+                    <label for="name-employee">NOME</label>
+                    <input type="text" class="form-control" id="name-employee" name="name-employee"
+                        placeholder="Nome">
+                  </div>
+                  <div class="form-group mt-4 me-4 ms-4">
+                    <label for="farm-employee" >FAZENDA</label>
+                    <select class="form-control" id="farm-employee" name="farm-employee">
+                        <option>Selecione a fazenda</option>
+                    </select>
+                  </div>
+                  <div class="form-group mt-4 me-4 ms-4">
+                    <label for="cpf-employee">CPF</label>
+                    <input type="text" class="form-control" id="cpf-employee" name="cpf-employee"
+                        placeholder="CPF">
+                  </div>
+                  <div class="form-group mt-4 me-4 ms-4">
+                    <label for="phone-employee">TELEFONE</label>
+                    <input type="text" class="form-control" id="phone-employee" name="phone-employee"
+                        placeholder="Telefone">
+                  </div>
+                  <div class="form-group mt-4 me-4 ms-4">
+                    <label for="occupation-employee">FUNÇÃO PRINCIPAL</label>
+                    <input type="text" class="form-control" id="occupation-employee" name="occupation-employee"
+                        placeholder="Função principal">
+                  </div>
+                  <div class="form-group mt-4 me-4 ms-4">
+                    <label for="active-employee">ATIVO</label>
+                    <div class="form-check form-switch">
+                      <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="container-btn-register mt-4">
+                    <app-button [text]="btnName" class="btn-register"></app-button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>
