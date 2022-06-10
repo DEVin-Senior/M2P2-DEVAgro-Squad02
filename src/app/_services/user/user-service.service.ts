@@ -1,6 +1,7 @@
-import { lastValueFrom, Observable } from 'rxjs';
+import { firstValueFrom } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { API_BASE } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -8,28 +9,28 @@ import { Injectable } from '@angular/core';
 export class UserServiceService {
 
   users!: any;
-  api: string = 'https://m2p2-devagro-squad02-backend.herokuapp.com/company/list';
+  api: string = `${API_BASE}/company/list`;
   constructor(private http: HttpClient) {
-    this.getAll();
   }
 
-  verifyUser(email: string, password: string): boolean {
+  async verifyUser(email: string, password: string): Promise<boolean> {
     let isValid: boolean = false;
+
+    await this.getAll().then(res => this.users = res);
 
     this.users.some((user: any) => isValid = user.email === email && user.password === password);
 
     this.setCurrentCompanyIdFromUser(isValid, email);
 
-   return isValid;
-
+    return isValid;
   }
 
-  getAll(): void {
-    this.http.get(this.api).subscribe((users) => this.users = users);
+  getAll(): Promise<any> {
+    return firstValueFrom(this.http.get(this.api));
   }
 
-  private setCurrentCompanyIdFromUser(isValid: boolean, currentUserEmail: string){
-    if(!isValid || currentUserEmail == null || currentUserEmail == ''){
+  private setCurrentCompanyIdFromUser(isValid: boolean, currentUserEmail: string) {
+    if (!isValid || currentUserEmail == null || currentUserEmail == '') {
       return;
     }
 
