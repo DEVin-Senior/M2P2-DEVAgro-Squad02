@@ -12,32 +12,20 @@
                         <label for="nameGrain">NOME</label>
                         <input type="text" class="form-control" id="nameGrain" name="nameGrain"
                             placeholder="Nome do Grão" formControlName="name" required>
-                        <div *ngIf="grainForm.name?.invalid && formDir.submitted && !formSended">
-                            <small *ngIf="grainForm.name.errors?.['required']" class="alert-required">O nome do grão
-                                obrigatório. </small>
-                        </div>
                     </div>
 
                     <div class="form-group mt-4 me-4 ms-4">
                         <label for="farm">FAZENDA QUE PRODUZ</label>
                         <select class="form-control" id="farm" name="farm" formControlName="harvestForecast"  required>
-                            <option>1</option>
+                            <option selected disabled value="">Selecione a fazenda</option>
+                            <option *ngFor="let farm of companies" [value]="farm.id">{{farm.id + ' - ' + farm.name}}</option>
                         </select>
-                        <div *ngIf="grainForm.farm?.invalid && formDir.submitted && !formSended">
-                            <small *ngIf="grainForm.farm.errors?.['required']" class="alert-required">A fazenda que
-                                produz é
-                                obrigatório. </small>
-                        </div>
                     </div>
                     <div class="form-group mt-4 me-4 ms-4">
                         <label for="harvestForecast">PREVISÃO DE COLHEITA</label>
                         <input type="date" class="form-control" id="
                 harvestForecast" name="harvestForecast" placeholder="dd/mm/aaaa"
                             required>
-                        <div *ngIf="grainForm.harvestForecast?.invalid && formDir.submitted && !formSended">
-                            <small *ngIf="grainForm.harvestForecast.errors?.['required']" class="alert-required">A
-                                previsão de colheita é obrigatório.</small>
-                        </div>
                     </div>
 
                     <div class="form-group mt-4 me-4 ms-4">
