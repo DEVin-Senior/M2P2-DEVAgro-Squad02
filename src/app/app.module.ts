@@ -1,10 +1,8 @@
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { InterfaceComponent } from './_interfaces/interface/interface.component';
-import { AuthComponent } from './_auths/auth/auth.component';
 import { UserNavBarComponent } from './_components/user-nav-bar/user-nav-bar.component';
 import { ButtonComponent } from './_components/button/button.component';
 import { LoginComponent } from './_views/login/login.component';
@@ -22,8 +20,6 @@ import { FarmListComponent } from './_components/farm/farm-list/farm-list.compon
 @NgModule({
   declarations: [
     AppComponent,
-    InterfaceComponent,
-    AuthComponent,
     ButtonComponent,
     LoginComponent,
     UserNavBarComponent,
@@ -44,7 +40,7 @@ import { FarmListComponent } from './_components/farm/farm-list/farm-list.compon
     ReactiveFormsModule,
     SharedModule
   ],
-  providers: [],
+  providers: [HttpClient],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

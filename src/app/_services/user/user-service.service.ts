@@ -14,12 +14,28 @@ export class UserServiceService {
   }
 
   verifyUser(email: string, password: string): boolean {
-    return this.users.some((user: any) =>
-      user.email === email && user.password === password);
+    let isValid: boolean = false;
+
+    this.users.some((user: any) => isValid = user.email === email && user.password === password);
+
+    this.setCurrentCompanyIdFromUser(isValid, email);
+
+   return isValid;
+
   }
 
   getAll(): void {
     this.http.get(this.api).subscribe((users) => this.users = users);
+  }
+
+  private setCurrentCompanyIdFromUser(isValid: boolean, currentUserEmail: string){
+    if(!isValid || currentUserEmail == null || currentUserEmail == ''){
+      return;
+    }
+
+    let companyId: string = "";
+    companyId = this.users.find((user: any) => user.email == currentUserEmail).id;
+    localStorage.setItem('companyId', companyId.toString());
   }
 
 }
