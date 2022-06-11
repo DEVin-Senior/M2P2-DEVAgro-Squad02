@@ -17,6 +17,7 @@ import { FarmFormComponent } from './_components/farm/farm-form/farm-form.compon
 import { GrainsQueryComponent } from './_components/grain/grains-query/grains-query.component';
 import { FarmListComponent } from './_components/farm/farm-list/farm-list.component';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
+import { FarmTableComponent } from './_components/farm-table/farm-table.component';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -35,6 +36,7 @@ const maskConfig: Partial<IConfig> = {
     FarmListComponent,
     CompanyFormComponent,
     GrainsQueryComponent,
+    FarmTableComponent
   ],
   imports: [
     BrowserModule,
