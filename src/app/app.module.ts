@@ -18,6 +18,12 @@ import { GrainsQueryComponent } from './_components/grain/grains-query/grains-qu
 import { FarmListComponent } from './_components/farm/farm-list/farm-list.component';
 import { HomeComponent } from './_components/home/home/home.component';
 import { NgApexchartsModule } from "ng-apexcharts";
+import { IConfig, NgxMaskModule } from 'ngx-mask';
+import { FarmTableComponent } from './_components/farm-table/farm-table.component';
+
+const maskConfig: Partial<IConfig> = {
+  validation: false,
+};
 
 @NgModule({
   declarations: [
@@ -32,7 +38,8 @@ import { NgApexchartsModule } from "ng-apexcharts";
     FarmListComponent,
     CompanyFormComponent,
     GrainsQueryComponent,
-    HomeComponent
+    HomeComponent,
+    FarmTableComponent
   ],
   imports: [
     BrowserModule,
@@ -42,9 +49,12 @@ import { NgApexchartsModule } from "ng-apexcharts";
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
-    NgApexchartsModule
+    NgApexchartsModule,
+    NgxMaskModule.forRoot(maskConfig), //https://www.npmjs.com/package/ngx-mask (como usar)
+
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
+

@@ -58,7 +58,7 @@ export class HomeComponent implements OnInit {
         }
       ],
       chart: {
-        height: 150,
+        height: 142,
         type: "bar",
         events: {
           // click: function (chart, w, e) {
