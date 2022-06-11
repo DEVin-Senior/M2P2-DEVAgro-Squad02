@@ -1,0 +1,27 @@
+table {
+  width: 100%;
+}
+
+.img {
+  height: 30px;
+  border-radius: 50%;
+}
+
+.btn {
+  background-color: green;
+}
+
+.btn-include-grain {
+  width: 75vw;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-include-grain > button {
+  background-color: var(--main-color);
+  border-radius: 50%;
+}
+
+.paginator {
+  margin-right: 4rem;
+}

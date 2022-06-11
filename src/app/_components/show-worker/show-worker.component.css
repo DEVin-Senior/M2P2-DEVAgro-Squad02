@@ -1,6 +1,12 @@
 .container-workers {
   background-color: var(--bg-gray-color);
   margin-left: 12vw;
+  height: 100vh;
+}
+
+.titulo {
+  display: flex;
+  justify-content: space-between;
 }
 
 .page {
@@ -9,6 +15,8 @@
 }
 
 .top {
+  max-width: 94%;
+  margin-right: 2rem;
   display: flex;
 }
 
@@ -27,6 +35,14 @@
   height: 80vh;
   width: 78vw;
   margin-top: 3rem;
+}
+
+.tittleTable {
+  height: 10vh;
+  width: 76vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 table {
