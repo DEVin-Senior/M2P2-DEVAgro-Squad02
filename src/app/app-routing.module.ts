@@ -5,17 +5,21 @@ import { CompanyFormComponent } from './_views/company-form/company-form.compone
 import { FarmFormComponent } from './_components/farm/farm-form/farm-form.component';
 import { FarmListComponent } from './_components/farm/farm-list/farm-list.component';
 import { HomeComponent } from './_components/home/home/home.component';
+import { ShowWorkerComponent } from './_components/show-worker/show-worker.component';
 
 const routes: Routes = [
   { path: 'company/company-form', component: CompanyFormComponent },
   { path: 'login', component: LoginComponent },
   { path: "farm/farm-form", component: FarmFormComponent },
   { path: "farm/farm-list", component: FarmListComponent },
-  { path: "home", component: HomeComponent }
+  { path: "home", component: HomeComponent },
+  { path: 'farm/farm-form', component: FarmFormComponent },
+  { path: 'farm/list', component: FarmListComponent },
+  { path: 'employee/list', component: ShowWorkerComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
