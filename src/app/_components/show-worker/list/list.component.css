@@ -3,12 +3,15 @@ table {
 }
 
 .img {
-  height: 30px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  height: 45px;
   border-radius: 50%;
 }
 
-.btn {
-  background-color: green;
+.tableMaterial {
+  color: #9fa2b4;
+  height: auto;
 }
 
 .btn-include-grain {
@@ -24,4 +27,45 @@ table {
 
 .paginator {
   margin-right: 4rem;
+  color: #9fa2b4;
+}
+
+#buttonsTable {
+  border-radius: 50px;
+}
+
+::ng-deep .mat-paginator-page-size {
+  opacity: 0;
+}
+
+::ng-deep .mat-icon-button {
+  background-color: white;
+}
+
+::ng-deep tbody {
+  border: 1px solid #dfe0eb;
+  border-radius: 8px;
+}
+
+::ng-deep td.mat-cell:first-of-type {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.infoUser {
+  margin-left: 2rem;
+  margin-top: 1rem;
+}
+
+.infoUser p {
+  color: #0e1d8e;
+}
+
+.farmUser {
+  margin-top: 1rem;
+}
+
+.farmUser p {
+  color: #0e1d8e;
 }
