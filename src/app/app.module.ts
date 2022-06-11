@@ -18,6 +18,10 @@ import { GrainsQueryComponent } from './_components/grain/grains-query/grains-qu
 import { FarmListComponent } from './_components/farm/farm-list/farm-list.component';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
 import { FarmTableComponent } from './_components/farm-table/farm-table.component';
+import { ListComponent } from './_components/show-worker/list/list.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatIconModule } from '@angular/material/icon';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -36,7 +40,8 @@ const maskConfig: Partial<IConfig> = {
     FarmListComponent,
     CompanyFormComponent,
     GrainsQueryComponent,
-    FarmTableComponent
+    FarmTableComponent,
+    ListComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,6 +52,9 @@ const maskConfig: Partial<IConfig> = {
     ReactiveFormsModule,
     SharedModule,
     NgxMaskModule.forRoot(maskConfig), //https://www.npmjs.com/package/ngx-mask (como usar)
+    MatTableModule,
+    MatPaginatorModule,
+    MatIconModule,
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent],
