@@ -16,7 +16,12 @@ import { SharedModule } from './_shared/shared.module';
 import { FarmFormComponent } from './_components/farm/farm-form/farm-form.component';
 import { GrainsQueryComponent } from './_components/grain/grains-query/grains-query.component';
 import { FarmListComponent } from './_components/farm/farm-list/farm-list.component';
+import { IConfig, NgxMaskModule } from 'ngx-mask';
 import { FarmTableComponent } from './_components/farm-table/farm-table.component';
+
+const maskConfig: Partial<IConfig> = {
+  validation: false,
+};
 
 @NgModule({
   declarations: [
@@ -40,9 +45,10 @@ import { FarmTableComponent } from './_components/farm-table/farm-table.componen
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    NgxMaskModule.forRoot(maskConfig), //https://www.npmjs.com/package/ngx-mask (como usar)
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
