@@ -12,16 +12,16 @@
               <p class="mb-0 mb-4 text-center">Entre com seu login e senha</p>
 
               <form class="row g-3 needs-validation" (ngSubmit)="submit()" [formGroup]="loginFormGroup"
-                #formDir="ngForm"
-                [ngClass]="{'was-validated' : loginFormGroup.invalid && formDir.submitted && !loginSuccessful}">
+                #formDir="ngForm" [ngClass]="{'was-validated' : loginFormGroup.invalid && formDir.submitted}">
 
                 <div class="form-outline form-white mb-4">
                   <label class="form-label" for="typeEmailX">EMAIL</label>
-                  <input type="email" id="typeEmailX" class="form-control form-control-lg" placeholder="Email" formControlName="email" required/>
+                  <input type="email" id="typeEmailX" class="form-control form-control-lg" placeholder="Email"
+                    formControlName="email" required />
                   <div *ngIf="email.invalid && formDir.submitted">
-                    <small *ngIf="email.errors?.['required'] && !loginSuccessful">É necessário informar um e-mail.
+                    <small *ngIf="email.errors?.['required']">É necessário informar um e-mail.
                     </small>
-                    <small *ngIf="email.errors?.['email'] && !loginSuccessful">O e-mail informado é inválido. </small>
+                    <small *ngIf="email.errors?.['email']">O e-mail informado é inválido. </small>
                   </div>
                 </div>
 
@@ -32,18 +32,23 @@
                         senha?</a>
                     </p>
                   </div>
-                  <input type="password" id="typePasswordX" class="form-control form-control-lg" placeholder="Senha" formControlName="password" required/>
+                  <input type="password" id="typePasswordX" class="form-control form-control-lg" placeholder="Senha"
+                    formControlName="password" required />
                   <div *ngIf="password.invalid && formDir.submitted">
-                    <p *ngIf="password.errors?.['required'] && !loginSuccessful">É necessário informar uma senha.</p>
+                    <p *ngIf="password.errors?.['required']">É necessário informar uma senha.</p>
                   </div>
                 </div>
                 <button class="btn btn-outline-light btn-lg" type="submit">Log in</button>
+
+                <div *ngIf="!loginSuccessful && formDir.submitted" class="alert alert-danger" role="alert">
+                  <small>O usuário e/ou senha informado é inválido.</small>
+                </div>
               </form>
             </div>
 
             <div class="botton-link">
               <p class="mb-0 text-center">Sua empresa não possui conta?</p>
-              <a href="#!" class="link text-center">Crie agora!</a>
+              <a routerLink="../company/company-form" class="link text-center text-underline-hover">Crie agora!</a>
             </div>
 
           </div>

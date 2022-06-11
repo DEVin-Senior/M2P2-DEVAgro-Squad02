@@ -1,65 +1,69 @@
 .body-color {
-    /* fallback for old browsers */
-    background-color: var(--main-color);
+  /* fallback for old browsers */
+  background-color: var(--main-color);
 }
 
 #logo {
-    width: 20rem;
-    margin-bottom: 12%;
-    margin-top: 5%;
+  width: 20rem;
+  margin-bottom: 12%;
+  margin-top: 5%;
 }
 
 .card {
-    padding-left: 4%;
-    padding-right: 4%;
+  padding-left: 4%;
+  padding-right: 4%;
 }
 
 .card-body {
-    color: var(--main-color);
+  color: var(--main-color);
 }
 
 .form-control {
-    border-color: var(--hover-main-color);
-    border-width: 1px;
-    border-radius: 7px;
+  border-color: var(--hover-main-color);
+  border-width: 1px;
+  border-radius: 7px;
 }
 
 .form-control::placeholder {
-    color: var(--light-gray);
-    font-size: 1.1rem;
+  color: var(--light-gray);
+  font-size: 1.1rem;
 
 }
 
 .btn {
-    background-color: var(--main-color);
-    width: 100%;
-    height: 57px;
-    border-radius: 10px;
-    font-size: 1rem;
+  background-color: var(--main-color);
+  width: 100%;
+  height: 57px;
+  border-radius: 10px;
+  font-size: 1rem;
 }
 
 .mb-0 {
-    color: var(--light-gray);
+  color: var(--light-gray);
 }
 
 .box-senha {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .form-label {
-    display: flex;
+  display: flex;
 
-    font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .botton-link {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .link {
-    color: var(--main-color);
-    text-decoration: none;
+  color: var(--main-color);
+  text-decoration: none;
+}
+
+.text-underline-hover:hover {
+  text-decoration: underline;
 }
