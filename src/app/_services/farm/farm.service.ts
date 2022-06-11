@@ -13,4 +13,9 @@ export class FarmService {
   saveFarm(farm: IFarm): Observable<IFarm> {
     return this.http.post<IFarm>(`${API_BASE}/farm`, farm);
   }
+
+  getAllfarm() {
+    return this.http.get(`${API_BASE}/farm/list`);
+  }
+
 }
