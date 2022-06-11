@@ -5,8 +5,18 @@
       <div class="name">Funcionários</div>
       <app-user-nav-bar></app-user-nav-bar>
     </div>
-    <div class="worker">Funcionários da Empresa</div>
+    <div class="worker">
+      <div class="tittleTable">
+        <p>Funcionários da Empresa</p>
+        <div>
+          <i class="fa-solid fa-arrow-down-short-wide"></i
+          ><span class="me-2">Ordernar</span
+          ><i class="fa-solid fa-filter ms-1"></i>
+          <span class="me-2">Filtrar</span>
+        </div>
+      </div>
+      <app-list></app-list>
+    </div>
   </div>
 </div>
-
 <router-outlet></router-outlet>

@@ -4,5 +4,5 @@ export interface ICompany {
   cnpj: string,
   address: string,
   email: string,
-  password: string
+  password: string,
 }

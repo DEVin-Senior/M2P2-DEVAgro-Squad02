@@ -20,6 +20,10 @@ import { HomeComponent } from './_components/home/home/home.component';
 import { NgApexchartsModule } from "ng-apexcharts";
 import { IConfig, NgxMaskModule } from 'ngx-mask';
 import { FarmTableComponent } from './_components/farm-table/farm-table.component';
+import { ListComponent } from './_components/show-worker/list/list.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatIconModule } from '@angular/material/icon';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -39,7 +43,9 @@ const maskConfig: Partial<IConfig> = {
     CompanyFormComponent,
     GrainsQueryComponent,
     HomeComponent,
-    FarmTableComponent
+    FarmTableComponent,
+    ListComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -51,7 +57,9 @@ const maskConfig: Partial<IConfig> = {
     SharedModule,
     NgApexchartsModule,
     NgxMaskModule.forRoot(maskConfig), //https://www.npmjs.com/package/ngx-mask (como usar)
-
+    MatTableModule,
+    MatPaginatorModule,
+    MatIconModule,
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent],

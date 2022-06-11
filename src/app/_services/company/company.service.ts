@@ -13,4 +13,8 @@ export class CompanyService {
   saveCompany(company: ICompany): Observable<ICompany> {
     return this.http.post<ICompany>(`${API_BASE}/company`, company);
   }
+
+  getCompanyByIdFromCurrentUser() {
+    return this.http.get(`${API_BASE}/company/list`);
+  }
 }
