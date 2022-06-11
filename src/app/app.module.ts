@@ -16,6 +16,8 @@ import { SharedModule } from './_shared/shared.module';
 import { FarmFormComponent } from './_components/farm/farm-form/farm-form.component';
 import { GrainsQueryComponent } from './_components/grain/grains-query/grains-query.component';
 import { FarmListComponent } from './_components/farm/farm-list/farm-list.component';
+import { HomeComponent } from './_components/home/home/home.component';
+import { NgApexchartsModule } from "ng-apexcharts";
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { FarmListComponent } from './_components/farm/farm-list/farm-list.compon
     FarmFormComponent,
     FarmListComponent,
     CompanyFormComponent,
-    GrainsQueryComponent
+    GrainsQueryComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,8 @@ import { FarmListComponent } from './_components/farm/farm-list/farm-list.compon
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    NgApexchartsModule
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent],
