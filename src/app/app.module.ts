@@ -45,6 +45,7 @@ const maskConfig: Partial<IConfig> = {
     HomeComponent,
     FarmTableComponent,
     ListComponent,
+
   ],
   imports: [
     BrowserModule,

@@ -13,11 +13,12 @@ const routes: Routes = [
   { path: "farm/farm-form", component: FarmFormComponent },
   { path: "farm/farm-list", component: FarmListComponent },
   { path: "home", component: HomeComponent },
-  { path: 'employee/list', component: ShowWorkerComponent },
+  { path: 'employee/list', component: ShowWorkerComponent }
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
