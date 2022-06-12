@@ -1,6 +1,9 @@
-.container-table {
+.container-body{
+    width: 100vw;
     display: flex;
     justify-content: center;
+}
+.container-table {
     height: 60vh;
 }
 
@@ -9,26 +12,11 @@ table {
     margin: 0 auto;
 }
 
-.btn-include-grain {
-    display: flex;
-    justify-content: end;
-}
-
-.btn-include-grain>button {
-    background-color: var(--main-color);
-    border-radius: 50%;
-}
-
-.btn-include-grain {
-    width: 70vw;
-    margin: 0 auto;
-}
-
 .container-main{
     border: 1px solid var(--light-gray);
     width: 70vw;
-    margin: 0 auto;
     border-radius: 5px;
+    margin-left: 12%;
 }
 
 .pagination{
@@ -47,3 +35,31 @@ table {
     justify-content: space-between;
 }
 
+table {
+    width: 100%;
+  }
+  
+  .img {
+    height: 30px;
+    border-radius: 50%;
+  }
+  
+  .btn {
+    background-color: green;
+  }
+  
+  .btn-include-grain {
+    width: 70vw;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .btn-include-grain > button {
+    background-color: var(--main-color);
+    border-radius: 50%;
+  }
+  
+  .paginator {
+    margin-right: 4rem;
+  }
+  

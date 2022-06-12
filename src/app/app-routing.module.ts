@@ -13,8 +13,6 @@ const routes: Routes = [
   { path: "farm/farm-form", component: FarmFormComponent },
   { path: "farm/farm-list", component: FarmListComponent },
   { path: "home", component: HomeComponent },
-  { path: 'farm/farm-form', component: FarmFormComponent },
-  { path: 'farm/list', component: FarmListComponent },
   { path: 'employee/list', component: ShowWorkerComponent },
 ];
 
