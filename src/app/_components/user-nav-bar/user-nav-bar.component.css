@@ -1,20 +1,25 @@
-.container-userNavBar{
+.container-main{
   display: flex;
-  justify-content: end;
-  margin: 0 auto;
+  justify-content: flex-end;
+}
+
+.container-userNavBar{
+  height: 7vh;
+  width: 88%;
+}
+
+
+.img {
+  margin-left: 1rem;
+  height: 30px;
+  border-radius: 50%;
 }
 
 .userNavBar {
-  margin-top: 2rem;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  width: 85%;
-}
-
-.userNavBar h4 {
-  margin: 0;
-  margin-left: 1rem;
-  color: var(--main-color);
+  margin-top: 2rem;
 }
 
 .userInfo {
@@ -24,8 +29,13 @@
   border-left: 2px solid rgba(194, 189, 189, 0.753);
 }
 
-.img {
+.userInfo p {
+  margin: 0;
   margin-left: 1rem;
-  height: 30px;
-  border-radius: 50%;
+}
+
+.userNavBar h4 {
+  margin: 0;
+  margin-left: 1rem;
+  color: var(--main-color);
 }

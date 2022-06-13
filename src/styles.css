@@ -23,11 +23,11 @@
   font-family: 'Poppins', sans-serif;
 }
 
-.company-form{
+.company-form {
   color: var(--hover-main-color);
 }
 
-.logo-dih-forms{
+.logo-dih-forms {
   background-image: var(--logo);
   background-position: center;
   background-repeat: no-repeat;
@@ -36,3 +36,4 @@
   height: 90px;
   margin: 10px;
 }
+

@@ -1,6 +1,12 @@
 .container-workers {
   background-color: var(--bg-gray-color);
-  margin-left: 15vw;
+  margin-left: 12vw;
+  height: 150vh;
+}
+
+.titulo {
+  display: flex;
+  justify-content: space-between;
 }
 
 .page {
@@ -9,13 +15,14 @@
 }
 
 .top {
+  max-width: 94%;
+  margin-right: 2rem;
   display: flex;
 }
 
 .name {
   margin-top: 2rem;
   font-size: 1.5rem;
-  color: green;
   width: 80vw;
   display: flex;
   align-items: center;
@@ -24,7 +31,41 @@
 
 .worker {
   background-color: white;
-  height: 70vh;
-  width: 75vw;
+  height: auto;
+  width: 78vw;
   margin-top: 3rem;
+}
+
+.tittleTable {
+  height: 10vh;
+  width: 76vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tittleTable p {
+  margin-top: 1.5rem;
+  margin-left: 1rem;
+  font-size: 1.5rem;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td,
+th {
+  width: 25%;
+}
+
+#fa-arrow-down,
+#fa-filter {
+  margin-right: 1rem;
+  color: #c5c7cd;
 }

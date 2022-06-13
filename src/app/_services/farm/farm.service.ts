@@ -1,14 +1,21 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { IFarm } from 'src/app/_interfaces/farm/ifarm';
+import { API_BASE } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FarmService {
+  constructor(private http: HttpClient) {}
 
-  constructor() { }
+  saveFarm(farm: IFarm): Observable<IFarm> {
+    return this.http.post<IFarm>(`${API_BASE}/farm`, farm);
+  }
 
-  saveFarm(name: string, grains: string, lastHarvestDate: Date){
-
+  getAllfarm() {
+    return this.http.get(`${API_BASE}/farm/list`);
   }
 
 }
