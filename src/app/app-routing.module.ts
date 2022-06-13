@@ -12,8 +12,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: "farm/farm-form", component: FarmFormComponent },
   { path: "farm/farm-list", component: FarmListComponent },
-  { path: 'employee/list', component: ShowWorkerComponent },
-  { path: "home", component: HomeComponent }
+  { path: "home", component: HomeComponent },
+  { path: 'employee/list', component: ShowWorkerComponent }
 
 ];
 

@@ -1,8 +1,32 @@
+.container-main{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.container-userNavBar{
+  height: 7vh;
+  width: 88%;
+}
+
+
+.img {
+  margin-left: 1rem;
+  height: 30px;
+  border-radius: 50%;
+}
+
 .userNavBar {
   display: flex;
-  align-items: baseline;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: space-between;
   margin-top: 2rem;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-left: 2px solid rgba(194, 189, 189, 0.753);
 }
 
 .userInfo p {
@@ -14,17 +38,4 @@
   margin: 0;
   margin-left: 1rem;
   color: var(--main-color);
-}
-
-.userInfo {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  border-left: 2px solid rgba(194, 189, 189, 0.753);
-}
-
-.img {
-  margin-left: 1rem;
-  height: 30px;
-  border-radius: 50%;
 }
