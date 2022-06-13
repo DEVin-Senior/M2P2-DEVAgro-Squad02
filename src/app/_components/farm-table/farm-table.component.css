@@ -10,7 +10,8 @@
   border: 1px solid var(--main-color);
   border-radius: 8px;
   width: 70%;
-  padding: 50px;
+  padding: 30px;
+  height: 95%;
 }
 
 .container-table > h3{
@@ -66,4 +67,12 @@ tbody tr:hover td{
   border: 1px solid var(--box-shadow);
   color: var(--text-blue-color);
   font-weight: bold;
+}
+
+.loading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75%;
+  width: 100%;
 }
