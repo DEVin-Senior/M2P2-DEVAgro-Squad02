@@ -62,6 +62,8 @@
 .link {
   color: var(--main-color);
   text-decoration: none;
+  background-color: transparent;
+  border: none;
 }
 
 .text-underline-hover:hover {
