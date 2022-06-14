@@ -1,6 +1,7 @@
 import { Component, ViewChild, Input, OnInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-list',
@@ -23,6 +24,7 @@ export class ListComponent implements OnInit {
   @Input() employeesList!: any;
 
   ngOnInit(): void {
+    this.employeesList.map((employee: any) => employee.hiringDate = moment().format('DD/MM/yyyy'))
     this.data = new MatTableDataSource<any>(this.employeesList);
     this.data.paginator = this.paginator;
   }
