@@ -1,6 +1,6 @@
 <app-sidebar></app-sidebar>
 <app-user-nav-bar [menuName]="menuName"></app-user-nav-bar>
-<div class="container-body">
+<div class="container-body mt-4">
     <div class="container-main mt-4">
         <div class="container-table">
             <div class="table-responsive mt-4">
@@ -12,84 +12,52 @@
                         <span class="me-2">Filtrar</span>
                     </div>
                 </div>
+                <div class="mat-elevation-z8">
+                    <table mat-table [dataSource]="dataSource">
+                        <!-- Position Column -->
+                        <ng-container matColumnDef="grain">
+                            <th mat-header-cell *matHeaderCellDef>Grão</th>
+                            <td mat-cell *matCellDef="let element">
+                                <img class="img"
+                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaw4t8DM1Sen3UBSX6yUHK45TYF_yn1dXyNCS8A_cqaHgaS7FrlRKBzwJBwPXKHIJLoyU&usqp=CAU" />
+                                {{ element.grain }}
+                            </td>
+                        </ng-container>
 
-                <table class="table table table-hover" id="table" data-search="true" data-show-columns="true"
-                    data-show-multi-sort="true">
-                    <thead>
-                        <tr>
-                            <th scope="col">Grão</th>
-                            <th scope="col">Fazenda plantado</th>
-                            <th scope="col">Colhido</th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>
-                                <a class="edit-grain" href="#"><i class="fa-solid fa-ellipsis-vertical"></i></a>
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="plantedFarm">
+                            <th mat-header-cell *matHeaderCellDef>Fazenda plantada</th>
+                            <td mat-cell *matCellDef="let element">{{ element.plantedFarm }}</td>
+                        </ng-container>
+
+                        <!-- Symbol Column -->
+                        <ng-container matColumnDef="harvested">
+                            <th mat-header-cell *matHeaderCellDef>Colhido</th>
+                            <td mat-cell *matCellDef="let element">
+                                <button type="button" class="btn btn-success">
+                                    {{ element.harvested }}
+                                </button>
                             </td>
-                        </tr>
-                        <tr>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            <td>
-                                <a class="edit-grain" href="#"><i class="fa-solid fa-ellipsis-vertical"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                            <td>
-                                <a class="edit-grain" href="#"><i class="fa-solid fa-ellipsis-vertical"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>
-                                <a class="edit-grain" href="#"><i class="fa-solid fa-ellipsis-vertical"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            <td>
-                                <a class="edit-grain" href="#"><i class="fa-solid fa-ellipsis-vertical"></i></a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                        </ng-container>
+
+                        <td></td>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+                    </table>
+
+                    <div class="btn-include-grain">
+                        <button type="button" class="btn btn-success btn-lg me-5 mt-4 mb-4">
+                            +
+                        </button>
+                    </div>
+
+                    <mat-paginator class="paginator mb-4" [pageSizeOptions]="[5]"
+                        aria-label="Select page of periodic elements">
+                    </mat-paginator>
+                </div>
             </div>
         </div>
-        <div class="btn-include-grain">
-            <button type="button" class="btn btn-success btn-lg me-4 mt-4 mb-4">+</button>
-        </div>
-        <nav>
-            <ul class="pagination">
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Anterior">
-                        <span aria-hidden="true">&laquo;</span>
-                        <span class="sr-only">Anterior</span>
-                    </a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Próximo">
-                        <span aria-hidden="true">&raquo;</span>
-                        <span class="sr-only">Próximo</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
     </div>
 </div>
 <router-outlet></router-outlet>
