@@ -7,6 +7,7 @@ import { FarmListComponent } from './_components/farm/farm-list/farm-list.compon
 import { EmployeeFormComponent } from './_components/employee/employee-form/employee-form.component';
 import { HomeComponent } from './_components/home/home/home.component';
 import { ShowWorkerComponent } from './_components/show-worker/show-worker.component';
+import { GrainsQueryComponent } from './_components/grain/grains-query/grains-query.component';
 
 const routes: Routes = [
   { path: 'company/company-form', component: CompanyFormComponent },
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: "farm/farm-list", component: FarmListComponent },
   { path: "employee/employee-form", component: EmployeeFormComponent},
   { path: "home", component: HomeComponent },
-  { path: 'employee/list', component: ShowWorkerComponent }
+  { path: 'employee/list', component: ShowWorkerComponent },
+  { path: 'grains-query', component: GrainsQueryComponent }
 ];
 
 @NgModule({
