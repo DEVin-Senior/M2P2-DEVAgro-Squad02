@@ -14,6 +14,12 @@ import { GrainsQueryComponent } from './_components/grain/grains-query/grains-qu
 const routes: Routes = [
   { path: 'company/company-form', component: CompanyFormComponent },
   { path: 'login', component: LoginComponent },
+  { path: "farm/farm-form", component: FarmFormComponent },
+  { path: "farm/farm-list", component: FarmListComponent },
+  { path: "employee/employee-form", component: EmployeeFormComponent},
+  { path: "home", component: HomeComponent },
+  { path: 'employee/list', component: ShowWorkerComponent },
+  { path: 'grains-query', component: GrainsQueryComponent },
   { path: 'employee/employee-form', component: EmployeeFormComponent },
   { path: 'home', component: HomeComponent },
   { path: 'farm/farm-form', component: FarmFormComponent },
