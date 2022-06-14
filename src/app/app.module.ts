@@ -16,19 +16,20 @@ import { SharedModule } from './_shared/shared.module';
 import { FarmFormComponent } from './_components/farm/farm-form/farm-form.component';
 import { GrainsQueryComponent } from './_components/grain/grains-query/grains-query.component';
 import { FarmListComponent } from './_components/farm/farm-list/farm-list.component';
+import { EmployeeFormComponent } from './_components/employee/employee-form/employee-form.component';
 import { HomeComponent } from './_components/home/home/home.component';
-import { NgApexchartsModule } from "ng-apexcharts";
+import { NgApexchartsModule } from 'ng-apexcharts';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
 import { FarmTableComponent } from './_components/farm-table/farm-table.component';
 import { ListComponent } from './_components/show-worker/list/list.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
+import { Error404Component } from './_views/error404/error404.component';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
 };
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,10 +43,11 @@ const maskConfig: Partial<IConfig> = {
     FarmListComponent,
     CompanyFormComponent,
     GrainsQueryComponent,
+    EmployeeFormComponent,
     HomeComponent,
     FarmTableComponent,
     ListComponent,
-
+    Error404Component,
   ],
   imports: [
     BrowserModule,
@@ -65,4 +67,3 @@ const maskConfig: Partial<IConfig> = {
   bootstrap: [AppComponent],
 })
 export class AppModule {}
-
