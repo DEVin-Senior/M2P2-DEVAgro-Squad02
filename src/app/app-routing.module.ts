@@ -7,6 +7,8 @@ import { FarmListComponent } from './_components/farm/farm-list/farm-list.compon
 import { EmployeeFormComponent } from './_components/employee/employee-form/employee-form.component';
 import { HomeComponent } from './_components/home/home/home.component';
 import { ShowWorkerComponent } from './_components/show-worker/show-worker.component';
+import { Error404Component } from './_views/error404/error404.component';
+import { GrainFormComponent } from './_components/grain/grain-form/grain-form.component';
 import { GrainsQueryComponent } from './_components/grain/grains-query/grains-query.component';
 
 const routes: Routes = [
@@ -17,11 +19,19 @@ const routes: Routes = [
   { path: "employee/employee-form", component: EmployeeFormComponent},
   { path: "home", component: HomeComponent },
   { path: 'employee/list', component: ShowWorkerComponent },
-  { path: 'grains-query', component: GrainsQueryComponent }
+  { path: 'grains-query', component: GrainsQueryComponent },
+  { path: 'employee/employee-form', component: EmployeeFormComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'farm/farm-form', component: FarmFormComponent },
+  { path: 'farm/farm-list', component: FarmListComponent },
+  { path: 'grain/grain-form', component: GrainFormComponent },
+  { path: 'grain/grain-list', component: GrainsQueryComponent },
+  { path: 'employee/list', component: ShowWorkerComponent },
+  { path: '**', component: Error404Component },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
