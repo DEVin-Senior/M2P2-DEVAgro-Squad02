@@ -3,3 +3,8 @@ export interface IGrain {
     averageHarvestTime: string
     companyId: number
 }
+
+export interface IGrainCompanyLoggedIn {
+    name: string
+    stock: string
+}
