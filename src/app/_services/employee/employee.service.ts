@@ -8,18 +8,24 @@ import { firstValueFrom } from 'rxjs';
 export class EmployeeService {
 
   api: string = 'https://m2p2-devagro-squad02-backend.herokuapp.com/employee/list';
+  listEmployees: any[] = [];
 
   constructor(private http: HttpClient) { }
 
-  async getByCompany(companyEmail: string) {
-    let listEmployees: any[] = [];
+  async getByCompanyId(companyId: number) {
+    console.log(companyId);
 
     await this.getAll()
-      .then(res =>
-        listEmployees = res.filter((employee: any) => employee.email === companyEmail)
+      .then(res => {
+        this.listEmployees = res;
+
+        res.filter((employee: any) => {
+          employee.company.id === companyId
+        })
+      }
       )
 
-    return listEmployees;
+    return this.listEmployees;
   }
 
   getAll(): Promise<any> {
