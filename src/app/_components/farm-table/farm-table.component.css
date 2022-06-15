@@ -34,39 +34,16 @@
 .table tr > td{
   color: var(--text-blue-color);
   font-weight: bold;
+  padding-top: 10px;
 }
 
-tbody tr:hover{
+table tr:hover{
   background-color: var(--main-color);
   cursor: pointer;
 }
 
-tbody tr:hover td{
+table tr:hover td{
   color: var(--white);
-}
-
-.container-pagination{
-  height: 2vh;
-}
-
-.page-link{
-  color: var(--text-blue-color);
-}
-
-.active .page-link{
- background-color: var(--main-color);
- border: 1px solid var(--box-shadow);
-}
-
-.active .page-link:hover{
-  color: var(--white);
-}
-
-.page-link:hover {
-  background-color: var(--bg-gray-color);
-  border: 1px solid var(--box-shadow);
-  color: var(--text-blue-color);
-  font-weight: bold;
 }
 
 .loading{

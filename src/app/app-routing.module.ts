@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './_views/login/login.component';
 import { CompanyFormComponent } from './_views/company-form/company-form.component';
@@ -14,6 +14,12 @@ import { GrainsQueryComponent } from './_components/grain/grains-query/grains-qu
 const routes: Routes = [
   { path: 'company/company-form', component: CompanyFormComponent },
   { path: 'login', component: LoginComponent },
+  { path: "farm/farm-form", component: FarmFormComponent },
+  { path: "farm/farm-list", component: FarmListComponent },
+  { path: "grain/grain-list", component: GrainsQueryComponent},
+  { path: "employee/employee-form", component: EmployeeFormComponent},
+  { path: "home", component: HomeComponent },
+  { path: 'employee/list', component: ShowWorkerComponent },
   { path: 'farm/farm-form', component: FarmFormComponent },
   { path: 'farm/farm-list', component: FarmListComponent },
   { path: 'employee/employee-form', component: EmployeeFormComponent },
@@ -28,6 +34,7 @@ const routes: Routes = [
   { path: 'grain/grain-list', component: GrainsQueryComponent },
   { path: 'employee/list', component: ShowWorkerComponent },
   { path: '**', component: Error404Component },
+
 ];
 
 @NgModule({
