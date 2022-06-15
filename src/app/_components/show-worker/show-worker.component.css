@@ -69,3 +69,16 @@ th {
   margin-right: 1rem;
   color: #c5c7cd;
 }
+
+.notEmployee {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.notEmployee p {
+  font-weight: bold;
+  font-size: 2rem;
+}
