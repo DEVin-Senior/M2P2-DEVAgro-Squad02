@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
+import { API_BASE } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +25,9 @@ export class EmployeeService {
 
   getAll(): Promise<any> {
     return firstValueFrom(this.http.get(this.api));
+  }
+
+  getTotalEmployeesCompanyLoggedIn(idCompany: any){
+    return this.http.get(`${API_BASE}/employee/quantity-by-company?companyId=${idCompany}`);
   }
 }
