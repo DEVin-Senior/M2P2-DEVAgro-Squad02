@@ -12,21 +12,16 @@ import { GrainFormComponent } from './_components/grain/grain-form/grain-form.co
 import { GrainsQueryComponent } from './_components/grain/grains-query/grains-query.component';
 
 const routes: Routes = [
-  { path: 'company/company-form', component: CompanyFormComponent },
+  { path: 'signin', component: CompanyFormComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'farm/farm-form', component: FarmFormComponent },
-  { path: 'farm/farm-list', component: FarmListComponent },
-  { path: 'employee/employee-form', component: EmployeeFormComponent },
+  { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'farm/form', component: FarmFormComponent },
+  { path: 'farm/list', component: FarmListComponent },
+  { path: 'employee/form', component: EmployeeFormComponent },
   { path: 'employee/list', component: ShowWorkerComponent },
-  { path: '', component: LoginComponent },
-  { path: 'employee/employee-form', component: EmployeeFormComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'farm/farm-form', component: FarmFormComponent },
-  { path: 'farm/farm-list', component: FarmListComponent },
-  { path: 'grain/grain-form', component: GrainFormComponent },
-  { path: 'grain/grain-list', component: GrainsQueryComponent },
-  { path: 'employee/list', component: ShowWorkerComponent },
+  { path: 'grain/form', component: GrainFormComponent },
+  { path: 'grain/list', component: GrainsQueryComponent },
   { path: '**', component: Error404Component },
 ];
 
