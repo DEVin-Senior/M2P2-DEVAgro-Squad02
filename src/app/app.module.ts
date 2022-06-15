@@ -27,6 +27,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
 import { Error404Component } from './_views/error404/error404.component';
 import { GrainEditComponent } from './_components/grain/grain-edit/grain-edit/grain-edit.component';
+import { EmployeeEditComponent } from './_components/employee/employee-edit/employee-edit/employee-edit.component';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -50,6 +51,7 @@ const maskConfig: Partial<IConfig> = {
     ListComponent,
     Error404Component,
     GrainEditComponent,
+    EmployeeEditComponent,
   ],
   imports: [
     BrowserModule,
