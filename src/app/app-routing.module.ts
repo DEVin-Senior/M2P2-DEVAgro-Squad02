@@ -10,6 +10,7 @@ import { ShowWorkerComponent } from './_components/show-worker/show-worker.compo
 import { Error404Component } from './_views/error404/error404.component';
 import { GrainFormComponent } from './_components/grain/grain-form/grain-form.component';
 import { GrainsQueryComponent } from './_components/grain/grains-query/grains-query.component';
+import { GrainEditComponent } from './_components/grain/grain-edit/grain-edit/grain-edit.component';
 import { EmployeeEditComponent } from './_components/employee/employee-edit/employee-edit/employee-edit.component';
 
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'employee/edit/:id', component: EmployeeEditComponent},
   { path: "grain/grain-list", component: GrainsQueryComponent},
   { path: 'grain/grain-form', component: GrainFormComponent },
+  { path: 'grain/grain-edit', component: GrainEditComponent },
   { path: '**', component: Error404Component },
 ];
 
