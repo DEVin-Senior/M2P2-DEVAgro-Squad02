@@ -1,8 +1,9 @@
-.container-body{
-    width: 100vw;
-    display: flex;
-    justify-content: center;
+.container-body {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
 }
+
 .container-table {
     height: 75vh;
     width: 100%;
@@ -13,27 +14,27 @@ table {
     width: 100%;
 }
 
-.container-main{
-    border: 1px solid var(--light-gray);
-    width: 70vw;
-    border-radius: 5px;
-    margin-left: 12%;
+.container-main {
+  border: 1px solid var(--light-gray);
+  width: 70vw;
+  border-radius: 5px;
+  margin-left: 12%;
 }
 
-.pagination{
-    display: flex;
-    justify-content: end;
+.pagination {
+  display: flex;
+  justify-content: flex-end;
 }
 
-.edit-grain{
-    color: black;
+.edit-grain {
+  color: black;
 }
 
-.header-title-table{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+.header-title-table {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
 table {
