@@ -4,12 +4,13 @@
     justify-content: center;
 }
 .container-table {
-    height: 60vh;
+    height: 75vh;
+    width: 100%;
 }
 
 table {
-    width: 70vw;
     margin: 0 auto;
+    width: 100%;
 }
 
 .container-main{
@@ -38,28 +39,43 @@ table {
 table {
     width: 100%;
   }
-  
+
+table tr {
+    height: 80px;
+    width: 100%;
+  }
+
+table td{
+  width: 40%;
+  }
+
   .img {
     height: 30px;
     border-radius: 50%;
   }
-  
+
   .btn {
     background-color: green;
   }
-  
+
   .btn-include-grain {
-    width: 70vw;
     display: flex;
     justify-content: flex-end;
   }
-  
+
   .btn-include-grain > button {
     background-color: var(--main-color);
     border-radius: 50%;
   }
-  
+
   .paginator {
     margin-right: 4rem;
   }
-  
+
+  .loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    width: 100%;
+  }
