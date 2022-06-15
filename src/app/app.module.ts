@@ -26,6 +26,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
 import { Error404Component } from './_views/error404/error404.component';
+import { GrainEditComponent } from './_components/grain/grain-edit/grain-edit/grain-edit.component';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -48,6 +49,7 @@ const maskConfig: Partial<IConfig> = {
     FarmTableComponent,
     ListComponent,
     Error404Component,
+    GrainEditComponent,
   ],
   imports: [
     BrowserModule,

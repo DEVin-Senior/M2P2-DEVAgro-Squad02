@@ -19,14 +19,8 @@ const routes: Routes = [
   { path: "employee/employee-form", component: EmployeeFormComponent},
   { path: "home", component: HomeComponent },
   { path: 'employee/list', component: ShowWorkerComponent },
-  { path: 'grains-query', component: GrainsQueryComponent },
-  { path: 'employee/employee-form', component: EmployeeFormComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'farm/farm-form', component: FarmFormComponent },
-  { path: 'farm/farm-list', component: FarmListComponent },
+  { path: "grain/grain-list", component: GrainsQueryComponent},
   { path: 'grain/grain-form', component: GrainFormComponent },
-  { path: 'grain/grain-list', component: GrainsQueryComponent },
-  { path: 'employee/list', component: ShowWorkerComponent },
   { path: '**', component: Error404Component },
 ];
 
