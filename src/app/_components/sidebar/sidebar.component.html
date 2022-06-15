@@ -5,12 +5,12 @@
   <nav>
     <ul class="sidebar-nav">
       <li class="py-2" #homeItem>
-        <a routerLink="/home">
+        <a [routerLink]="['/home']">
           <span class="mx-3"><i class="fa-solid fa-house"></i></span>Inicio
         </a>
       </li>
       <li class="py-2" #employeeItem>
-        <a routerLink="/employee/list">
+        <a [routerLink]="['/employee/list']">
           <span class="mx-3"><i class="fa-solid fa-users"></i></span
           >Funcionários
         </a>
