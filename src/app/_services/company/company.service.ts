@@ -21,4 +21,8 @@ export class CompanyService {
   getIdCompanyLoggedIn() {
     return localStorage.getItem('companyId')
   }
+
+  getAllCompany(){
+    return this.http.get(`${API_BASE}/company/list`);
+  }
 }
