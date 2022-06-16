@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { IAlert } from 'src/app/_interfaces/alert/ialert';
 import { IEmployee } from 'src/app/_interfaces/employee/iemployee';
 import { IFarm } from 'src/app/_interfaces/farm/ifarm';
@@ -34,17 +34,19 @@ export class EmployeeEditComponent implements OnInit {
     job: '',
     status: false,
   };
-  employeeFarm: any;
-  allFarmsByCompanyFromEmployee: IFarm[] = [{
-    id: '',
-    name: '',
-    companyId: '',
-    grainId: '',
-    lastHarvest: ''
-  }];
+  allFarmsByCompanyFromEmployee: IFarm[] = [
+    {
+      id: '',
+      name: '',
+      companyId: '',
+      grainId: '',
+      lastHarvest: '',
+    },
+  ];
 
   constructor(
     private actRoute: ActivatedRoute,
+    private router: Router,
     private employeeService: EmployeeService,
     private farmService: FarmService,
     private alertService: AlertService
@@ -56,14 +58,23 @@ export class EmployeeEditComponent implements OnInit {
   }
 
   getEmployeeById() {
-    this.employeeService
+   this.employeeService
       .getAll()
       .then((res: any) => {
         this.employee = res.find(
           (employee: IEmployee) => employee.id == this.employeeId
         );
-        console.log(this.employee);
+
         this.getAllFarmsByCompanyFromEmployee(this.employee.company.id);
+      })
+      .catch((error) => {
+        const alertMessage: IAlert = {
+          title: 'Ocorreu um erro ao buscar os dados do funcionário',
+          message: error.error
+            ? error.error.message
+            : 'Entre em contato com o administrador do sistema.',
+        };
+        this.alertService.showAlertError(alertMessage);
       });
   }
 
@@ -78,27 +89,49 @@ export class EmployeeEditComponent implements OnInit {
       });
   }
 
-  updateEmployee(){
-    console.log(this.employee.id);
-    console.log(this.employee);
-    this.employeeService.updateEmployeeById(this.employee.id, this.employee).subscribe({
-      next: (data: any) => {
-        this.employee.id = data.id;
-      },
-      error: (error: any) => {
-        const alertMessage: IAlert = {
-          title: "Ocorreu um erro ao tentar atualizar o funcionário",
-          message: error.error ? error.error.message : "Entre em contato com o administrador do sistema."
-        }
-        this.alertService.showAlertError(alertMessage);
-      },
-      complete: () => {
-        const alertMessage: IAlert = {
-          title: "Atualização",
-          message: "Funcionário Atualizado com Sucesso!"
-        };
-        this.alertService.showAlertSuccess(alertMessage);
-      },
-    });
+  checkEmployeeFarm() {
+    console.log('passou aqui');
+    if(this.allFarmsByCompanyFromEmployee.length == 0) {
+      return;
+    }
+
+    const farm: IFarm | undefined = this.allFarmsByCompanyFromEmployee.find(
+      (farm: IFarm) => this.employee.farmId == farm.id
+    );
+
+    if (farm == null || farm == undefined) {
+      const alertMessage: IAlert = {
+        title: '',
+        message: 'Não foi possível localizar a fazenda atual do funcionário.',
+      };
+      this.alertService.showAlertWarning(alertMessage);
+    }
+  }
+
+  updateEmployee() {
+    this.employeeService
+      .updateEmployeeById(this.employee.id, this.employee)
+      .subscribe({
+        next: (data: any) => {
+          this.employee.id = data.id;
+        },
+        error: (error: any) => {
+          const alertMessage: IAlert = {
+            title: 'Ocorreu um erro ao tentar atualizar o funcionário',
+            message: error.error
+              ? error.error.message
+              : 'Entre em contato com o administrador do sistema.',
+          };
+          this.alertService.showAlertError(alertMessage);
+        },
+        complete: () => {
+          const alertMessage: IAlert = {
+            title: 'Atualização',
+            message: 'Funcionário Atualizado com Sucesso!',
+          };
+          this.alertService.showAlertSuccess(alertMessage);
+          this.router.navigate(['/employee/list']);
+        },
+      });
   }
 }
