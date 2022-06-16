@@ -5,8 +5,8 @@
 <div class="container-form">
     <div class="col-12 col-md-12 col-lg-6 col-xl-6">
         <div class="mb-5 mt-4 pb-5 ms-4">
-            <form class="needs-validation" [formGroup]="grainForm" name="grainForm" (ngSubmit)="createGrain()" #formDir="ngForm"
-                [ngClass]="{'was-validated' : grainForm.invalid && formDir.submitted && !formSended}">
+            <form class="needs-validation" [formGroup]="grainForm" name="grainForm" (ngSubmit)="createGrain()"
+                #formDir="ngForm" [ngClass]="{'was-validated' : grainForm.invalid && formDir.submitted && !formSended}">
                 <div class="form-grain">
                     <div class="form-group mt-4 me-4 ms-4">
                         <label for="nameGrain">NOME</label>
@@ -16,15 +16,15 @@
 
                     <div class="form-group mt-4 me-4 ms-4">
                         <label for="farm">FAZENDA QUE PRODUZ</label>
-                        <select class="form-control" id="farm" name="farm" formControlName="harvestForecast"  required>
-                            <option selected disabled value="">Selecione a fazenda</option>
-                            <option *ngFor="let farm of companies" [value]="farm.id">{{farm.id + ' - ' + farm.name}}</option>
+                        <select class="form-control" id="farm" name="farm" formControlName="farmProducesId">
+                            <option *ngFor="let farm of companies" [value]="farm.id">{{farm.id + ' - ' + farm.name}}
+                            </option>
                         </select>
                     </div>
                     <div class="form-group mt-4 me-4 ms-4">
                         <label for="harvestForecast">PREVISÃO DE COLHEITA</label>
                         <input type="date" class="form-control" id="
-                harvestForecast" name="harvestForecast" placeholder="dd/mm/aaaa"
+                harvestForecast" name="harvestForecast" placeholder="dd/mm/aaaa" formControlName="nextHarvestDate"
                             required>
                     </div>
 
@@ -32,9 +32,8 @@
                         <label for="additionalInformation">INFORMAÇÕES ADICIONAIS</label>
                         <input type="text" class="form-control" id="
                         additionalInformation" name="additionalInformation" placeholder="Informações"
-                            formControlName="companyId">
+                            formControlName="additionalInformation">
                     </div>
-
                     <div class="form-group mt-4 me-4 ms-4">
                         <label for="photo">FOTO</label>
                     </div>
