@@ -1,0 +1,93 @@
+.error {
+  background-color: var(--main-color);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.divTractor {
+  background-color: rgb(241, 234, 225);
+  width: 50vw;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tractor {
+  max-width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  display: flex;
+}
+
+.text {
+  font-size: 5rem;
+}
+
+.linkHome {
+  margin-top: 2rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+@media (max-width: 1001px) {
+  .divTractor {
+    height: 50vh;
+  }
+  .tractor {
+    width: 300px;
+  }
+  .text {
+    font-size: 3rem;
+  }
+  .linkHome {
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 614px) {
+  .divTractor {
+    height: 30vh;
+  }
+  .tractor {
+    width: 150px;
+  }
+  .text {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-height: 746px) {
+  .divTractor {
+    height: 50vh;
+  }
+  .tractor {
+    width: 200px;
+  }
+  .text {
+    font-size: 2rem;
+  }
+  .linkHome {
+    margin-top: 0;
+  }
+}
+
+@media (max-height: 610px) {
+  .divTractor {
+    height: 50vh;
+  }
+  .tractor {
+    width: 100px;
+  }
+  .text {
+    font-size: 0.5rem;
+  }
+  .linkHome {
+    margin-top: 0;
+  }
+}

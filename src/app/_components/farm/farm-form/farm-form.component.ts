@@ -122,7 +122,11 @@ export class FarmFormComponent implements OnInit {
       })
       .add(() => {
         this.requestFinished = true;
-        this.alertService.showGenericAlert(this.alertMessage);
+        this.alertService.showGenericAlert(this.alertMessage = {
+          title: '',
+            message: 'Fazenda cadastrada com sucesso!',
+            typeAlert: SUCCESS,
+        });
       });
   }
 }

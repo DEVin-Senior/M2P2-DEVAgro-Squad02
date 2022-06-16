@@ -8,7 +8,7 @@ import { API_BASE } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class CompanyService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   saveCompany(company: ICompany): Observable<ICompany> {
     return this.http.post<ICompany>(`${API_BASE}/company`, company);
@@ -18,7 +18,7 @@ export class CompanyService {
     return this.http.get(`${API_BASE}/company/list`);
   }
 
-  getIdCompanyLoggedIn(){
-    return localStorage.getItem('companyId');
+  getIdCompanyLoggedIn() {
+    return localStorage.getItem('companyId')
   }
 }

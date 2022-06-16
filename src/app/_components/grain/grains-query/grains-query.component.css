@@ -1,49 +1,82 @@
+.container-body {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
 .container-table {
-    display: flex;
-    justify-content: center;
-    height: 60vh;
+    height: 75vh;
+    width: 100%;
 }
 
 table {
-    width: 70vw;
     margin: 0 auto;
+    width: 100%;
 }
 
-.btn-include-grain {
+.container-main {
+  border: 1px solid var(--light-gray);
+  width: 70vw;
+  border-radius: 5px;
+  margin-left: 12%;
+}
+
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.edit-grain {
+  color: black;
+}
+
+.header-title-table {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+table {
+    width: 100%;
+  }
+
+table tr {
+    height: 80px;
+    width: 100%;
+  }
+
+table td{
+  width: 40%;
+  }
+
+  .img {
+    height: 30px;
+    border-radius: 50%;
+  }
+
+  .btn {
+    background-color: green;
+  }
+
+  .btn-include-grain {
     display: flex;
-    justify-content: end;
-}
+    justify-content: flex-end;
+  }
 
-.btn-include-grain>button {
+  .btn-include-grain > button {
     background-color: var(--main-color);
     border-radius: 50%;
-}
+  }
 
-.btn-include-grain {
-    width: 70vw;
-    margin: 0 auto;
-}
+  .paginator {
+    margin-right: 4rem;
+  }
 
-.container-main{
-    border: 1px solid var(--light-gray);
-    width: 70vw;
-    margin: 0 auto;
-    border-radius: 5px;
-}
-
-.pagination{
+  .loading{
     display: flex;
-    justify-content: end;
-}
-
-.edit-grain{
-    color: black;
-}
-
-.header-title-table{
-    display: flex;
-    flex-direction: row;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
-}
-
+    height: 50vh;
+    width: 100%;
+  }

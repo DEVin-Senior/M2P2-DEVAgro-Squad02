@@ -1,0 +1,76 @@
+<app-sidebar></app-sidebar>
+<app-user-nav-bar [menuName]="menuName"></app-user-nav-bar>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<div class="container-body-home">
+    <div class="body-home">
+        <div class="two-panels">
+            <div class="amount-farms mt-2">
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title">Total de propriedades instaladas</h6>
+                        <p>{{ totalPropertiesInstalled }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="amount-employees mt-3">
+                <div class="card">
+                    <div class="card-body card-body-amount-farms">
+                        <h6 class="card-title">Total de Funcionários</h6>
+                        <p>{{ totalEmployees }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="farm-table">
+            <app-farm-table></app-farm-table>
+        </div>
+        <div class="two-panels-last">
+            <div class="table-farms">
+                <div class="card">
+                    <div class="container-table">
+                        <h6 class="mt-4 mb-4 ms-2">Previsão do tempo propriedades</h6>
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td class="data-col-farm">Estância das vivências</td>
+                                    <td class="data-col-prevision">35°</td>
+                                    <td class="data-col-prevision"><i class="fas fa-sun" style='color:black'></i>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td class="data-col-farm">Arrozeira do futuro</td>
+                                    <td class="data-col-prevision">27°</td>
+                                    <td class="data-col-prevision"><i class='fas fa-cloud-sun' style='color:black'></i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="data-col-farm">Fazenda Milharal</td>
+                                    <td class="data-col-prevision">18°</td>
+                                    <td class="data-col-prevision"><i class='fas fa-cloud-sun-rain'
+                                            style='color:black'></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="graph-grains">
+                <div class="card">
+                    <div class="card-body card-body-graphic">
+                        <h6 class="card-title">Estoque de Grãos</h6>
+                        <div id="chart">
+                            <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart"
+                                [dataLabels]="chartOptions.dataLabels" [plotOptions]="chartOptions.plotOptions"
+                                [yaxis]="chartOptions.yaxis" [xaxis]="chartOptions.xaxis" [legend]="chartOptions.legend"
+                                [colors]="chartOptions.colors" [grid]="chartOptions.grid"></apx-chart>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<router-outlet></router-outlet>

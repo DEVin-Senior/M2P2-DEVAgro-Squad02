@@ -1,78 +1,10 @@
-.hero-table-farm{
+.container-btn-new-farm{
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60vh;
-}
-
-.container-table{
-  border: 1px solid var(--main-color);
-  border-radius: 0.5rem;
-  width: 50%;
-  padding: 50px;
-  text-align: center;
-}
-
-.container-table > h3{
-  padding: 20px;
-}
-
-.table{
-  width: 100%;
-}
-
-.table tr > td{
-  color: var(--text-blue-color);
-  font-weight: bold;
-}
-
-tbody tr:hover{
-  background-color: var(--main-color);
-  cursor: pointer;
-}
-
-tbody tr:hover td{
-  color: var(--white);
-}
-
-.container-pagination{
-  height: 2vh;
-}
-
-.page-link{
-  color: var(--text-blue-color);
-}
-
-.active .page-link{
- background-color: var(--main-color);
- border: 1px solid var(--box-shadow);
-}
-
-.active .page-link:hover{
-  color: var(--white);
-}
-
-.page-link:hover {
-  background-color: var(--bg-gray-color);
-  border: 1px solid var(--box-shadow);
-  color: var(--text-blue-color);
-  font-weight: bold;
-}
-
-.container-btn-new-farm{
-  position: absolute;
-  bottom: 30%;
-  width: 50%;
 }
 
 .btn-new-farm{
-  width: 100%;
-  display: flex;
-  justify-content: center;
   border-color: var(--main-color);
   transition: all 0.4s linear;
-}
-
-.btn-new-farm:hover{
-  transform: scale(1.1);
 }

@@ -1,72 +1,14 @@
 <app-sidebar></app-sidebar>
 <app-user-nav-bar [menuName]="'Fazendas'"></app-user-nav-bar>
 
-<div class="hero-table-farm">
-  <div class="container-table">
-    <h3>Propriedades cadastradas</h3>
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Nome da propriedade</th>
-          <th scope="col">Previsão de colheita</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Estância das vivências</td>
-          <td>25/08/2022</td>
-        </tr>
-        <tr>
-          <td>Arrozeira do futuro</td>
-          <td>14/09/2022</td>
-        </tr>
-        <tr>
-          <td>Fazenda Milharal</td>
-          <td>15/09/2022</td>
-        </tr>
-        <tr>
-          <td>Fazenda Horizonte</td>
-          <td>08/10/2022</td>
-        </tr>
-        <tr>
-          <td>Fazenda Brasil</td>
-          <td>30/12/2022</td>
-        </tr>
-      </tbody>
-    </table>
+<app-farm-table></app-farm-table>
 
-    <div class="container-pagination">
-      <nav aria-label="...">
-        <ul class="pagination">
-
-          <li class="page-item disabled">
-            <a class="page-link">Voltar</a>
-          </li>
-
-          <li class="page-item active">
-            <a class="page-link" href="#">1</a>
-          </li>
-
-          <li class="page-item" aria-current="page">
-            <a class="page-link" href="#">2</a>
-          </li>
-
-          <li class="page-item">
-            <a class="page-link" href="#">3</a>
-          </li>
-
-          <li class="page-item">
-            <a class="page-link" href="#">Próximo</a>
-          </li>
-
-        </ul>
-      </nav>
-    </div>
-
-  </div>
-
-  <div class="container-btn-new-farm mt-4">
-    <app-button [text]="btnNewFarm" class="btn-new-farm" routerLink="/farm/farm-form"></app-button>
-  </div>
+<div class="container-btn-new-farm mt-4">
+  <app-button
+    [text]="btnNewFarm"
+    class="btn-new-farm"
+    routerLink="/farm/form"
+  ></app-button>
 </div>
+
 <router-outlet></router-outlet>

@@ -66,7 +66,7 @@ export class HomeComponent implements OnInit {
 
   totalFarmCompanyLoggedIn() {
     try {
-      this.farmService.getAmountfarmCompanyLoggedIn(this.companyService.getIdCompanyLoggedIn()).subscribe(data => this.totalPropertiesInstalled = data);
+      this.farmService.getAllfarmCompanyLoggedIn(this.companyService.getIdCompanyLoggedIn()).subscribe(data => this.totalPropertiesInstalled = data);
     } catch (error) {
       this.totalPropertiesInstalled = 0;
     }
