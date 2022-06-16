@@ -88,3 +88,10 @@ table td {
   height: 50vh;
   width: 100%;
 }
+
+::ng-deep tbody {
+  border: #dfe0eb;
+}
+::ng-deep .mat-icon-button {
+  background-color: white;
+}

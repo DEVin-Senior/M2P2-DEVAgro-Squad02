@@ -16,8 +16,10 @@
 }
 
 .container-table > h3 {
+  margin-top: 1rem;
   padding: 20px;
   text-align: center;
+  font-weight: bold;
 }
 
 .col-farm,
