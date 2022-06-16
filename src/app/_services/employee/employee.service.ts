@@ -13,13 +13,12 @@ export class EmployeeService {
   constructor(private http: HttpClient) {}
 
   async getByCompanyId(companyId: number) {
-    await this.getAll().then((res) => {
-      this.listEmployees = res;
-    });
+    console.log(companyId);
 
-    this.listEmployees.filter((employee: any) => {
-      console.log(`employee name ${employee.name} , company: ${employee.company.id}`);
-      employee.company.id == companyId;
+    await this.getAll().then((res: IEmployee[]) => {
+      this.listEmployees = res.filter((employee: IEmployee) => {
+        return employee.company.id == companyId.toString();
+      });
     });
 
     return this.listEmployees;
