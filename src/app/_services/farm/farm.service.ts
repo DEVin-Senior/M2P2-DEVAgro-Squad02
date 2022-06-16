@@ -42,8 +42,8 @@ export class FarmService {
     }
     return this.http.get<IFarmNextHarvest[]>(`${API_BASE}/farm/list-farm-next-harvest?companyId=${companyId}`);
   }
-  
-  putFarm(farm: IFarm, farmProducesId: any){    
+
+  putFarm(farm: IFarm, farmProducesId: any){
     return this.http.put<IFarm>(`${API_BASE}/farm/${farmProducesId}`, farm);
   }
 
