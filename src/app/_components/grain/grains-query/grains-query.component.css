@@ -1,24 +1,32 @@
 .container-body {
-  width: 100vw;
+  width: 89vw;
+  height: 100vh;
+  margin: 0;
+  margin-left: 14rem;
   display: flex;
   justify-content: center;
+  background-color: var(--bg-gray-color);
+}
+
+.navGrain {
+  background-color: var(--bg-gray-color);
 }
 
 .container-table {
-    height: 75vh;
-    width: 100%;
+  height: 75vh;
+  width: 100%;
 }
 
 table {
-    margin: 0 auto;
-    width: 100%;
+  width: 100%;
 }
 
 .container-main {
-  border: 1px solid var(--light-gray);
-  width: 70vw;
+  border: 1px solid var(--main-color);
+  width: 83vw;
+  height: 80vh;
   border-radius: 5px;
-  margin-left: 12%;
+  background-color: white;
 }
 
 .pagination {
@@ -38,45 +46,45 @@ table {
 }
 
 table {
-    width: 100%;
-  }
+  width: 100%;
+}
 
 table tr {
-    height: 80px;
-    width: 100%;
-  }
+  height: 80px;
+  width: 100%;
+}
 
-table td{
+table td {
   width: 40%;
-  }
+}
 
-  .img {
-    height: 30px;
-    border-radius: 50%;
-  }
+.img {
+  height: 30px;
+  border-radius: 50%;
+}
 
-  .btn {
-    background-color: green;
-  }
+.btn {
+  background-color: green;
+}
 
-  .btn-include-grain {
-    display: flex;
-    justify-content: flex-end;
-  }
+.btn-include-grain {
+  display: flex;
+  justify-content: flex-end;
+}
 
-  .btn-include-grain > button {
-    background-color: var(--main-color);
-    border-radius: 50%;
-  }
+.btn-include-grain > button {
+  background-color: var(--main-color);
+  border-radius: 50%;
+}
 
-  .paginator {
-    margin-right: 4rem;
-  }
+.paginator {
+  margin-right: 4rem;
+}
 
-  .loading{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50vh;
-    width: 100%;
-  }
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  width: 100%;
+}

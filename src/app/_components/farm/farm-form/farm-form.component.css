@@ -1,59 +1,76 @@
 .form-farm {
-    border: 1px solid var(--main-color);
-    border-radius: 0.5rem;
-    padding: 20px;
+  border: 1px solid var(--main-color);
+  border-radius: 0.5rem;
+  padding: 20px;
+  background-color: white;
+  width: 100%;
 }
 
-input, select, button{
-    border-color: var(--main-color);
+input,
+select,
+button {
+  border-color: var(--main-color);
 }
 
-.container-form{
-    color: var(--main-color);
-    display: flex;
-    justify-content: center;
+.container-form {
+  color: var(--main-color);
+  display: flex;
+  justify-content: center;
+  background-color: var(--bg-gray-color);
+  height: 100vh;
+  width: 88vw;
+  margin-left: 14rem;
 }
 
-.container-form h3{
+.container-form h3 {
   text-align: center;
 }
 
-.btn-register{
-    width: 100%;
-    display: flex;
-    justify-content: center;
+.btn-register {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-.input-group-lg>.btn{
-    width: 100%;
+.input-group-lg > .btn {
+  width: 100%;
 }
 
-.container-alert{
+.container-alert {
   display: flex;
   justify-content: center;
   opacity: 0;
   transition: opacity 0.6s ease;
 }
 
-.container-alert.fade{
+.container-alert.fade {
   display: flex;
   justify-content: center;
   opacity: 1;
   transition: opacity 0.6s ease;
 }
 
-.alert-success{
+.alert-success {
   width: 400px;
   margin: 20px;
   border-color: var(--main-color);
 }
 
-.alert-danger{
+.alert-danger {
   width: 400px;
   margin: 20px;
   border-color: var(--red);
 }
 
-.alert-required{
+.alert-required {
   color: var(--red);
+}
+
+.navFarmForm {
+  background-color: var(--bg-gray-color);
+}
+
+.col-xl-6 {
+  margin-right: 1rem;
+  width: 95%;
 }

@@ -1,4 +1,4 @@
-.hero-table-farm{
+.hero-table-farm {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -6,47 +6,50 @@
   height: 500px;
 }
 
-.container-table{
+.container-table {
   border: 1px solid var(--main-color);
   border-radius: 8px;
-  width: 70%;
-  padding: 30px;
+  width: 94%;
   height: 95%;
+  margin-right: 1rem;
+  background-color: white;
 }
 
-.container-table > h3{
+.container-table > h3 {
   padding: 20px;
   text-align: center;
 }
 
-.col-farm, .data-col-farm{
+.col-farm,
+.data-col-farm {
   text-align: left;
 }
 
-.col-prevision, .data-col-prevision{
+.col-prevision,
+.data-col-prevision {
   text-align: right;
 }
 
-.table{
+.table {
   width: 100%;
 }
 
-.table tr > td{
+.table tr > td {
   color: var(--text-blue-color);
   font-weight: bold;
   padding-top: 10px;
 }
 
-table .table-rows:hover{
+table .table-rows:hover {
   background-color: var(--main-color);
   cursor: pointer;
 }
 
-table tr:hover td{
+table tr:hover td {
   color: var(--white);
 }
 
-.loading{
+.loading {
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,15 +1,15 @@
 :root {
   margin: 0;
   padding: 0;
-  --main-color: #375F24;
+  --main-color: #375f24;
   --hover-main-color: #02600a;
   --white: #fff;
-  --bg-gray-color: #DFE0EB;
-  --text-blue-color: #0E1D8E;
-  --red: #F12B2C;
-  --light-green-color: #29CC97;
-  --dark-gray: #4B506D;
-  --light-gray: #C5C7CD;
+  --bg-gray-color: #dfe0eb;
+  --text-blue-color: #0e1d8e;
+  --red: #f12b2c;
+  --light-green-color: #29cc97;
+  --dark-gray: #4b506d;
+  --light-gray: #c5c7cd;
   --box-shadow: rgba(55, 81, 255, 0.24);
   --logo: url("assets/img/logo.png");
 }
@@ -20,7 +20,7 @@
 }
 
 * {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .company-form {
@@ -37,3 +37,6 @@
   margin: 10px;
 }
 
+body {
+  background-color: var(--bg-gray-color);
+}
