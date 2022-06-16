@@ -1,16 +1,16 @@
 <app-sidebar></app-sidebar>
 <div class="container-workers">
   <div class="page">
-    <div class="top">
-      <div class="name">Funcionários</div>
-      <app-user-nav-bar></app-user-nav-bar>
-    </div>
+    <p>Funcionários</p>
+    <app-user-nav-bar></app-user-nav-bar>
+
     <div class="worker" *ngIf="hasEmployee">
       <div class="tittleTable">
-        <p>Funcionários da Empresa</p>
+        <span>Funcionários da Empresa</span>
         <div class="filters">
-          <i class="fa-solid fa-arrow-down-short-wide" id="fa-arrow-down"></i><span class="me-2">Ordernar</span><i
-            class="fa-solid fa-filter ms-1" id="fa-filter"></i>
+          <i class="fa-solid fa-arrow-down-short-wide" id="fa-arrow-down"></i
+          ><span class="me-2">Ordernar</span
+          ><i class="fa-solid fa-filter ms-1" id="fa-filter"></i>
           <span class="me-2">Filtrar</span>
         </div>
       </div>
