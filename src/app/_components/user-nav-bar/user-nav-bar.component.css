@@ -1,18 +1,18 @@
-.container-main{
+.container-main {
   display: flex;
   justify-content: flex-end;
 }
 
-.container-userNavBar{
+.container-userNavBar {
   height: 7vh;
   width: 88%;
 }
-
 
 .img {
   margin-left: 1rem;
   height: 30px;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .userNavBar {
