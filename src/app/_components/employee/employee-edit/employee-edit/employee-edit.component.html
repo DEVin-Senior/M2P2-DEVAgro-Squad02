@@ -3,27 +3,28 @@
 <div class="container-form">
   <div class="col-12 col-md-12 col-lg-6 col-xl-6">
     <div class="mb-5 mt-4 pb-5 ms-4">
-      <form action="">
+      <form class="needs-validation was-validated">
         <div class="form-employee">
           <div class="form-group mt-4 me-4 ms-4">
             <label for="name-employee">NOME</label>
-            <input type="text" class="form-control" id="name-employee" name="name-employee" placeholder="Nome">
+            <input [(ngModel)]="employee.name" type="text" class="form-control" id="name-employee" name="name" placeholder="Nome" required>
           </div>
           <div class="form-group mt-4 me-4 ms-4">
             <label for="farm-employee">FAZENDA</label>
-            <select class="form-control" id="farm-employee" name="farm-employee">
-              <option>Selecione a fazenda</option>
+            <select class="form-control" id="farm-employee" [(ngModel)]="employee.farmId" (keyup)="checkEmployeeFarm()" name="farmId" required>
+             <!--Mantém selecionado por padrão a fazenda atual do funcionário-->
+              <option *ngFor="let farm of allFarmsByCompanyFromEmployee" [value]="farm.id">{{ farm.id + ' - ' + farm.name }}</option>
             </select>
           </div>
           <div class="form-group mt-4 me-4 ms-4">
             <label for="occupation-employee">FUNÇÃO PRINCIPAL</label>
-            <input type="text" class="form-control" id="occupation-employee" name="occupation-employee"
-              placeholder="Função principal">
+            <input [(ngModel)]="employee.job" type="text" class="form-control" id="occupation-employee" name="job"
+              placeholder="Função principal" required>
           </div>
           <div class="form-group mt-4 me-4 ms-4">
             <label for="active-employee">ATIVO</label>
             <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+              <input [(ngModel)]="employee.status" [checked]="employee.status" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" name="status">
             </div>
           </div>
 
@@ -42,7 +43,7 @@
         </div>
 
         <div class="container-btn-register mt-4">
-          <app-button [text]="btnName" class="btn-register"></app-button>
+          <app-button [text]="btnName" class="btn-register" (click)="updateEmployee()"></app-button>
         </div>
 
       </form>

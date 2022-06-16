@@ -28,6 +28,7 @@ export class FarmService {
   getAllgrainCompanyLoggedIn(idCompany: any) {
     return this.http.get<IGrainCompanyLoggedIn>(`${API_BASE}/farm/list-grain-stock-by-company?companyId=${idCompany}`);
   }
+
   getAllFarmsByCompany(companyId: string | null){
     if(companyId == null) {
       throw Error("O id da empresa do usuário logado não foi encontrado.")
