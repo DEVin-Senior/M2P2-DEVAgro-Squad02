@@ -63,7 +63,7 @@ export class GrainFormComponent implements OnInit {
         this.rest.postGrain(this.grainForm.value).subscribe({
           next: (v) => this.messagePostGrain(v),
           error: (e) => this.messageErrorPostGrain(),
-          complete: () => this.router.navigate(['grain/grain-list'])
+          complete: () => this.router.navigate(['grain/list'])
         })
 
         this.farmProducesId = this.grainForm.value.farmProducesId;
@@ -155,7 +155,7 @@ export class GrainFormComponent implements OnInit {
         this.farmService.putFarm(this.farm, this.farmProducesId).subscribe({
           next: (v) => this.messagePostGrain(v),
           error: (e) => this.messageErrorPostGrain(),
-          complete: () => this.router.navigate(['grain/grain-list'])
+          complete: () => this.router.navigate(['grain/list'])
         });
       }
     });
