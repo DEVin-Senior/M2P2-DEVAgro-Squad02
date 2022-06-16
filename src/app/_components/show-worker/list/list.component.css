@@ -43,8 +43,7 @@ table {
 }
 
 ::ng-deep tbody {
-  border: 1px solid #dfe0eb;
-  border-radius: 8px;
+  border: #dfe0eb;
 }
 
 ::ng-deep td.mat-cell:first-of-type {
@@ -59,10 +58,6 @@ table {
 
 .infoUser p {
   color: #0e1d8e;
-}
-
-.farmUser {
-  margin-top: 1rem;
 }
 
 .farmUser p {
