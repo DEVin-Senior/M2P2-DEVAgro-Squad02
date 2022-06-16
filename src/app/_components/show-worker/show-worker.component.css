@@ -1,7 +1,7 @@
 .container-workers {
   background-color: var(--bg-gray-color);
   margin-left: 12vw;
-  height: 150vh;
+  height: 110vh;
 }
 
 .titulo {
@@ -11,19 +11,20 @@
 
 .page {
   margin-left: 3rem;
-  margin-right: 3rem;
 }
 
-.top {
-  max-width: 94%;
-  margin-right: 2rem;
+.page p {
+  font-size: 1.5rem;
+  position: absolute;
   display: flex;
+  width: 20vw;
+  margin-top: 2rem;
+  font-weight: bold;
 }
 
 .name {
-  margin-top: 2rem;
   font-size: 1.5rem;
-  width: 80vw;
+  width: 50vw;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -32,8 +33,10 @@
 .worker {
   background-color: white;
   height: auto;
-  width: 78vw;
+  max-width: 82vw;
   margin-top: 3rem;
+  border: 1px solid var(--light-gray);
+  border-radius: 5px;
 }
 
 .tittleTable {
@@ -41,17 +44,8 @@
   width: 76vw;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-}
-
-.tittleTable p {
-  margin-top: 1.5rem;
   margin-left: 1rem;
-  font-size: 1.5rem;
-}
-
-table {
-  width: 100%;
+  justify-content: space-between;
 }
 
 .mat-form-field {
@@ -77,8 +71,7 @@ th {
   justify-content: center;
 }
 
-
-.notEmployee p {
-  font-weight: bold;
+.notEmployee span {
   font-size: 2rem;
+  font-weight: bold;
 }

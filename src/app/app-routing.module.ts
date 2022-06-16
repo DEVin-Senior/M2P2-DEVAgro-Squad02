@@ -14,17 +14,18 @@ import { GrainEditComponent } from './_components/grain/grain-edit/grain-edit/gr
 import { EmployeeEditComponent } from './_components/employee/employee-edit/employee-edit/employee-edit.component';
 
 const routes: Routes = [
-  { path: 'company/company-form', component: CompanyFormComponent },
+  { path: '', component: LoginComponent },
+  { path: 'company/form', component: CompanyFormComponent },
   { path: 'login', component: LoginComponent },
-  { path: "farm/farm-form", component: FarmFormComponent },
-  { path: "farm/farm-list", component: FarmListComponent },
-  { path: "employee/employee-form", component: EmployeeFormComponent},
-  { path: "home", component: HomeComponent },
+  { path: 'farm/form', component: FarmFormComponent },
+  { path: 'farm/list', component: FarmListComponent },
+  { path: 'employee/form', component: EmployeeFormComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'employee/list', component: ShowWorkerComponent },
-  { path: 'employee/edit/:id', component: EmployeeEditComponent},
-  { path: "grain/grain-list", component: GrainsQueryComponent},
-  { path: 'grain/grain-form', component: GrainFormComponent },
-  { path: 'grain/grain-edit', component: GrainEditComponent },
+  { path: 'employee/edit/:id', component: EmployeeEditComponent },
+  { path: 'grain/list', component: GrainsQueryComponent },
+  { path: 'grain/form', component: GrainFormComponent },
+  { path: 'grain/edit', component: GrainEditComponent },
   { path: '**', component: Error404Component },
 ];
 
