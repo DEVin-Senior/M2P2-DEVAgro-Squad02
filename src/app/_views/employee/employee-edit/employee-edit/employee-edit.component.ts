@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Route, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IAlert } from 'src/app/_interfaces/alert/ialert';
 import { IEmployee } from 'src/app/_interfaces/employee/iemployee';
 import { IFarm } from 'src/app/_interfaces/farm/ifarm';

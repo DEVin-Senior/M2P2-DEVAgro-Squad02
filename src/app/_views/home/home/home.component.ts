@@ -1,15 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-
-import {
-  ApexChart,
-  ApexAxisChartSeries,
-  ChartComponent,
-  ApexDataLabels,
-  ApexPlotOptions,
-  ApexYAxis,
-  ApexLegend,
-  ApexGrid
-} from "ng-apexcharts";
+import {ChartComponent} from "ng-apexcharts";
 import { CompanyService } from 'src/app/_services/company/company.service';
 import { FarmService } from 'src/app/_services/farm/farm.service';
 import { EmployeeService } from 'src/app/_services/employee/employee.service';

@@ -1,12 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { GrainService } from 'src/app/_services/grain/grain.service';
 import { AlertService } from 'src/app/_shared/alert/alert.service';
 import { IAlert } from 'src/app/_interfaces/alert/ialert';
 import { ERROR, SUCCESS } from 'src/environments/environment';
 import { FarmService } from 'src/app/_services/farm/farm.service';
-
-
 
 @Component({
   selector: 'app-grain-edit',
@@ -41,7 +39,7 @@ export class GrainEditComponent implements OnInit {
   createGrain() {
     if (this.grainEdit.valid) {
       console.log(this.grainEdit);
-      
+
       this.rest.postGrain(this.grainEdit.value).subscribe(result => {
         console.log('result.name ->' + result.name);
 

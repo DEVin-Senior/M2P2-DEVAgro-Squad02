@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { EmployeeService } from './../../_services/employee/employee.service';
+import { EmployeeService } from 'src/app/_services/employee/employee.service';
+
 
 @Component({
-  selector: 'app-show-worker',
-  templateUrl: './show-worker.component.html',
-  styleUrls: ['./show-worker.component.css'],
+  selector: 'app-employee-list',
+  templateUrl: './employee-list.component.html',
+  styleUrls: ['./employee-list.component.css'],
 })
-export class ShowWorkerComponent implements OnInit {
+export class EmployeeListComponent implements OnInit {
 
   employees: any;
   hasEmployee: boolean = false;

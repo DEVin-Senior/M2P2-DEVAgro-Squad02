@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { IAlert } from 'src/app/_interfaces/alert/ialert';
@@ -7,11 +7,11 @@ import { GrainService } from 'src/app/_services/grain/grain.service';
 import { AlertService } from 'src/app/_shared/alert/alert.service';
 
 @Component({
-  selector: 'app-grains-query',
-  templateUrl: './grains-query.component.html',
-  styleUrls: ['./grains-query.component.css']
+  selector: 'app-grain-list',
+  templateUrl: './grain-list.component.html',
+  styleUrls: ['./grain-list.component.css']
 })
-export class GrainsQueryComponent implements OnInit {
+export class GrainListComponent implements OnInit {
 
   menuName: string = 'Grãos';
   displayedColumns: string[] = ['grain', 'plantedFarm', 'harvested'];

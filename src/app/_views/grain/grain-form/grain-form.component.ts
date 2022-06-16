@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { GrainService } from 'src/app/_services/grain/grain.service';
 import { AlertService } from 'src/app/_shared/alert/alert.service';
 import { IAlert } from 'src/app/_interfaces/alert/ialert';
@@ -8,7 +8,6 @@ import { FarmService } from 'src/app/_services/farm/farm.service';
 import { CompanyService } from 'src/app/_services/company/company.service';
 import { Router } from '@angular/router';
 import { IFarm } from 'src/app/_interfaces/farm/ifarm';
-
 
 @Component({
   selector: 'app-grain-form',

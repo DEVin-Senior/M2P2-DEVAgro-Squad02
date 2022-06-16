@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ShowWorkerComponent } from './show-worker.component';
+import { GrainListComponent } from './grain-list.component';
 
-describe('ShowWorkerComponent', () => {
-  let component: ShowWorkerComponent;
-  let fixture: ComponentFixture<ShowWorkerComponent>;
+describe('GrainListComponent', () => {
+  let component: GrainListComponent;
+  let fixture: ComponentFixture<GrainListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ShowWorkerComponent ]
+      declarations: [ GrainListComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ShowWorkerComponent);
+    fixture = TestBed.createComponent(GrainListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
