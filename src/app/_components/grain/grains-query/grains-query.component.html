@@ -18,12 +18,12 @@
             <!-- Position Column -->
             <ng-container matColumnDef="grain">
               <th mat-header-cell *matHeaderCellDef>Grão</th>
-              <td mat-cell *matCellDef="let element">
+              <td mat-cell *matCellDef="let element" class="columnPhoto">
                 <img
                   class="img"
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaw4t8DM1Sen3UBSX6yUHK45TYF_yn1dXyNCS8A_cqaHgaS7FrlRKBzwJBwPXKHIJLoyU&usqp=CAU"
                 />
-                {{ element.name }}
+                {{ element.grain }}
               </td>
             </ng-container>
 
@@ -31,7 +31,7 @@
             <ng-container matColumnDef="plantedFarm">
               <th mat-header-cell *matHeaderCellDef>Fazenda plantada</th>
               <td mat-cell *matCellDef="let element">
-                {{ element.company.name }}
+                {{ element.plantedFarm }}
               </td>
             </ng-container>
 
@@ -40,8 +40,28 @@
               <th mat-header-cell *matHeaderCellDef>Colhido</th>
               <td mat-cell *matCellDef="let element">
                 <button type="button" class="btn btn-success">
-                  {{ element.averageHarvestTime }}
+                  {{ element.harvested }}
                 </button>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="edit">
+              <th class="tableMaterial" mat-header-cell *matHeaderCellDef></th>
+              <td mat-cell *matCellDef="let element">
+                <a [routerLink]="['../edit', element.id]">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-three-dots-vertical"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
+                    />
+                  </svg>
+                </a>
               </td>
             </ng-container>
 

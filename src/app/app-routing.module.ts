@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: 'employee/edit/:id', component: EmployeeEditComponent },
   { path: 'grain/list', component: GrainsQueryComponent },
   { path: 'grain/form', component: GrainFormComponent },
-  { path: 'grain/edit', component: GrainEditComponent },
+  { path: 'grain/edit/:id', component: GrainEditComponent },
   { path: '**', component: Error404Component },
 ];
 
