@@ -33,6 +33,8 @@ export class GrainEditComponent implements OnInit {
   companyId = localStorage.getItem('companyId');
   farm: any;
   newGrain: any;
+  newGrainId: string = '';
+  farmProducesId: string = '';
 
   constructor(
     private rest: GrainService,
@@ -59,57 +61,95 @@ export class GrainEditComponent implements OnInit {
     if (this.grainForm.valid) {
       this.setNewGrain();
 
-      this.rest.updateGrain(this.newGrain, this.grain.id).subscribe((result: any) => {
-        if (result.name) {
-          this.alertMessage = {
-            title: '',
-            message: 'Grão alterado com sucesso!',
-            typeAlert: SUCCESS,
-          };
-          this.putFarm();
-          this.alertService.showGenericAlert(this.alertMessage);
-          this.grainForm.reset();
-          this.redirectRout.navigate(["/grain/list"]);
-        } else {
-          this.alertMessage = {
-            title: 'Ocorreu um erro ao editar o Grão',
-            message: 'Entre em contato com o administrador do sistema.',
-            typeAlert: ERROR,
-          };
-        }
-      });
+      try {
+        this.rest.updateGrain(this.newGrain, this.grain.id).subscribe({
+          next: (v) => this.updateFarmIdgrain(v),
+          error: (e) => this.messageErrorPostGrain(),
+          complete: () => ''
+        })
+      } catch (error) {
+        this.messageErrorPostGrain();
+      }
+    }
+  }
+
+  updateFarmIdgrain(result: any) {
+    this.newGrainId = result.id;
+    this.farmProducesId = this.grainForm.value.farmProducesId;
+
+    if (this.farmProducesId != null) {
+      this.putGrainInFarm();
+    }
+  }
+
+  async putGrainInFarm() {
+    let getFarmById = await this.getFarmById();
+    await this.putFarm(getFarmById);
+  }
+
+
+  putFarm(reponse: any) {
+    console.log("Mandou o");
+
+    return new Promise((resolve, reject) => {
+      if (reponse.sucess) {
+        this.farmService.putFarm(this.farm).subscribe({
+          next: (v) => this.messagePostGrain(v),
+          error: (e) => this.messageErrorPostGrain(),
+          complete: () => this.redirectRout.navigate(['grain/list'])
+        });
+      }
+    });
+  }
+
+  getFarmById() {
+    return new Promise((resolve, reject) => {
+      try {
+        this.farmService.getAllfarm().subscribe((data: any) => {
+          this.farm = data.find((farm: IFarmPut) => farm.id == this.farmProducesId);
+          this.farm.grainId = this.newGrainId;
+          resolve({ sucess: true });
+        });
+
+      } catch (error) {
+        reject({ sucess: false });
+      }
+
+    });
+  }
+
+  messagePostGrain(result: any) {
+    if (result.name) {
+      this.alertMessage = {
+        title: '',
+        message: 'Grão editado com sucesso!',
+        typeAlert: SUCCESS,
+      };
+      this.alertService.showGenericAlert(this.alertMessage);
+      this.grainForm.reset();
+
     } else {
       this.alertMessage = {
-        title: 'Ocorreu um erro ao editar o Grão - Favor Preencher todos os campos obrigatórios',
+        title: 'Ocorreu um erro ao editar o Grão',
         message: 'Entre em contato com o administrador do sistema.',
         typeAlert: ERROR,
       };
-      this.alertService.showGenericAlert(this.alertMessage);
     }
+  }
+
+  messageErrorPostGrain() {
+    this.alertMessage = {
+      title: 'Ocorreu um erro ao editar o Grão',
+      message: 'Entre em contato com o administrador do sistema.',
+      typeAlert: ERROR,
+    };
+    this.alertService.showGenericAlert(this.alertMessage);
   }
 
   getAllfarm() {
     this.farmService.getAllfarm().subscribe((data) => {
       this.companies = data;
     });
-  }
-
-  putFarm() {
-    const farmId = this.grainForm.value.farmProducesId;
-
-    if (farmId != null) {
-      this.companies.forEach((farm: any) => {
-        if (farm.id == farmId) {
-          this.farm = farm;
-        }
-      });
-
-      this.farm.grainId = this.grain.id;
-      console.log(this.farm);
-
-
-      this.farmService.putFarm(this.farm);
-    };
   }
 
   async getGrain() {
@@ -147,20 +187,6 @@ export class GrainEditComponent implements OnInit {
         this.grainForm.additionalInformation : this.grain.additionalInformation,
     }
 
-  }
-
-  toFarmPut(farm: any): IFarmPut {
-    return {
-      id: farm.id,
-      name: farm.name,
-      address: farm.address,
-      company: {
-        id: farm.company.id,
-      },
-      grainId: farm.grainId,
-      lastHarvest: farm.lastHarvest,
-      stock: farm.stock,
-    }
   }
 
 }
