@@ -6,6 +6,7 @@ import { AlertService } from 'src/app/_shared/alert/alert.service';
 import { FarmService } from 'src/app/_services/farm/farm.service';
 import { ERROR, SUCCESS } from 'src/environments/environment';
 import { GrainService } from 'src/app/_services/grain/grain.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-farm-form',
@@ -25,8 +26,9 @@ export class FarmFormComponent implements OnInit {
   constructor(
     private farmService: FarmService,
     private alertService: AlertService,
-    private grainService: GrainService
-  ) {}
+    private grainService: GrainService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.farmForm = this.getFormConfiguration();
@@ -124,9 +126,11 @@ export class FarmFormComponent implements OnInit {
         this.requestFinished = true;
         this.alertService.showGenericAlert(this.alertMessage = {
           title: '',
-            message: 'Fazenda cadastrada com sucesso!',
-            typeAlert: SUCCESS,
+          message: 'Fazenda cadastrada com sucesso!',
+          typeAlert: SUCCESS,
         });
+
+        this.router.navigate(['farm/list']);
       });
   }
 }
