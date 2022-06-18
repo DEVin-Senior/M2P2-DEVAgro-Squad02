@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
+import { Observable } from 'rxjs';
 import { IEmployee } from 'src/app/_interfaces/employee/iemployee';
 import { API_BASE } from 'src/environments/environment';
 
@@ -12,12 +13,16 @@ export class EmployeeService {
 
   constructor(private http: HttpClient) {}
 
+  saveEmployee(employee: IEmployee): Observable<IEmployee> {
+    return this.http.post<IEmployee>(`${API_BASE}/employee/`, employee);
+  }
+
   async getByCompanyId(companyId: number) {
     console.log(companyId);
 
     await this.getAll().then((res: IEmployee[]) => {
       this.listEmployees = res.filter((employee: IEmployee) => {
-        return employee.company.id == companyId.toString();
+        return employee.companyId == companyId.toString();
       });
     });
 
@@ -35,7 +40,7 @@ export class EmployeeService {
       farmId: payload.farmId,
       hiringDate: payload.hiringDate,
       telephoneNumber: payload.telephoneNumber,
-      companyId: payload.company.id,
+      companyId: payload.companyId,
       status: payload.status,
       job: payload.job
     }
