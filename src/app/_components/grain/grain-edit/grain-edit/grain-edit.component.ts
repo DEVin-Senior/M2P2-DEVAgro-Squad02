@@ -40,11 +40,7 @@ export class GrainEditComponent implements OnInit {
 
   createGrain() {
     if (this.grainEdit.valid) {
-      console.log(this.grainEdit);
-      
       this.rest.postGrain(this.grainEdit.value).subscribe(result => {
-        console.log('result.name ->' + result.name);
-
         if (result.name) {
           this.alertMessage = {
             title: '',

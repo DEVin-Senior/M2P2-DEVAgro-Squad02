@@ -13,8 +13,6 @@ export class EmployeeService {
   constructor(private http: HttpClient) {}
 
   async getByCompanyId(companyId: number) {
-    console.log(companyId);
-
     await this.getAll().then((res: IEmployee[]) => {
       this.listEmployees = res.filter((employee: IEmployee) => {
         return employee.company.id == companyId.toString();
@@ -39,7 +37,6 @@ export class EmployeeService {
       status: payload.status,
       job: payload.job
     }
-    console.log(body);
     return this.http.put(`${API_BASE}/employee/${id}`, body);
   }
 

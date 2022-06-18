@@ -50,7 +50,6 @@ export class GrainListComponent implements OnInit {
       this.dataSource = new MatTableDataSource<IGrainList>(this.listItems);
       this.dataSource.paginator = this.paginator;
     } catch (error) {
-      console.log(error);
       this.alertMessage = {
         title: 'Ocorreu um erro ao buscar as propriedades cadastradas',
         message: 'Entre em contato com o administrador do sistema.'
