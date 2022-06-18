@@ -44,7 +44,7 @@ export class FarmFormComponent implements OnInit {
   }
 
   getAllGrainsByCompany() {
-    this.grainService.getAllGrains().subscribe((data) => {
+    this.grainService.getAllGrainsByCompany(this.companyIdFromCurrentUser).subscribe((data) => {
       this.grainsFromCompany = data;
     });
   }
