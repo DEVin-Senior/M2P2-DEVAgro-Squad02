@@ -50,6 +50,11 @@
   display: none;
 }
 
+.logout {
+  position: fixed;
+  bottom: .3rem;
+}
+
 
 @media (max-width: 1600px) {
   .sidebar span {
@@ -76,17 +81,15 @@
     content: '≡';
     position: fixed;
     z-index: 2;
-    top: 2rem;
-    left: 2rem;
     background: var(--main-color);
     color: var(--white);
     font-size: 3rem;
     line-height: 3rem;
-    width: 3rem;
+    width: 4rem;
+    height: 100vh;
     text-align: center;
-    padding: 0.5rem;
+    padding: 1rem;
     cursor: pointer;
-    border-radius: .7rem;
   }
 
   #open-sidebar:checked~.sidebar {
@@ -97,9 +100,10 @@
   #open-sidebar:checked~#open-sidebar-label::after {
     content: 'x';
     z-index: 5;
-    top: .7rem;
     font-size: 1.5rem;
     left: 200px;
+    height: 5vh;
+    width: 2rem;
   }
 
   .sidebar span {
