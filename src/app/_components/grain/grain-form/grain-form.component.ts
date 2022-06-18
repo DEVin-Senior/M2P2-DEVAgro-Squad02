@@ -7,7 +7,7 @@ import { ERROR, SUCCESS } from 'src/environments/environment';
 import { FarmService } from 'src/app/_services/farm/farm.service';
 import { CompanyService } from 'src/app/_services/company/company.service';
 import { Router } from '@angular/router';
-import { IFarm } from 'src/app/_interfaces/farm/ifarm';
+import { IFarmPut } from 'src/app/_interfaces/farm/ifarm';
 
 
 @Component({
@@ -27,15 +27,20 @@ export class GrainFormComponent implements OnInit {
   farms: any = [];
   objFarm: any = {}
   farmProducesId: any;
-
-  farm: IFarm = {
-    name: '',
-    companyId: '',
-    grainId: '',
-    lastHarvest: ''
-  }
+  companyIdGrain: any;
   newGrainId: any;
-
+  
+  farm: IFarmPut = {
+    name: '',
+    address: '',
+    company: {
+     id: '',
+     },
+    grainId: '',
+    lastHarvest: '',
+    stock: 0
+  }
+  
   constructor(
     private rest: GrainService,
     private fb: FormBuilder,
@@ -61,18 +66,10 @@ export class GrainFormComponent implements OnInit {
     if (this.grainForm.valid) {
       try {
         this.rest.postGrain(this.grainForm.value).subscribe({
-          next: (v) => this.messagePostGrain(v),
+          next: (v) => this.updateFarmIdgrain(v),
           error: (e) => this.messageErrorPostGrain(),
-          complete: () => this.router.navigate(['grain/list'])
+          complete: () => ''
         })
-
-        this.farmProducesId = this.grainForm.value.farmProducesId;
-
-        if (this.farmProducesId != null) {
-          console.log('Campo FAZENDA QUE PRODUZ foi selecionado, indo atualizar a tabela de fazendas com o id');
-          this.putGrainInFarm();
-        }
-
       } catch (error) {
         this.messageErrorPostGrain()
       }
@@ -86,6 +83,16 @@ export class GrainFormComponent implements OnInit {
     }
   }
 
+  updateFarmIdgrain(result: any) {
+    this.newGrainId = result.id;
+    this.farmProducesId = this.grainForm.value.farmProducesId;
+
+    if (this.farmProducesId != null) {
+      this.putGrainInFarm();
+    }
+  }
+
+
   getAllFarmsByCompany() {
     this.farmService.getAllFarmsByCompany(this.companyId).subscribe((data) => {
       this.companies = data;
@@ -93,8 +100,6 @@ export class GrainFormComponent implements OnInit {
   }
 
   messagePostGrain(result: any) {
-    this.newGrainId = result.id;
-
     if (result.name) {
       this.alertMessage = {
         title: '',
@@ -125,20 +130,9 @@ export class GrainFormComponent implements OnInit {
   getFarmById() {
     return new Promise((resolve, reject) => {
       try {
-        this.farmService.getAllfarm().subscribe((data) => {
-          this.farms = data;
-
-          for (let index = 0; index < this.farms.length; index++) {
-            if (this.farms[index].id == this.farmProducesId) {
-              // this.farm.id = this.farmProducesId;
-              this.farm.name = this.farms[index].name;
-              this.farm.address = this.farms[index].address;
-              this.farm.companyId = this.farms[index].company.id;
-              this.farm.grainId = this.newGrainId;
-              this.farm.lastHarvest = this.farms[index].lastHarvest;
-              this.farm.stock = this.farms[index].stock;
-            }
-          }
+        this.farmService.getAllfarm().subscribe((data: any) => {
+          this.farm = data.find((farm: IFarmPut) => farm.id == this.farmProducesId);
+          this.farm.grainId = this.newGrainId;
           resolve({ sucess: true });
         });
 
@@ -152,7 +146,7 @@ export class GrainFormComponent implements OnInit {
   putFarm(reponse: any) {
     return new Promise((resolve, reject) => {
       if (reponse.sucess) {
-        this.farmService.putFarm(this.farm, this.farmProducesId).subscribe({
+        this.farmService.putFarm(this.farm).subscribe({
           next: (v) => this.messagePostGrain(v),
           error: (e) => this.messageErrorPostGrain(),
           complete: () => this.router.navigate(['grain/list'])
@@ -163,7 +157,7 @@ export class GrainFormComponent implements OnInit {
 
   async putGrainInFarm() {
     let getFarmById = await this.getFarmById();
-    let putFarm = await this.putFarm(getFarmById);
+    await this.putFarm(getFarmById);
   }
 
 }

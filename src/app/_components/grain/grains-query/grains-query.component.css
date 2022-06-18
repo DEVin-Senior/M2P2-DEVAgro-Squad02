@@ -1,3 +1,16 @@
+
+table {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.img {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  height: 45px;
+  border-radius: 50%;
+}
+
 .container-body {
   width: 100vw;
   display: flex;
@@ -5,20 +18,16 @@
 }
 
 .container-table {
-    height: 75vh;
-    width: 100%;
-}
-
-table {
-    margin: 0 auto;
-    width: 100%;
+  height: 75vh;
+  width: 100%;
 }
 
 .container-main {
-  border: 1px solid var(--light-gray);
   width: 70vw;
   border-radius: 5px;
   margin-left: 12%;
+  height: 80vh;
+  border: 1px solid var(--light-gray);
 }
 
 .pagination {
@@ -37,46 +46,68 @@ table {
   justify-content: space-between;
 }
 
-table {
-    width: 100%;
-  }
 
 table tr {
-    height: 80px;
-    width: 100%;
-  }
+  height: 80px;
+  width: 100%;
+}
 
-table td{
-  width: 40%;
-  }
+table td {
+  height: 80px;
+}
 
-  .img {
-    height: 30px;
-    border-radius: 50%;
-  }
+::ng-deep td.mat-cell:first-of-type {
+  display: flex;
+  flex-direction: row;
+}
 
-  .btn {
-    background-color: green;
-  }
+::ng-deep .mat-paginator-page-size {
+  opacity: 0;
+}
 
-  .btn-include-grain {
-    display: flex;
-    justify-content: flex-end;
-  }
+::ng-deep .mat-icon-button {
+  background-color: white;
+}
 
-  .btn-include-grain > button {
-    background-color: var(--main-color);
-    border-radius: 50%;
-  }
+::ng-deep tbody {
+  border: #dfe0eb;
+}
+/* .img {
+  height: 30px;
+  border-radius: 50%;
+} */
 
-  .paginator {
-    margin-right: 4rem;
-  }
+.btn {
+  background-color: green;
+}
 
-  .loading{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50vh;
-    width: 100%;
-  }
+.btn-include-grain {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-include-grain>button {
+  background-color: var(--main-color);
+  border-radius: 50%;
+}
+
+.paginator {
+  margin-right: 4rem;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  width: 100%;
+}
+
+.columnPhoto{
+  display: flex;
+  align-items: center;
+}
+
+.columnPhoto > img{
+  margin-right: 1rem;
+}
