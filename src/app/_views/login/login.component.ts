@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, HostListener, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserServiceService } from '../../_services/user/user-service.service';
 import { AlertService } from 'src/app/_shared/alert/alert.service';
 import { IAlert } from 'src/app/_interfaces/alert/ialert';
 import { ERROR } from 'src/environments/environment';
+import { eventListeners } from '@popperjs/core';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +18,7 @@ export class LoginComponent implements OnInit {
   loginFormGroup!: FormGroup;
   loginSuccessful: boolean = true;
   alertMessage!: IAlert;
+  checkForgotPassword: boolean = false;
 
   constructor(private userService: UserServiceService, private route: Router, private alertService: AlertService) { }
 
