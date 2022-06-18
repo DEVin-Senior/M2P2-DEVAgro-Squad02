@@ -11,7 +11,6 @@ import { Error404Component } from './_views/error404/error404.component';
 import { GrainFormComponent } from './_components/grain/grain-form/grain-form.component';
 import { GrainListComponent } from './_components/grain/grain-list/grain-list.component';
 import { GrainEditComponent } from './_views/grain/grain-edit/grain-edit.component';
-
 import { EmployeeEditComponent } from './_components/employee/employee-edit/employee-edit/employee-edit.component';
 
 const routes: Routes = [
