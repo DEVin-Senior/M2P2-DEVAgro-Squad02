@@ -10,8 +10,8 @@ export interface IGrainCompanyLoggedIn {
 }
 
 export interface IGrainList{
-    id: string,
+    id?: string,
     grain: string,
     plantedFarm: string,
-    harvested: string
+    harvested: boolean
 }
