@@ -4,6 +4,7 @@ import { firstValueFrom } from 'rxjs';
 import { Observable } from 'rxjs';
 import { IEmployee } from 'src/app/_interfaces/employee/iemployee';
 import { API_BASE } from 'src/environments/environment';
+import { ICompany } from 'src/app/_interfaces/company/icompany';
 
 @Injectable({
   providedIn: 'root',

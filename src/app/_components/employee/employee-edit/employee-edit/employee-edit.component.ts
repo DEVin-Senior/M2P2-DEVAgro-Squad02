@@ -23,7 +23,7 @@ export class EmployeeEditComponent implements OnInit {
     cpf: '',
     telephoneNumber: '',
     hiringDate: '',
-    company: {
+    companyId: {
       id: '',
       name: '',
       address: '',
@@ -65,7 +65,7 @@ export class EmployeeEditComponent implements OnInit {
           (employee: IEmployee) => employee.id == this.employeeId
         );
 
-        this.getAllFarmsByCompanyFromEmployee(this.employee.company.id);
+        this.getAllFarmsByCompanyFromEmployee(this.employee.companyId);
       })
       .catch((error) => {
         const alertMessage: IAlert = {

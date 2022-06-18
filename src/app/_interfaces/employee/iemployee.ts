@@ -1,4 +1,5 @@
 export interface IEmployee {
+
   id?: string,
   name: string,
   cpf: string,
@@ -8,4 +9,5 @@ export interface IEmployee {
   status: boolean,
   job: string,
   hiringDate: string
+
 }
