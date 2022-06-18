@@ -19,7 +19,6 @@ import { ERROR, SUCCESS } from 'src/environments/environment';
   styleUrls: ['./grain-list.component.css']
 })
 export class GrainListComponent implements OnInit {
-
   menuName: string = 'Grãos';
   displayedColumns: string[] = ['grain', 'plantedFarm', 'harvested', 'edit'];
   companyId = localStorage.getItem('companyId');
