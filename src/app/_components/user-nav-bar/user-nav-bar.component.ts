@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ICompany } from 'src/app/_interfaces/company/icompany';
 import { CompanyService } from 'src/app/_services/company/company.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-nav-bar',
@@ -20,19 +21,19 @@ export class UserNavBarComponent implements OnInit {
     password: ""
   };
 
-  constructor(private companyService: CompanyService) { }
+  constructor(private companyService: CompanyService, private router: Router) { }
 
   ngOnInit(): void {
     this.getCompanyNameById();
   }
 
-  getCompanyNameById(){
+  getCompanyNameById() {
     this.companyService.getCompanyByIdFromCurrentUser().subscribe((data: any) => {
       this.companyFromCurrentUser = data.find((company: any) => company.id == this.companyIdFromCurrentUser);
     });
   }
 
-  getCompanyName(): string{
+  getCompanyName(): string {
     return this.companyFromCurrentUser.name;
   }
 

@@ -114,7 +114,7 @@ export class HomeComponent implements OnInit {
   setChartOptionsData() {
     this.getConfigDefaultChart();
     for (let index = 0; index < this.grainsHigherStocks.length; index++) {
-      this.chartOptions.xaxis.categories.push(this.grainsHigherStocks[index].name);
+      this.chartOptions.xaxis.categories.push(this.grainsHigherStocks[index].name.substring(0, 10));
       this.chartOptions.series[0].data.push(this.grainsHigherStocks[index].stock);
     }
   }
