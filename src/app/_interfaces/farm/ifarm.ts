@@ -9,7 +9,7 @@ export interface IFarm {
 } //? não obrigatório.
 
 export interface IFarmPut {
-  id?: string;
+  id?: any;
   name: string;
   address?: string;
   company: {
