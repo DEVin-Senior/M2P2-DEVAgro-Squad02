@@ -1,6 +1,7 @@
 .form-employee {
   border: 1px solid var(--main-color);
   border-radius: 0.5rem;
+  padding: 20px;
 }
 
 input, select, button{
@@ -11,6 +12,10 @@ input, select, button{
   color: var(--main-color);
   display: flex;
   justify-content: center;
+}
+
+.container-form h3{
+text-align: center;
 }
 
 .btn-register{
@@ -27,12 +32,42 @@ input, select, button{
   background-color: var(--main-color);
   border-color: var(--main-color);
 }
-.form-employee {
-  height: 530px;
-}
+
 .form-switch .form-check-input {
   width: 3em;
 }
 .form-check-input {
   height: 1.5em;
 }
+
+.container-alert{
+display: flex;
+justify-content: center;
+opacity: 0;
+transition: opacity 0.6s ease;
+}
+
+.container-alert.fade{
+display: flex;
+justify-content: center;
+opacity: 1;
+transition: opacity 0.6s ease;
+}
+
+.alert-success{
+width: 400px;
+margin: 20px;
+border-color: var(--main-color);
+}
+
+.alert-danger{
+width: 400px;
+margin: 20px;
+border-color: var(--red);
+}
+
+.alert-required{
+color: var(--red);
+}
+
+

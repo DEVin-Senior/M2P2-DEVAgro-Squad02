@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
+import { Observable } from 'rxjs';
+import { IEmployee } from 'src/app/_interfaces/employee/iemployee';
 import { API_BASE } from 'src/environments/environment';
 
 @Injectable({
@@ -12,6 +14,10 @@ export class EmployeeService {
   listEmployees: any[] = [];
 
   constructor(private http: HttpClient) { }
+
+  saveEmployee(employee: IEmployee): Observable<IEmployee> {
+    return this.http.post<IEmployee>(`${API_BASE}/employee/`, employee);
+  }
 
   async getByCompanyId(companyId: number) {
     console.log(companyId);
