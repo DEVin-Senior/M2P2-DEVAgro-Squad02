@@ -23,8 +23,6 @@ export class ShowWorkerComponent implements OnInit {
     if (companyId != null) {
       await this.service.getByCompanyId(parseInt(companyId)).then(res => this.employees = res);
       this.hasEmployee = this.employees.length > 0;
-      console.log(this.employees);
-
     } else {
       this.employees = [];
       this.hasEmployee = false;

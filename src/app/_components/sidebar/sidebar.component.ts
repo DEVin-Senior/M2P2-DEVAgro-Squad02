@@ -48,7 +48,6 @@ export class SidebarComponent implements OnInit, AfterViewInit {
       localStorage.removeItem('user');
       this.router.navigate(['login'])
     } catch (error) {
-      console.log('Falha ao deletear localStorage');
       //TO DO caso necessário
     }
   }

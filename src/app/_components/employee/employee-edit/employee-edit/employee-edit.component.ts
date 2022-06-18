@@ -90,7 +90,6 @@ export class EmployeeEditComponent implements OnInit {
   }
 
   checkEmployeeFarm() {
-    console.log('passou aqui');
     if(this.allFarmsByCompanyFromEmployee.length == 0) {
       return;
     }
