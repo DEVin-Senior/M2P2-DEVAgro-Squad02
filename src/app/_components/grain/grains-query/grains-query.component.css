@@ -111,3 +111,12 @@ table td {
 .columnPhoto > img{
   margin-right: 1rem;
 }
+
+#btnHarvestedSucess{
+  border-radius: 50px;
+}
+
+#btnHarvestedError{
+  background-color: 	#ff0000;
+  border-radius: 50px;
+}
