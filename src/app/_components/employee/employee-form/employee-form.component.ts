@@ -46,9 +46,15 @@ export class EmployeeFormComponent implements OnInit {
   getFormConfiguration() {
     return new FormGroup({
       name: new FormControl('', [Validators.required]),
-      cpf: new FormControl('', [Validators.required]),
+      cpf: new FormControl('',
+               [Validators.required,
+               Validators.pattern(this.regexCpf)
+               ]),
       farmId: new FormControl('', [Validators.required]),
-      telephoneNumber: new FormControl('', [Validators.required]),
+      telephoneNumber: new FormControl('',
+               [Validators.required,
+                Validators.pattern(this.regexTel)
+              ]),
       companyId: new FormControl(this.getIdCompanyLoggedIn, []),
       status: new FormControl(true, []),
       job: new FormControl('', [Validators.required]),
