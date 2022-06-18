@@ -1,0 +1,59 @@
+.form-grain {
+  border: 1px solid var(--main-color);
+  border-radius: 0.5rem;
+}
+
+input, select, button{
+  border-color: var(--main-color);
+}
+
+.container-form{
+  color: var(--main-color);
+  display: flex;
+  justify-content: center;
+}
+
+.btnPhoto > label > input{
+  display: none;
+}
+
+.btnPhoto > label {
+  margin: 0 auto;
+}
+
+.btnPhoto{
+  background-color: var(--main-color);
+  border-radius: 0.25rem;
+}
+
+.container-photo{
+  margin: 0 auto;
+}
+
+.fas{
+  color: white;
+  width: 100%
+}
+
+.btn-register{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.input-group-lg>.btn{
+  width: 100%;
+}
+
+.form-check-input:checked {
+background-color: var(--main-color);
+border-color: var(--main-color);
+}
+
+.form-switch .form-check-input {
+width: 3em;
+}
+.form-check-input {
+cursor: pointer;
+height: 1.5em;
+}

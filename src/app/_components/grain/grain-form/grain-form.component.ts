@@ -29,7 +29,7 @@ export class GrainFormComponent implements OnInit {
   farmProducesId: any;
   companyIdGrain: any;
   newGrainId: any;
-  
+
   farm: IFarmPut = {
     name: '',
     address: '',
@@ -40,7 +40,7 @@ export class GrainFormComponent implements OnInit {
     lastHarvest: '',
     stock: 0
   }
-  
+
   constructor(
     private rest: GrainService,
     private fb: FormBuilder,
@@ -58,7 +58,8 @@ export class GrainFormComponent implements OnInit {
       companyId: [this.companyId],
       nextHarvestDate: ['', [Validators.required]],
       additionalInformation: [''],
-      farmProducesId: []
+      farmProducesId: [],
+      harvested: [false],
     });
   }
 
