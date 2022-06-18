@@ -11,8 +11,7 @@
       </li>
       <li class="py-2" #employeeItem>
         <a [routerLink]="['/employee/list']">
-          <span class="mx-3"><i class="fa-solid fa-users"></i></span
-          >Funcionários
+          <span class="mx-3"><i class="fa-solid fa-users"></i></span>Funcionários
         </a>
       </li>
       <li class="py-2" #farmItem>
@@ -27,4 +26,15 @@
       </li>
     </ul>
   </nav>
+
+
+  <div class="logout">
+    <ul class="sidebar-nav">
+      <li class="py-2" #logout>
+        <a (click)="logoutUser()">
+          <span class="mx-3"><i class="fa-solid fa-right-from-bracket"></i></span>Sair
+        </a>
+      </li>
+    </ul>
+  </div>
 </div>
