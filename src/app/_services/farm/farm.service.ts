@@ -53,6 +53,8 @@ export class FarmService {
       lastHarvest: payload.lastHarvest,
       stock: payload.stock
     }
+    console.log(body);
+    console.log(`${API_BASE}/farm/${payload.id}`);
 
     return this.http.put(`${API_BASE}/farm/${payload.id}`, body);
   }

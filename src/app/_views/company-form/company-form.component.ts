@@ -6,6 +6,7 @@ import { CompanyService } from 'src/app/_services/company/company.service';
 import { AlertService } from 'src/app/_shared/alert/alert.service';
 import { FormValidations } from 'src/app/_shared/form-validations/form-validations';
 import { ERROR, SUCCESS } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-company-form',
@@ -25,7 +26,8 @@ export class CompanyFormComponent implements OnInit {
 
   constructor(
     private companyService: CompanyService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -128,6 +130,7 @@ export class CompanyFormComponent implements OnInit {
             })
             .add(() => {
               this.alertService.showGenericAlert(this.alertMessage);
+              this.router.navigate(['login']);
             });
         } else {
             this.registerSended = false;
