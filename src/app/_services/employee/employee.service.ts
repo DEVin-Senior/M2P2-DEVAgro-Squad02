@@ -10,9 +10,9 @@ import { API_BASE } from 'src/environments/environment';
 export class EmployeeService {
   listEmployees: any[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-  async getByCompanyId(companyId: number) {
+  async getByCompanyId(companyId: any) {
     console.log(companyId);
 
     await this.getAll().then((res: IEmployee[]) => {
@@ -28,7 +28,7 @@ export class EmployeeService {
     return firstValueFrom(this.http.get(`${API_BASE}/employee/list`));
   }
 
-  updateEmployeeById(id: string | undefined, payload: IEmployee){
+  updateEmployeeById(id: string | undefined, payload: IEmployee) {
     const body = {
       name: payload.name,
       cpf: payload.cpf,
@@ -47,5 +47,20 @@ export class EmployeeService {
     return this.http.get<any>(
       `${API_BASE}/employee/quantity-by-company?companyId=${idCompany}`
     );
+  }
+
+  async getEmployeeFromCompany(id: string): Promise<any> {
+    let employee = null;
+
+    await this.getByCompanyId(localStorage.getItem('companyId')).then(
+      (res: any) => {
+        console.log(res);
+
+        employee = res.find((employee: any) => employee.id == id)
+      }
+    );
+    console.log(employee);
+
+    return employee;
   }
 }
