@@ -90,6 +90,9 @@ export class GrainFormComponent implements OnInit {
 
     if (this.farmProducesId != null) {
       this.putGrainInFarm();
+    }else{
+      this.messagePostGrain(result);
+      this.router.navigate(['grain/list'])
     }
   }
 

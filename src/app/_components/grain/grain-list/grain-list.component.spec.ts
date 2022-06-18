@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GrainsQueryComponent } from './grains-query.component';
+import { GrainListComponent } from './grain-list.component';
 
-describe('GrainsQueryComponent', () => {
-  let component: GrainsQueryComponent;
-  let fixture: ComponentFixture<GrainsQueryComponent>;
+describe('GrainListComponent', () => {
+  let component: GrainListComponent;
+  let fixture: ComponentFixture<GrainListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GrainsQueryComponent ]
+      declarations: [ GrainListComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GrainsQueryComponent);
+    fixture = TestBed.createComponent(GrainListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

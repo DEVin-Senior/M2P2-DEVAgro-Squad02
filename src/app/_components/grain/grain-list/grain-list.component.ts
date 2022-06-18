@@ -14,11 +14,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ERROR, SUCCESS } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-grains-query',
-  templateUrl: './grains-query.component.html',
-  styleUrls: ['./grains-query.component.css'],
+  selector: 'app-grains-list',
+  templateUrl: './grain-list.component.html',
+  styleUrls: ['./grain-list.component.css']
 })
-export class GrainsQueryComponent implements OnInit {
+export class GrainListComponent implements OnInit {
   menuName: string = 'Grãos';
   displayedColumns: string[] = ['grain', 'plantedFarm', 'harvested', 'edit'];
   companyId = localStorage.getItem('companyId');
@@ -130,6 +130,7 @@ export class GrainsQueryComponent implements OnInit {
       if (response.sucess) {
         try {
           for (let index1 = 0; index1 < this.grains.length; index1++) {
+            let foundFarm = false;
             for (let index2 = 0; index2 < this.farms.length; index2++) {
               if (this.grains[index1].id == this.farms[index2].grain.id) {
                 this.objInfos = {
@@ -151,7 +152,20 @@ export class GrainsQueryComponent implements OnInit {
                 this.listItems.push(this.objInfos);
 
                 // console.log('this.objInfos.length() ' + this.listItems.length);
+                foundFarm = true;
               }
+            }
+
+            if(!foundFarm){
+              this.objInfos = {
+                id: '',
+                grain: '',
+                plantedFarm: '',
+                harvested: false
+              }
+              this.objInfos.id = this.grains[index1].id
+              this.objInfos.grain = this.grains[index1].name;
+              this.listItems.push(this.objInfos);
             }
           }
           resolve({ sucess: true });
