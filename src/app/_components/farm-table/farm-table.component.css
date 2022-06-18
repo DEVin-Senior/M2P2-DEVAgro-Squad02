@@ -11,8 +11,9 @@
   border-radius: 8px;
   width: 94%;
   height: 95%;
-  margin-right: 1rem;
   background-color: white;
+  margin-left: 3rem;
+  margin-right: 3rem;
 }
 
 .container-table > h3 {

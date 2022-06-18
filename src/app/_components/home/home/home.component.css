@@ -1,6 +1,7 @@
 .body-home {
   height: 100vh;
   background-color: var(--bg-gray-color);
+  align-items: center;
 }
 
 .navHome {
@@ -40,9 +41,9 @@
 
 .two-panels {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
-  width: 94%;
+  max-width: 94%;
   margin-left: 3rem;
   margin-right: 3rem;
 }
@@ -70,8 +71,9 @@
 .two-panels-last {
   display: flex;
   justify-content: space-between;
-  width: 94%;
+
   margin-left: 3rem;
+  margin-right: 3rem;
 }
 
 ::ng-deep .container-table {
@@ -104,4 +106,14 @@
 
 .data-col-prevision > i {
   font-size: 1.5rem;
+}
+
+@media (max-width: 1250px) {
+  .two-panels {
+    justify-content: space-evenly;
+  }
+
+  .two-panels-last {
+    justify-content: space-evenly;
+  }
 }
