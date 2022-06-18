@@ -8,7 +8,10 @@ import { AlertService } from 'src/app/_shared/alert/alert.service';
 import { FarmService } from 'src/app/_services/farm/farm.service';
 import { IFarm } from 'src/app/_interfaces/farm/ifarm';
 import { IGrainList } from 'src/app/_interfaces/grain/grain';
-
+import { GrainEditComponent } from 'src/app/_views/grain/grain-edit/grain-edit.component';
+import { FormBuilder } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ERROR, SUCCESS } from 'src/environments/environment';
 
 @Component({
   selector: 'app-grains-list',
@@ -28,7 +31,7 @@ export class GrainListComponent implements OnInit {
     id: '',
     grain: '',
     plantedFarm: '',
-    harvested: ''
+    harvested: false,
   };
   listItems: any = [];
 
@@ -37,12 +40,32 @@ export class GrainListComponent implements OnInit {
   constructor(
     private grainService: GrainService,
     private alertService: AlertService,
-    private farmService: FarmService
-  ) { }
+    private farmService: FarmService,
+    private redirectRout: Router
+  ) {}
 
   ngOnInit(): void {
-    this.paginator._intl.itemsPerPageLabel = "Itens por página";
+    this.paginator._intl.itemsPerPageLabel = 'Itens por página';
     this.getInfos();
+  }
+
+  updateGrain(grainId: string, isHarvested: boolean) {
+    let grainFinded: IGrainByCompany;
+
+    grainFinded = this.grains.find((grain: IGrainByCompany) => grain.id == grainId);
+
+    const grainToUpdate = {
+      name: grainFinded.name,
+      companyId: grainFinded.company.id,
+      nextHarvestDate: grainFinded.nextHarvestDate,
+      additionalInformation: grainFinded.additionalInformation,
+      harvested: isHarvested,
+    }
+
+    this.grainService.updateGrain(grainToUpdate, grainId).subscribe(
+      (result: any) => {
+        location.reload();
+    });
   }
 
   setUpTable() {
@@ -52,23 +75,22 @@ export class GrainListComponent implements OnInit {
     } catch (error) {
       this.alertMessage = {
         title: 'Ocorreu um erro ao buscar as propriedades cadastradas',
-        message: 'Entre em contato com o administrador do sistema.'
+        message: 'Entre em contato com o administrador do sistema.',
       };
 
-      this.alertService.showAlertError(this.alertMessage)
+      this.alertService.showAlertError(this.alertMessage);
     }
-
   }
 
   getGrainsByCompanyId() {
     return new Promise((resolve, reject) => {
       try {
         this.grainService
-          .getAllGrainsByCompany(this.companyId).subscribe((data: any) => {
+          .getAllGrainsByCompany(this.companyId)
+          .subscribe((data: any) => {
             this.grains = data;
             resolve({ sucess: true });
           });
-
       } catch (error) {
         reject({ sucess: false });
       }
@@ -79,11 +101,12 @@ export class GrainListComponent implements OnInit {
     return new Promise((resolve, reject) => {
       if (response.sucess) {
         try {
-          this.farmService.getAllFarmsByCompany(this.companyId).subscribe((data: any) => {
-            this.farms = data;
-            resolve({ sucess: true });
-          });
-
+          this.farmService
+            .getAllFarmsByCompany(this.companyId)
+            .subscribe((data: any) => {
+              this.farms = data;
+              resolve({ sucess: true });
+            });
         } catch (error) {
           reject({ sucess: false });
         }
@@ -91,11 +114,14 @@ export class GrainListComponent implements OnInit {
     });
   }
 
-
   async getInfos() {
     const getGrainsByCompanyId = await this.getGrainsByCompanyId();
-    const getAllFarmsByCompany = await this.getAllFarmsByCompany(getGrainsByCompanyId);
-    const mergeInformations = await this.mergeInformations(getAllFarmsByCompany);
+    const getAllFarmsByCompany = await this.getAllFarmsByCompany(
+      getGrainsByCompanyId
+    );
+    const mergeInformations = await this.mergeInformations(
+      getAllFarmsByCompany
+    );
     this.setUpTable();
   }
 
@@ -111,19 +137,13 @@ export class GrainListComponent implements OnInit {
                   id: '',
                   grain: '',
                   plantedFarm: '',
-                  harvested: ''
-                }
+                  harvested: false,
+                };
                 // console.log('Achei item, montando OBJ');
-                this.objInfos.id = this.grains[index1].id
+                this.objInfos.id = this.grains[index1].id;
                 this.objInfos.grain = this.grains[index1].name;
-                if (index2 % 2 == 0) {
-                  this.objInfos.harvested = 'Sim';
-                  // this.grains[index1].averageHarvestTime;
-                } else {
-                  this.objInfos.harvested = 'Não';
-                }
-
-                this.objInfos.plantedFarm = this.farms[index2].name
+                this.objInfos.plantedFarm = this.farms[index2].name;
+                this.objInfos.harvested = this.grains[index1].harvested;
 
                 // console.log('this.objInfos.grain ' + this.objInfos.grain);
                 // console.log('this.objInfos.harvested ' + this.objInfos.harvested);
@@ -141,7 +161,7 @@ export class GrainListComponent implements OnInit {
                 id: '',
                 grain: '',
                 plantedFarm: '',
-                harvested: ''
+                harvested: false
               }
               this.objInfos.id = this.grains[index1].id
               this.objInfos.grain = this.grains[index1].name;
@@ -155,6 +175,4 @@ export class GrainListComponent implements OnInit {
       }
     });
   }
-
-
 }

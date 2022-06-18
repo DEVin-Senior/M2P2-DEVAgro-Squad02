@@ -9,3 +9,7 @@
   background-color: var(--hover-main-color);
   color: var(--white);
 }
+
+.btn-div {
+  width: 100%;
+}

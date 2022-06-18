@@ -108,8 +108,12 @@ table td {
   align-items: center;
 }
 
-.columnPhoto > img{
-  margin-right: 1rem;
+.icon{
+  text-align: center;
+  margin-right: 10px;
+  background-color: var(--light-gray);
+  width: 15%;
+  border-radius: 100%;
 }
 
 #btnHarvestedSucess{
