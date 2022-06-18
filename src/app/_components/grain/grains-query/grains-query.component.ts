@@ -28,7 +28,7 @@ export class GrainsQueryComponent implements OnInit {
     id: '',
     grain: '',
     plantedFarm: '',
-    harvested: ''
+    harvested: false
   };
   listItems: any = [];
 
@@ -111,19 +111,13 @@ export class GrainsQueryComponent implements OnInit {
                   id: '',
                   grain: '',
                   plantedFarm: '',
-                  harvested: ''
+                  harvested: false
                 }
                 // console.log('Achei item, montando OBJ');
                 this.objInfos.id = this.grains[index1].id
                 this.objInfos.grain = this.grains[index1].name;
-                if(index2 % 2 == 0){
-                  this.objInfos.harvested = 'Sim';
-                  // this.grains[index1].averageHarvestTime;
-                }else{
-                  this.objInfos.harvested = 'Não';
-                }
-                
                 this.objInfos.plantedFarm = this.farms[index2].name
+                this.objInfos.harvested = this.grains[index1].harvested;
 
                 // console.log('this.objInfos.grain ' + this.objInfos.grain);
                 // console.log('this.objInfos.harvested ' + this.objInfos.harvested);

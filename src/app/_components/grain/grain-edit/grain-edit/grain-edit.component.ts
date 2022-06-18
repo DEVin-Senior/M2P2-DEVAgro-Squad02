@@ -34,6 +34,7 @@ export class GrainEditComponent implements OnInit {
       name: ['', [Validators.required]],
       companyId: ['', [Validators.required]],
       harvestForecast: ['', [Validators.required]],
+      harvested: [false]
       // additionalInformation:[]
     });
   }
@@ -41,7 +42,7 @@ export class GrainEditComponent implements OnInit {
   createGrain() {
     if (this.grainEdit.valid) {
       console.log(this.grainEdit);
-      
+
       this.rest.postGrain(this.grainEdit.value).subscribe(result => {
         console.log('result.name ->' + result.name);
 
