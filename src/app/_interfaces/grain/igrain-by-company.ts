@@ -1,8 +1,9 @@
 export interface IGrainByCompany {
   id?: string;
   name: string;
-  averageHarvestTime: number;
+  averageHarvestTime?: number;
   company: any;
-  nextHarvestDate: string;
-  additionalInformation: string;
+  nextHarvestDate?: string;
+  additionalInformation?: string;
+  harvested: boolean;
 }
