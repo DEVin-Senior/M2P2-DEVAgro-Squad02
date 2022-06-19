@@ -20,27 +20,34 @@ export class ListComponent implements OnInit {
   constructor(
     private farmService: FarmService,
     private alertService: AlertService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.setFarmInEmployees();
-    this.employeesList.map(
-      (employee: any) => (employee.hiringDate = moment().format('DD/MM/yyyy'))
-    );
-    this.data = new MatTableDataSource<any>(this.employeesList);
-    this.data.paginator = this.paginator;
+    try {
+      this.employeesList.map(
+        (employee: any) => (employee.hiringDate = moment().format('DD/MM/yyyy'))
+      );
+      this.data = new MatTableDataSource<any>(this.employeesList);
+      this.data.paginator = this.paginator;
+    } catch (error) {
+      
+    }
   }
 
   setFarmInEmployees() {
-    this.employeesList.forEach((employee: any) => {
-      this.farmService
-        .getAllFarmsByCompany(employee.company.id)
-        .subscribe((farms: any) => {
-          employee.farm = farms.find(
-            (farm: any) => farm.id == employee.farmId
-          ).name;
-        });
-    });
+    try {
+      this.employeesList.forEach((employee: any) => {
+        this.farmService
+          .getAllFarmsByCompany(employee.company.id)
+          .subscribe((farms: any) => {
+            employee.farm = farms.find(
+              (farm: any) => farm.id == employee.farmId
+            ).name;
+          });
+      });
+    } catch (error) {
 
+    }
   }
 }

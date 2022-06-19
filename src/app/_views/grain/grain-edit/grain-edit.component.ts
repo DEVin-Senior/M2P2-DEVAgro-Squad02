@@ -1,5 +1,5 @@
 import { IFarmPut } from 'src/app/_interfaces/farm/ifarm';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IAlert } from 'src/app/_interfaces/alert/ialert';
@@ -28,6 +28,7 @@ export class GrainEditComponent implements OnInit {
     company: '',
     nextHarvestDate: '',
     additionalInformation: '',
+    harvested: false
   };
   grainFarmId: any;
   companyId = localStorage.getItem('companyId');
@@ -52,14 +53,16 @@ export class GrainEditComponent implements OnInit {
       companyId: [this.companyId],
       nextHarvestDate: ['', [Validators.required]],
       additionalInformation: [''],
-      farmProducesId: []
+      farmProducesId: [],
+      harvested: [false]
     });
     this.getGrainFarm();
   }
 
-  updateGrain() {
+  public updateGrain() {
     if (this.grainForm.valid) {
       this.setNewGrain();
+      console.log(this.newGrain);
 
       try {
         this.rest.updateGrain(this.newGrain, this.grain.id).subscribe({
@@ -163,6 +166,7 @@ export class GrainEditComponent implements OnInit {
       this.grain.company = res[0].company;
       this.grain.nextHarvestDate = res[0].nextHarvestDate;
       this.grain.additionalInformation = res[0].additionalInformation;
+      this.grain.harvested = res[0].harvested;
     });
 
   }
@@ -186,6 +190,8 @@ export class GrainEditComponent implements OnInit {
         this.grainForm.nextHarvestDate : this.grain.nextHarvestDate,
       additionalInformation: this.grainForm.additionalInformation ?
         this.grainForm.additionalInformation : this.grain.additionalInformation,
+      harvested: this.grainForm.harvested ?
+        this.grainForm.harvested : this.grain.harvested,
     }
 
   }

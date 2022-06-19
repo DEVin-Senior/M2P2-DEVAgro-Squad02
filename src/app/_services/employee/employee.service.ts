@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
+import { Observable } from 'rxjs';
 import { IEmployee } from 'src/app/_interfaces/employee/iemployee';
 import { API_BASE } from 'src/environments/environment';
 
@@ -10,17 +11,20 @@ import { API_BASE } from 'src/environments/environment';
 export class EmployeeService {
   listEmployees: any[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  async getByCompanyId(companyId: any) {
-    console.log(companyId);
+  saveEmployee(employee: IEmployee): Observable<IEmployee> {
+    return this.http.post<IEmployee>(`${API_BASE}/employee/`, employee);
+  }
 
-    await this.getAll().then((res: IEmployee[]) => {
-      this.listEmployees = res.filter((employee: IEmployee) => {
-        return employee.company.id == companyId.toString();
+  async getByCompanyId(companyId: string | null) {
+    if (companyId != null) {
+      await this.getAll().then((res: IEmployee[]) => {
+        this.listEmployees = res.filter((employee: IEmployee) => {
+          return employee.company.id == companyId;
+        });
       });
-    });
-
+    }
     return this.listEmployees;
   }
 
@@ -37,9 +41,8 @@ export class EmployeeService {
       telephoneNumber: payload.telephoneNumber,
       companyId: payload.company.id,
       status: payload.status,
-      job: payload.job
-    }
-    console.log(body);
+      job: payload.job,
+    };
     return this.http.put(`${API_BASE}/employee/${id}`, body);
   }
 
@@ -56,7 +59,7 @@ export class EmployeeService {
       (res: any) => {
         console.log(res);
 
-        employee = res.find((employee: any) => employee.id == id)
+        employee = res.find((employee: any) => employee.id == id);
       }
     );
     console.log(employee);

@@ -44,3 +44,16 @@ input, select, button{
 .input-group-lg>.btn{
     width: 100%;
 }
+
+.form-check-input:checked {
+  background-color: var(--main-color);
+  border-color: var(--main-color);
+}
+
+.form-switch .form-check-input {
+  width: 3em;
+}
+.form-check-input {
+  cursor: pointer;
+  height: 1.5em;
+}

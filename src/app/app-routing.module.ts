@@ -12,7 +12,7 @@ import { HomeComponent } from './_components/home/home/home.component';
 import { ShowWorkerComponent } from './_components/show-worker/show-worker.component';
 import { Error404Component } from './_views/error404/error404.component';
 import { GrainFormComponent } from './_components/grain/grain-form/grain-form.component';
-import { GrainsQueryComponent } from './_components/grain/grains-query/grains-query.component';
+import { GrainListComponent } from './_components/grain/grain-list/grain-list.component';
 import { GrainEditComponent } from './_views/grain/grain-edit/grain-edit.component';
 import { EmployeeEditComponent } from './_components/employee/employee-edit/employee-edit/employee-edit.component';
 
@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [GeneralGuard] },
   { path: 'employee/list', component: ShowWorkerComponent, canActivate: [GeneralGuard] },
   { path: 'employee/edit/:id', component: EmployeeEditComponent, canActivate: [EmployeeEditGuard] },
-  { path: 'grain/list', component: GrainsQueryComponent, canActivate: [GeneralGuard] },
+  { path: 'grain/list', component: GrainListComponent, canActivate: [GeneralGuard] },
   { path: 'grain/form', component: GrainFormComponent, canActivate: [GeneralGuard] },
   { path: 'grain/edit/:id', component: GrainEditComponent, canActivate: [GrainEditGuard] },
   { path: '**', component: Error404Component },

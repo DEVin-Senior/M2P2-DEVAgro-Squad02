@@ -1,13 +1,13 @@
-import { ICompany } from "../company/icompany";
-
 export interface IEmployee {
-  id?: string;
-  name: string;
-  farmId: string;
-  cpf: string;
-  telephoneNumber: string;
-  hiringDate: string;
-  company: ICompany;
-  job: string;
-  status: boolean;
+
+  id?: string,
+  name: string,
+  cpf: string,
+  farmId: any,
+  telephoneNumber: string,
+  companyId: any,
+  status: boolean,
+  job: string,
+  hiringDate: string
+
 }
