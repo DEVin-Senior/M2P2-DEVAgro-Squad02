@@ -65,7 +65,7 @@ const maskConfig: Partial<IConfig> = {
     NgxMaskModule.forRoot(maskConfig), //https://www.npmjs.com/package/ngx-mask (como usar)
     MatTableModule,
     MatPaginatorModule,
-    MatIconModule,
+    MatIconModule
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent],

@@ -6,6 +6,7 @@ export interface IFarm {
   grainId: string;
   lastHarvest: string;
   stock?: number;
+  harvested?: boolean;
 } //? não obrigatório.
 
 export interface IFarmPut {
@@ -18,4 +19,5 @@ export interface IFarmPut {
   grainId: string;
   lastHarvest: string;
   stock?: number;
+  harvested?: boolean;
 } //? não obrigatório.

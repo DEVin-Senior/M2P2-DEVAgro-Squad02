@@ -5,5 +5,4 @@ export interface IGrainByCompany {
   company: any;
   nextHarvestDate?: string;
   additionalInformation?: string;
-  harvested: boolean;
 }

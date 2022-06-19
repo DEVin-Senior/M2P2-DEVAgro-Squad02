@@ -12,6 +12,5 @@ export interface IGrainCompanyLoggedIn {
 export interface IGrainList{
     id?: string,
     grain: string,
-    plantedFarm: string,
-    harvested: boolean
+    plantedFarm: string
 }
