@@ -17,6 +17,7 @@ import * as moment from 'moment';
 export class EmployeeFormComponent implements OnInit {
   regexCpf: RegExp = /^(\d{3})(\d{3})(\d{3})(\d{2})/;
   regexTel: RegExp = /^(\d{2})(\d{5})(\d{4})/;
+  //companyId = localStorage.getItem('companyId');
   employeeForm!: FormGroup;
   btnName:string = 'CADASTRAR';
   menuName: string = 'Funcionário';
@@ -25,7 +26,7 @@ export class EmployeeFormComponent implements OnInit {
   alertMessage!: IAlert;
   getIdCompanyLoggedIn: string | null = localStorage.getItem('companyId');
   farmFromCompany: any = [];
-
+  farms: any;
 
 
   constructor(
@@ -69,6 +70,20 @@ export class EmployeeFormComponent implements OnInit {
     });
   }
 
+  getFarmsByCompanyId() {
+    return new Promise((resolve, reject) => {
+      try {
+        this.farmService
+          .getAllfarmCompanyLoggedIn(this.companyId)
+          .subscribe((data: any) => {
+            this.farms = data;
+            resolve({ sucess: true });
+          });
+      } catch (error) {
+        reject({ sucess: false });
+      }
+    });
+  }
 
 
   get name() {
@@ -133,7 +148,6 @@ export class EmployeeFormComponent implements OnInit {
             message: 'Funcionário cadastrado com sucesso!',
             typeAlert: SUCCESS,
           };
-          console.log(newEmployee);
           this.employeeForm.reset();
         },
         error: (error) => {
@@ -155,15 +169,6 @@ export class EmployeeFormComponent implements OnInit {
             message: 'Funcionário cadastrado com sucesso!',
             typeAlert: SUCCESS,
         });
-        console.log(newEmployee.name);
-        console.log(newEmployee.cpf);
-        console.log(newEmployee.farmId);
-        console.log(newEmployee.telephoneNumber);
-        console.log(newEmployee.companyId);
-        console.log(newEmployee.status)
-        console.log(newEmployee.job);
-        console.log(newEmployee.hiringDate);
-
 
       });
   }
