@@ -17,7 +17,7 @@ import { GrainEditComponent } from './_views/grain/grain-edit/grain-edit.compone
 import { EmployeeEditComponent } from './_components/employee/employee-edit/employee-edit/employee-edit.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: '', component: HomeComponent, canActivate: [GeneralGuard]},
   { path: 'signin', component: CompanyFormComponent },
   { path: 'login', component: LoginComponent },
   { path: 'farm/form', component: FarmFormComponent, canActivate: [GeneralGuard] },

@@ -21,7 +21,7 @@ export class EmployeeService {
     if (companyId != null) {
       await this.getAll().then((res: IEmployee[]) => {
         this.listEmployees = res.filter((employee: IEmployee) => {
-          return employee.company.id == companyId;
+          return employee.companyId == companyId;
         });
       });
     }
@@ -39,7 +39,7 @@ export class EmployeeService {
       farmId: payload.farmId,
       hiringDate: payload.hiringDate,
       telephoneNumber: payload.telephoneNumber,
-      companyId: payload.company.id,
+      companyId: payload.companyId,
       status: payload.status,
       job: payload.job,
     };
