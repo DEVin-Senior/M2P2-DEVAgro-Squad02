@@ -1,17 +1,12 @@
-import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { IAlert } from 'src/app/_interfaces/alert/ialert';
-import { IGrainByCompany } from 'src/app/_interfaces/grain/igrain-by-company';
 import { GrainService } from 'src/app/_services/grain/grain.service';
 import { AlertService } from 'src/app/_shared/alert/alert.service';
 import { FarmService } from 'src/app/_services/farm/farm.service';
-import { IFarm } from 'src/app/_interfaces/farm/ifarm';
+import { IFarmPut } from 'src/app/_interfaces/farm/ifarm';
 import { IGrainList } from 'src/app/_interfaces/grain/grain';
-import { GrainEditComponent } from 'src/app/_views/grain/grain-edit/grain-edit.component';
-import { FormBuilder } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ERROR, SUCCESS } from 'src/environments/environment';
 
 @Component({
   selector: 'app-grains-list',
@@ -29,8 +24,7 @@ export class GrainListComponent implements OnInit {
   objInfos: IGrainList = {
     id: '',
     grain: '',
-    plantedFarm: '',
-    harvested: false,
+    plantedFarm: ''
   };
   listItems: any = [];
 
@@ -40,7 +34,6 @@ export class GrainListComponent implements OnInit {
     private grainService: GrainService,
     private alertService: AlertService,
     private farmService: FarmService,
-    private redirectRout: Router
   ) {}
 
   ngOnInit(): void {
@@ -48,23 +41,33 @@ export class GrainListComponent implements OnInit {
     this.getInfos();
   }
 
-  updateGrain(grainId: string, isHarvested: boolean) {
-    let grainFinded: IGrainByCompany;
+  updateGrainFromFarm(farmId: string, grainId: string, isHarvested: boolean){
+    let farmFinded: any;
 
-    grainFinded = this.grains.find((grain: IGrainByCompany) => grain.id == grainId);
+    farmFinded = this.farms.find((farm: any) => farm.id == farmId && farm.grain.id == grainId);
 
-    const grainToUpdate = {
-      name: grainFinded.name,
-      companyId: grainFinded.company.id,
-      nextHarvestDate: grainFinded.nextHarvestDate,
-      additionalInformation: grainFinded.additionalInformation,
-      harvested: isHarvested,
+    if(farmFinded == null){
+      this.alertMessage = {
+        title: '',
+        message: 'Para indicar a colheita do grão, é necessário associá-lo à uma fazenda.',
+      };
+
+      this.alertService.showAlertError(this.alertMessage);
+      return;
     }
 
-    this.grainService.updateGrain(grainToUpdate, grainId).subscribe(
-      (result: any) => {
-        location.reload();
-    });
+    const farmToUpdateHarvested: IFarmPut = {
+      id: farmFinded.id,
+      name: farmFinded.name,
+      address: farmFinded.address,
+      company: farmFinded.company,
+      grainId: farmFinded.grain.id,
+      lastHarvest: farmFinded.lastHarvest,
+      stock: farmFinded.stock,
+      harvested: isHarvested
+    }
+
+    this.farmService.putFarm(farmToUpdateHarvested).subscribe((response: any) => location.reload());
   }
 
   setUpTable() {
@@ -89,6 +92,7 @@ export class GrainListComponent implements OnInit {
           .subscribe((data: any) => {
             this.grains = data;
             resolve({ sucess: true });
+
           });
       } catch (error) {
         reject({ sucess: false });
@@ -135,14 +139,12 @@ export class GrainListComponent implements OnInit {
                 this.objInfos = {
                   id: '',
                   grain: '',
-                  plantedFarm: '',
-                  harvested: false,
+                  plantedFarm: ''
                 };
                 // console.log('Achei item, montando OBJ');
                 this.objInfos.id = this.grains[index1].id;
                 this.objInfos.grain = this.grains[index1].name;
-                this.objInfos.plantedFarm = this.farms[index2].name;
-                this.objInfos.harvested = this.grains[index1].harvested;
+                this.objInfos.plantedFarm = this.farms[index2];
 
                 // console.log('this.objInfos.grain ' + this.objInfos.grain);
                 // console.log('this.objInfos.harvested ' + this.objInfos.harvested);
@@ -159,8 +161,7 @@ export class GrainListComponent implements OnInit {
               this.objInfos = {
                 id: '',
                 grain: '',
-                plantedFarm: '',
-                harvested: false
+                plantedFarm: ''
               }
               this.objInfos.id = this.grains[index1].id
               this.objInfos.grain = this.grains[index1].name;

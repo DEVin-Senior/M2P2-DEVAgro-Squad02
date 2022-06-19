@@ -28,7 +28,6 @@ export class GrainEditComponent implements OnInit {
     company: '',
     nextHarvestDate: '',
     additionalInformation: '',
-    harvested: false
   };
   grainFarmId: any;
   companyId = localStorage.getItem('companyId');
@@ -54,7 +53,6 @@ export class GrainEditComponent implements OnInit {
       nextHarvestDate: ['', [Validators.required]],
       additionalInformation: [''],
       farmProducesId: [],
-      harvested: [false]
     });
     this.getGrainFarm();
   }
@@ -151,8 +149,8 @@ export class GrainEditComponent implements OnInit {
   }
 
   getAllfarm() {
-    this.farmService.getAllfarm().subscribe((data) => {
-      this.companies = data;
+    this.farmService.getAllfarm().subscribe((data: any) => {
+      this.companies = data.filter((farm: any) => farm.company.id == this.companyId);
     });
   }
 
@@ -166,7 +164,6 @@ export class GrainEditComponent implements OnInit {
       this.grain.company = res[0].company;
       this.grain.nextHarvestDate = res[0].nextHarvestDate;
       this.grain.additionalInformation = res[0].additionalInformation;
-      this.grain.harvested = res[0].harvested;
     });
 
   }
@@ -189,9 +186,7 @@ export class GrainEditComponent implements OnInit {
       nextHarvestDate: this.grainForm.nextHarvestDate ?
         this.grainForm.nextHarvestDate : this.grain.nextHarvestDate,
       additionalInformation: this.grainForm.additionalInformation ?
-        this.grainForm.additionalInformation : this.grain.additionalInformation,
-      harvested: this.grainForm.harvested ?
-        this.grainForm.harvested : this.grain.harvested,
+        this.grainForm.additionalInformation : this.grain.additionalInformation
     }
 
   }
