@@ -29,6 +29,7 @@
                     <input type="text" class="form-control" id="cpf-employee" name="cpf-employee" formControlName="cpf" [mask]="'000.000.000-99'"
                         placeholder="CPF" required>
                     <div *ngIf="cpf.invalid && formDir.submitted && !formSended">
+                      <small *ngIf="cpf.errors?.['pattern']">O CPF precisa corresponder a um formato válido. </small>
                       <small *ngIf="cpf.errors?.['required']" class="alert-required">O CPF é obrigatório. </small>
                     </div>
                   </div>
@@ -37,6 +38,7 @@
                     <input type="text" class="form-control" id="phone-employee" name="phone-employee" formControlName="telephoneNumber" [mask]="'(00)00000-0009'"
                         placeholder="Telefone" required>
                     <div *ngIf="telephoneNumber.invalid && formDir.submitted && !formSended">
+                      <small *ngIf="telephoneNumber.errors?.['pattern']">O Telefone precisa corresponder ao formato (XX)12345-1234. </small>
                       <small *ngIf="telephoneNumber.errors?.['required']" class="alert-required">O telefone é obrigatório. </small>
                     </div>
                   </div>

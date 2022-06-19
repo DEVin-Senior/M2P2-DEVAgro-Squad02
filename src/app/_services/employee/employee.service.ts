@@ -4,7 +4,7 @@ import { firstValueFrom } from 'rxjs';
 import { Observable } from 'rxjs';
 import { IEmployee } from 'src/app/_interfaces/employee/iemployee';
 import { API_BASE } from 'src/environments/environment';
-import { ICompany } from 'src/app/_interfaces/company/icompany';
+import { IEmployeeByCompany } from 'src/app/_interfaces/employee/iemployee-by-company';
 
 @Injectable({
   providedIn: 'root',
@@ -18,13 +18,14 @@ export class EmployeeService {
     return this.http.post<IEmployee>(`${API_BASE}/employee/`, employee);
   }
 
-  async getByCompanyId(companyId: number) {
-    await this.getAll().then((res: IEmployee[]) => {
-      this.listEmployees = res.filter((employee: IEmployee) => {
-        return employee.companyId == companyId.toString();
+  async getByCompanyId(companyId: string | null) {
+    if (companyId != null) {
+      await this.getAll().then((res: IEmployee[]) => {
+        this.listEmployees = res.filter((employee: IEmployee) => {
+          return employee.companyId == companyId;
+        });
       });
-    });
-
+    }
     return this.listEmployees;
   }
 
@@ -32,7 +33,11 @@ export class EmployeeService {
     return firstValueFrom(this.http.get(`${API_BASE}/employee/list`));
   }
 
-  updateEmployeeById(id: string | undefined, payload: IEmployee){
+  getAllEmployeesByCompany(companyId: string | null): Observable<IEmployeeByCompany[]> {
+    return this.http.get<IEmployeeByCompany[]>(`${API_BASE}/employee/employees-by-company?companyId=${companyId}`);
+  }
+
+  updateEmployeeById(id: string | undefined, payload: IEmployee) {
     const body = {
       name: payload.name,
       cpf: payload.cpf,
@@ -41,8 +46,8 @@ export class EmployeeService {
       telephoneNumber: payload.telephoneNumber,
       companyId: payload.companyId,
       status: payload.status,
-      job: payload.job
-    }
+      job: payload.job,
+    };
     return this.http.put(`${API_BASE}/employee/${id}`, body);
   }
 
@@ -50,5 +55,24 @@ export class EmployeeService {
     return this.http.get<any>(
       `${API_BASE}/employee/quantity-by-company?companyId=${idCompany}`
     );
+  }
+
+  updateEmployee(employee: any, id: any) {
+    return this.http.put(`${API_BASE}/employee/edit/${id}`, employee);
+  }
+
+  async getEmployeeFromCompany(id: string): Promise<any> {
+    let employee = null;
+
+    await this.getByCompanyId(localStorage.getItem('companyId')).then(
+      (res: any) => {
+        console.log(res);
+
+        employee = res.find((employee: any) => employee.id == id);
+      }
+    );
+    console.log(employee);
+
+    return employee;
   }
 }

@@ -28,7 +28,6 @@ export class GrainEditComponent implements OnInit {
     company: '',
     nextHarvestDate: '',
     additionalInformation: '',
-    harvested: false
   };
   grainFarmId: any;
   companyId = localStorage.getItem('companyId');
@@ -54,7 +53,6 @@ export class GrainEditComponent implements OnInit {
       nextHarvestDate: ['', [Validators.required]],
       additionalInformation: [''],
       farmProducesId: [],
-      harvested: [false]
     });
     this.getGrainFarm();
   }
@@ -68,7 +66,7 @@ export class GrainEditComponent implements OnInit {
         this.rest.updateGrain(this.newGrain, this.grain.id).subscribe({
           next: (v) => this.updateFarmIdgrain(v),
           error: (e) => this.messageErrorPostGrain(),
-          complete: () => ''
+          complete: () => this.redirectRout.navigate(['grain/list'])
         })
       } catch (error) {
         this.messageErrorPostGrain();
@@ -82,6 +80,8 @@ export class GrainEditComponent implements OnInit {
 
     if (this.farmProducesId != null) {
       this.putGrainInFarm();
+    } else {
+      this.messagePostGrain({ name: 'Just to show the popup' });
     }
   }
 
@@ -99,7 +99,6 @@ export class GrainEditComponent implements OnInit {
         this.farmService.putFarm(this.farm).subscribe({
           next: (v) => this.messagePostGrain(v),
           error: (e) => this.messageErrorPostGrain(),
-          complete: () => this.redirectRout.navigate(['grain/list'])
         });
       }
     });
@@ -150,8 +149,8 @@ export class GrainEditComponent implements OnInit {
   }
 
   getAllfarm() {
-    this.farmService.getAllfarm().subscribe((data) => {
-      this.companies = data;
+    this.farmService.getAllfarm().subscribe((data: any) => {
+      this.companies = data.filter((farm: any) => farm.company.id == this.companyId);
     });
   }
 
@@ -165,7 +164,6 @@ export class GrainEditComponent implements OnInit {
       this.grain.company = res[0].company;
       this.grain.nextHarvestDate = res[0].nextHarvestDate;
       this.grain.additionalInformation = res[0].additionalInformation;
-      this.grain.harvested = res[0].harvested;
     });
 
   }
@@ -188,9 +186,7 @@ export class GrainEditComponent implements OnInit {
       nextHarvestDate: this.grainForm.nextHarvestDate ?
         this.grainForm.nextHarvestDate : this.grain.nextHarvestDate,
       additionalInformation: this.grainForm.additionalInformation ?
-        this.grainForm.additionalInformation : this.grain.additionalInformation,
-      harvested: this.grainForm.harvested ?
-        this.grainForm.harvested : this.grain.harvested,
+        this.grainForm.additionalInformation : this.grain.additionalInformation
     }
 
   }
