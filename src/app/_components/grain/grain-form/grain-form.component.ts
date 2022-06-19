@@ -58,8 +58,7 @@ export class GrainFormComponent implements OnInit {
       companyId: [this.companyId],
       nextHarvestDate: ['', [Validators.required]],
       additionalInformation: [''],
-      farmProducesId: [],
-      harvested: [false],
+      farmProducesId: []
     });
   }
 

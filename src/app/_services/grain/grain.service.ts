@@ -24,9 +24,21 @@ export class GrainService {
     return this.http.get<IGrainByCompany[]>(`${API_BASE}/grain/grains-by-company?companyId=${companyId}`);
   }
 
-  isGrainFromCompany(id: string) {
-    return true;
+  async getGrainFromCompany(id: string) {
+    let grain = null;
+
+    await firstValueFrom(this.getAllGrainsByCompany(localStorage.getItem('companyId'))).then(
+      (res: any) => {
+        console.log(res);
+        grain = res.find((grain: any) => grain.id == id)
+      }
+    );
+
+    console.log(grain);
+
+    return grain;
   }
+
 
   async getGrainById(id: string) {
     let grain: any;
