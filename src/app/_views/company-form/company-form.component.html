@@ -21,12 +21,12 @@
 
       <div class="form-floating mb-3">
         <input type="text" class="form-control" id="floatingInputCnpj" [mask]="'00.000.000/0000-99'" placeholder="Cnpj"
-          formControlName="cnpj" required>
+          formControlName="cnpj" [pattern]="regexCnpj" required>
         <label for="floatingInputCnpj">CNPJ</label>
 
         <div *ngIf="cnpj.invalid && formDir.submitted" class="invalid-tooltip">
-          <small *ngIf="cnpj.errors?.['required']">O nome da cnpj é obrigatório. </small>
           <small *ngIf="cnpj.errors?.['pattern']">O CNPJ precisa corresponder a um formato válido. </small>
+          <small *ngIf="cnpj.errors?.['required']">O cnpj é obrigatório. </small>
         </div>
       </div>
 
@@ -42,12 +42,12 @@
 
       <div class="form-floating mb-3">
         <input type="email" class="form-control" id="floatingInputEmail" placeholder="E-mail" formControlName="email"
-          required>
+         [pattern]="regexEmail" required>
         <label for="floatingInputEmail">E-mail</label>
 
         <div *ngIf="email.invalid && formDir.submitted" class="invalid-tooltip">
           <small *ngIf="email.errors?.['required']">O e-mail é obrigatório. </small>
-          <small *ngIf="email.errors?.['email']">O e-mail informado é inválido. </small>
+          <small *ngIf="email.errors?.['pattern']">O e-mail informado é inválido. </small>
         </div>
       </div>
 

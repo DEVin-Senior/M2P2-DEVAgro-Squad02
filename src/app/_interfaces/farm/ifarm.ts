@@ -7,3 +7,15 @@ export interface IFarm {
   lastHarvest: string;
   stock?: number;
 } //? não obrigatório.
+
+export interface IFarmPut {
+  id?: any;
+  name: string;
+  address?: string;
+  company: {
+    id: string,
+  },
+  grainId: string;
+  lastHarvest: string;
+  stock?: number;
+} //? não obrigatório.

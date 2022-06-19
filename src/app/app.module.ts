@@ -14,7 +14,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './_shared/shared.module';
 import { FarmFormComponent } from './_components/farm/farm-form/farm-form.component';
-import { GrainsQueryComponent } from './_components/grain/grains-query/grains-query.component';
+import { GrainListComponent } from './_components/grain/grain-list/grain-list.component';
 import { FarmListComponent } from './_components/farm/farm-list/farm-list.component';
 import { EmployeeFormComponent } from './_components/employee/employee-form/employee-form.component';
 import { HomeComponent } from './_components/home/home/home.component';
@@ -26,7 +26,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
 import { Error404Component } from './_views/error404/error404.component';
-import { GrainEditComponent } from './_components/grain/grain-edit/grain-edit/grain-edit.component';
+import { GrainEditComponent } from './_views/grain/grain-edit/grain-edit.component';
 import { EmployeeEditComponent } from './_components/employee/employee-edit/employee-edit/employee-edit.component';
 
 const maskConfig: Partial<IConfig> = {
@@ -44,7 +44,7 @@ const maskConfig: Partial<IConfig> = {
     FarmFormComponent,
     FarmListComponent,
     CompanyFormComponent,
-    GrainsQueryComponent,
+    GrainListComponent,
     EmployeeFormComponent,
     HomeComponent,
     FarmTableComponent,
@@ -70,4 +70,4 @@ const maskConfig: Partial<IConfig> = {
   providers: [HttpClient],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
