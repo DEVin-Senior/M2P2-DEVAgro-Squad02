@@ -9,11 +9,11 @@
 .container-table {
   border: 1px solid var(--main-color);
   border-radius: 8px;
-  width: 94%;
+  width: 84vw;
   height: 95%;
   background-color: white;
   margin-left: 3rem;
-  margin-right: 3rem;
+  margin-right: 3.5rem;
 }
 
 .container-table > h3 {
