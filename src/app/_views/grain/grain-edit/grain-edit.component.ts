@@ -68,7 +68,7 @@ export class GrainEditComponent implements OnInit {
         this.rest.updateGrain(this.newGrain, this.grain.id).subscribe({
           next: (v) => this.updateFarmIdgrain(v),
           error: (e) => this.messageErrorPostGrain(),
-          complete: () => ''
+          complete: () => this.redirectRout.navigate(['grain/list'])
         })
       } catch (error) {
         this.messageErrorPostGrain();
@@ -82,6 +82,8 @@ export class GrainEditComponent implements OnInit {
 
     if (this.farmProducesId != null) {
       this.putGrainInFarm();
+    } else {
+      this.messagePostGrain({ name: 'Just to show the popup' });
     }
   }
 
@@ -99,7 +101,6 @@ export class GrainEditComponent implements OnInit {
         this.farmService.putFarm(this.farm).subscribe({
           next: (v) => this.messagePostGrain(v),
           error: (e) => this.messageErrorPostGrain(),
-          complete: () => this.redirectRout.navigate(['grain/list'])
         });
       }
     });
