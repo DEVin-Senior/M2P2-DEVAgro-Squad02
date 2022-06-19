@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { IEmployee } from 'src/app/_interfaces/employee/iemployee';
 import { API_BASE } from 'src/environments/environment';
 import { ICompany } from 'src/app/_interfaces/company/icompany';
+import { IEmployeeByCompany } from 'src/app/_interfaces/employee/iemployee-by-company';
 
 @Injectable({
   providedIn: 'root',
@@ -32,6 +33,10 @@ export class EmployeeService {
     return firstValueFrom(this.http.get(`${API_BASE}/employee/list`));
   }
 
+  getAllEmployeesByCompany(companyId: string | null): Observable<IEmployeeByCompany[]> {
+    return this.http.get<IEmployeeByCompany[]>(`${API_BASE}/employee/employees-by-company?companyId=${companyId}`);
+  }
+
   updateEmployeeById(id: string | undefined, payload: IEmployee){
     const body = {
       name: payload.name,
@@ -50,5 +55,9 @@ export class EmployeeService {
     return this.http.get<any>(
       `${API_BASE}/employee/quantity-by-company?companyId=${idCompany}`
     );
+  }
+
+  updateEmployee(employee: any, id: any) {
+    return this.http.put(`${API_BASE}/employee/edit/${id}`, employee);
   }
 }
