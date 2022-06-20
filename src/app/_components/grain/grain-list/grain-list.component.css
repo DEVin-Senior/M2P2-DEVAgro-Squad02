@@ -19,6 +19,7 @@ table {
 .container-table {
   height: 75vh;
   width: 100%;
+
 }
 
 .container-main {
@@ -28,6 +29,8 @@ table {
   height: 80vh;
   border: 1px solid var(--light-gray);
   background-color: white;
+  border: 1px solid var(--main-color);
+  border-radius: 5px;
 }
 
 .pagination {
