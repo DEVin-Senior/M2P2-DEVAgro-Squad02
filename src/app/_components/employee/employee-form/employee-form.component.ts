@@ -66,7 +66,7 @@ export class EmployeeFormComponent implements OnInit {
   }
 
   getAllFarmsByCompany() {
-    this.farmService.getAllfarm().subscribe((data) => {
+    this.farmService.getAllFarmsByCompany(localStorage.getItem('companyId')).subscribe((data) => {
       this.farmFromCompany = data;
     });
   }
