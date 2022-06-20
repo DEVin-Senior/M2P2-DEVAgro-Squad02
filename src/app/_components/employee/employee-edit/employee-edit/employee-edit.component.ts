@@ -13,8 +13,8 @@ import { AlertService } from 'src/app/_shared/alert/alert.service';
   styleUrls: ['./employee-edit.component.css'],
 })
 export class EmployeeEditComponent implements OnInit {
-  btnName: string = 'ALTERAR';
-  menuName: string = 'Funcionário';
+  btnName: string = 'EDITAR';
+  menuName: string = 'Editar Funcionários';
   employeeId!: string;
   employee: IEmployee = {
     id: '',
@@ -64,8 +64,7 @@ export class EmployeeEditComponent implements OnInit {
         this.employee = res.find(
           (employee: IEmployee) => employee.id == this.employeeId
         );
-
-        this.getAllFarmsByCompanyFromEmployee(this.employee.companyId);
+        this.getAllFarmsByCompanyFromEmployee(this.employee.company?.id);
       })
       .catch((error) => {
         const alertMessage: IAlert = {

@@ -7,6 +7,7 @@ import { AlertService } from 'src/app/_shared/alert/alert.service';
 import { EmployeeService } from 'src/app/_services/employee/employee.service';
 import { IEmployeeList } from 'src/app/_interfaces/employee/iemployee';
 import { IEmployeeByCompany } from 'src/app/_interfaces/employee/iemployee-by-company';
+import { DateFormatService } from 'src/app/_shared/formatters/date-format.service';
 
 @Component({
   selector: 'app-list',
@@ -40,7 +41,7 @@ export class ListComponent implements OnInit {
     private farmService: FarmService,
     private alertService: AlertService,
     private employeeService: EmployeeService,
-
+    private dateFormatService: DateFormatService,
   ) { }
 
   ngOnInit(): void {
@@ -51,6 +52,7 @@ export class ListComponent implements OnInit {
 
   setUpTable() {
     try {
+      this.listItems.forEach((employee: IEmployeeList) => this.dateFormatService.convertDateToSettingsFormat(employee.hiringDate));
       this.dataSource = new MatTableDataSource<IEmployeeList>(this.listItems);
       this.dataSource.paginator = this.paginator;
     } catch (error) {
@@ -97,7 +99,7 @@ export class ListComponent implements OnInit {
       try {
         this.employeeService
           .getAllEmployeesByCompany(this.companyId)
-          .subscribe((data: any) => {
+          .subscribe((data: IEmployeeByCompany[]) => {
             this.employees = data;
             resolve({ sucess: true });
           });

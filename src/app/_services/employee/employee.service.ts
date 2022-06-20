@@ -44,10 +44,12 @@ export class EmployeeService {
       farmId: payload.farmId,
       hiringDate: payload.hiringDate,
       telephoneNumber: payload.telephoneNumber,
-      companyId: payload.companyId,
+      companyId: payload.company?.id,
       status: payload.status,
       job: payload.job,
     };
+
+    console.log(body);
     return this.http.put(`${API_BASE}/employee/${id}`, body);
   }
 

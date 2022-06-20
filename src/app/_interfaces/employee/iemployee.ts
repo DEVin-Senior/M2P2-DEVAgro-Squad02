@@ -1,6 +1,9 @@
+import { ICompany } from "../company/icompany"
+
 export interface IEmployee {
 
   id?: string,
+  company?: ICompany,
   name: string,
   cpf: string,
   farmId: any,
