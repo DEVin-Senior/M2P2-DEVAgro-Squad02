@@ -1,0 +1,97 @@
+.container-body {
+  width: 89vw;
+  height: 100vh;
+  margin: 0;
+  margin-left: 14rem;
+  display: flex;
+  justify-content: center;
+  background-color: var(--bg-gray-color);
+}
+
+.navGrain {
+  background-color: var(--bg-gray-color);
+}
+
+.container-table {
+  height: 75vh;
+  width: 100%;
+}
+
+table {
+  width: 100%;
+}
+
+.container-main {
+  border: 1px solid var(--main-color);
+  width: 83vw;
+  height: 80vh;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.edit-grain {
+  color: black;
+}
+
+.header-title-table {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+table {
+  width: 100%;
+}
+
+table tr {
+  height: 80px;
+  width: 100%;
+}
+
+table td {
+  width: 40%;
+}
+
+.img {
+  height: 30px;
+  border-radius: 50%;
+}
+
+.btn {
+  background-color: green;
+}
+
+.btn-include-grain {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-include-grain > button {
+  background-color: var(--main-color);
+  border-radius: 50%;
+}
+
+.paginator {
+  margin-right: 4rem;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  width: 100%;
+}
+
+::ng-deep tbody {
+  border: #dfe0eb;
+}
+::ng-deep .mat-icon-button {
+  background-color: white;
+}

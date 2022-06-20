@@ -19,7 +19,7 @@
   display: flex;
   width: 20vw;
   margin-top: 2rem;
-  font-weight: bold;
+  color: var(--main-color);
 }
 
 .name {
@@ -35,7 +35,7 @@
   height: auto;
   max-width: 82vw;
   margin-top: 3rem;
-  border: 1px solid var(--light-gray);
+  border: 1px solid var(--main-color);
   border-radius: 5px;
 }
 
