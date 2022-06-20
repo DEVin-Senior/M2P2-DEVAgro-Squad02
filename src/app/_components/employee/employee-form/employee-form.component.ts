@@ -7,6 +7,7 @@ import { FarmService } from 'src/app/_services/farm/farm.service';
 import { ERROR, SUCCESS } from 'src/environments/environment';
 import { CompanyService } from 'src/app/_services/company/company.service';
 import { EmployeeService } from 'src/app/_services/employee/employee.service';
+import { Router } from '@angular/router';
 import * as moment from 'moment';
 
 @Component({
@@ -34,7 +35,7 @@ export class EmployeeFormComponent implements OnInit {
     private farmService: FarmService,
     private alertService: AlertService,
     private companyService: CompanyService,
-
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -147,8 +148,10 @@ export class EmployeeFormComponent implements OnInit {
             title: '',
             message: 'Funcionário cadastrado com sucesso!',
             typeAlert: SUCCESS,
+
           };
           this.employeeForm.reset();
+          this.router.navigate(['employee/list'])
         },
         error: (error) => {
           this.formSended = false;
