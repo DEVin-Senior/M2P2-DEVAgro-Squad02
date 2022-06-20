@@ -50,3 +50,11 @@ npm start
 - Marcar o Product Owner do squad para aprovar o pull request;
 
 - Mover a tarefa para coluna `Code review` no Trello.
+
+#
+
+### Jornada do usuário
+
+1) Cadastrar grãos para a empresa;
+2) Cadastrar fazendas para associar os grãos;
+3) Cadastrar funcionários para empresa.
