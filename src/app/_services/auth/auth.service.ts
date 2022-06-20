@@ -27,8 +27,8 @@ export class AuthService {
     await this.employeeService.getEmployeeFromCompany(id).then(
       (res: any) => res != null ? employeeExists = true : employeeExists = false
     );
+    this.employeeService.getEmployeeFromCompany(id);
 
-    console.log(employeeExists);
 
     if (employeeExists == false) {
       this.route.navigate(['employee/list'])
@@ -45,8 +45,6 @@ export class AuthService {
       (res: any) => res != null ? grainExists = true : grainExists = false
     );
     this.grainService.getGrainFromCompany(id);
-
-    console.log(grainExists);
 
     if (grainExists == false) {
       this.route.navigate(['grain/list'])

@@ -58,20 +58,17 @@ export class EmployeeService {
   }
 
   updateEmployee(employee: any, id: any) {
-    return this.http.put(`${API_BASE}/employee/edit/${id}`, employee);
+    return this.http.put(`${API_BASE}/employee/${id}`, employee);
   }
 
-  async getEmployeeFromCompany(id: string): Promise<any> {
+  async getEmployeeFromCompany(id: string){
     let employee = null;
 
-    await this.getByCompanyId(localStorage.getItem('companyId')).then(
+    await firstValueFrom(this.getAllEmployeesByCompany(localStorage.getItem('companyId'))).then(
       (res: any) => {
-        console.log(res);
-
         employee = res.find((employee: any) => employee.id == id);
       }
     );
-    console.log(employee);
 
     return employee;
   }
