@@ -42,7 +42,7 @@
 .two-panels {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   max-width: 94%;
   margin-left: 3rem;
   margin-right: 3rem;
@@ -70,8 +70,7 @@
 
 .two-panels-last {
   display: flex;
-  justify-content: space-between;
-
+  justify-content: center;
   margin-left: 3rem;
   margin-right: 3rem;
 }
