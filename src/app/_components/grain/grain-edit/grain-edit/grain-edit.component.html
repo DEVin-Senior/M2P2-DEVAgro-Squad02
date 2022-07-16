@@ -1,0 +1,103 @@
+<link
+  rel="stylesheet"
+  href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+  integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+  crossorigin="anonymous"
+/>
+<app-sidebar></app-sidebar>
+<app-user-nav-bar [menuName]="menuName"></app-user-nav-bar>
+<div class="container-form">
+  <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+    <div class="mb-5 mt-4 pb-5 ms-4" id="formGrainEdit">
+      <form
+        class="needs-validation"
+        [formGroup]="grainEdit"
+        name="grainEdit"
+        (ngSubmit)="createGrain()"
+        #formDir="ngForm"
+        [ngClass]="{
+          'was-validated': grainEdit.invalid && formDir.submitted && !formSended
+        }"
+      >
+        <div class="form-grain">
+          <div class="form-group mt-4 me-4 ms-4">
+            <label for="nameGrain">NOME</label>
+            <select
+              class="form-control"
+              id="nameGrain"
+              name="nameGrain"
+              required
+            >
+              <option selected disabled value="">Selecione o grão</option>
+            </select>
+          </div>
+          <div class="form-group mt-4 me-4 ms-4">
+            <label for="farm">FAZENDA QUE PRODUZ</label>
+            <select
+              class="form-control"
+              id="farm"
+              name="farm"
+              formControlName="harvestForecast"
+              required
+            >
+              <option selected disabled value="">Selecione a fazenda</option>
+              <option *ngFor="let farm of companies" [value]="farm.id">
+                {{ farm.id + " - " + farm.name }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group mt-4 me-4 ms-4">
+            <label for="harvestForecast">PREVISÃO DE COLHEITA</label>
+            <input
+              type="date"
+              class="form-control"
+              id="
+                harvestForecast"
+              name="harvestForecast"
+              placeholder="dd/mm/aaaa"
+              required
+            />
+          </div>
+
+          <div class="form-group mt-4 me-4 ms-4">
+            <label for="additionalInformation">INFORMAÇÕES ADICIONAIS</label>
+            <input
+              type="text"
+              class="form-control"
+              id="
+                        additionalInformation"
+              name="additionalInformation"
+              placeholder="Informações"
+              formControlName="companyId"
+            />
+          </div>
+
+          <div class="form-group mt-4 me-4 ms-4">
+            <label for="photo">FOTO</label>
+          </div>
+          <div class="container-photo col-12 col-md-6 col-lg-6 col-xl-6">
+            <div class="form-group mt-4 mb-4 me-4 ms-4">
+              <div class="btnPhoto input-group input-group-lg">
+                <label class="btn btn-default btn-file">
+                  <i class="fas fa-file"></i>
+                  <input
+                    type="file"
+                    name="photo"
+                    class="form-control"
+                    aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-lg"
+                    required
+                  />
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-btn-register mt-4">
+          <app-button [text]="btnName" class="btn-register"></app-button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
