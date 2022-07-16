@@ -7,7 +7,7 @@ import { FarmService } from 'src/app/_services/farm/farm.service';
 import { GrainService } from 'src/app/_services/grain/grain.service';
 import { AlertService } from 'src/app/_shared/alert/alert.service';
 import { ERROR, SUCCESS } from 'src/environments/environment';
-import { IGrainByCompany } from '../../../_interfaces/grain/igrain-by-company';
+import { IGrainByCompany } from './../../../_interfaces/grain/igrain-by-company';
 
 @Component({
   selector: 'app-grain-edit',
