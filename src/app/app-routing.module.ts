@@ -4,17 +4,17 @@ import { GeneralGuard } from './_auth/general.guard';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './_views/login/login.component';
-import { CompanyFormComponent } from './_views/company-form/company-form.component';
-import { FarmFormComponent } from './_components/farm/farm-form/farm-form.component';
-import { FarmListComponent } from './_components/farm/farm-list/farm-list.component';
-import { EmployeeFormComponent } from './_components/employee/employee-form/employee-form.component';
+import { CompanyFormComponent } from './_views/company/company-form.component';
+import { FarmFormComponent } from './_views/farm/farm-form/farm-form.component';
+import { FarmListComponent } from './_views/farm/farm-list/farm-list.component';
+import { EmployeeFormComponent } from './_views/employee/employee-form/employee-form.component';
 import { HomeComponent } from './_components/home/home/home.component';
-import { ShowWorkerComponent } from './_components/show-worker/show-worker.component';
+import { ShowWorkerComponent } from './_views/employee/show-employee.component';
 import { Error404Component } from './_views/error404/error404.component';
-import { GrainFormComponent } from './_components/grain/grain-form/grain-form.component';
-import { GrainListComponent } from './_components/grain/grain-list/grain-list.component';
+import { GrainFormComponent } from './_views/grain/grain-form/grain-form.component';
+import { GrainListComponent } from './_views/grain/grain-list/grain-list.component';
 import { GrainEditComponent } from './_views/grain/grain-edit/grain-edit.component';
-import { EmployeeEditComponent } from './_components/employee/employee-edit/employee-edit/employee-edit.component';
+import { EmployeeEditComponent } from './_views/employee/employee-edit/employee-edit.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [GeneralGuard]},
