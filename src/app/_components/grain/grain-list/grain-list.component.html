@@ -1,0 +1,114 @@
+<app-sidebar></app-sidebar>
+<div class="navGrain">
+  <app-user-nav-bar [menuName]="menuName"></app-user-nav-bar>
+</div>
+<div class="container-body mt-4">
+  <div class="container-main mt-4">
+    <div class="container-table">
+      <div class="table-responsive mt-4">
+        <div class="header-title-table">
+          <h4 class="mt-4 mb-4 ms-2"><b>Lista de Grãos</b></h4>
+          <div>
+            <i
+              class="fa-solid fa-arrow-down-short-wide"
+              style="color: #9fa2b4"
+            ></i
+            ><span class="me-2">Ordernar</span
+            ><i class="fa-solid fa-filter ms-1" style="color: #9fa2b4"></i>
+            <span class="me-2">Filtrar</span>
+          </div>
+        </div>
+        <div class="mat-elevation-z8">
+          <table mat-table [dataSource]="dataSource">
+            <!-- Position Column -->
+            <ng-container matColumnDef="grain">
+              <th mat-header-cell *matHeaderCellDef>Grão</th>
+              <td mat-cell *matCellDef="let element" class="columnPhoto">
+                <div class="icon fa-2x">
+                  <i class="fa-solid fa-wheat-awn"></i>
+                </div>
+                {{ element.grain }}
+              </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="plantedFarm">
+              <th mat-header-cell *matHeaderCellDef style="color: #9fa2b4">
+                Fazenda plantada
+              </th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.plantedFarm.name }}
+              </td>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="harvested">
+              <th mat-header-cell *matHeaderCellDef style="color: #9fa2b4">
+                Colhido
+              </th>
+              <td mat-cell *matCellDef="let element">
+                <button type="button" (click)="updateGrainFromFarm(element.plantedFarm.id, element.id, false)" name="harvested" class="btn btn-success" id="btnHarvestedSucess" *ngIf="element.plantedFarm.harvested else notHarvested">Sim</button>
+                <ng-template #notHarvested>
+                  <button type="button" (click)="updateGrainFromFarm(element.plantedFarm.id, element.id, true)" name="harvested" class="btn btn-danger" id="btnHarvestedError">Não</button>
+                </ng-template>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="edit">
+              <th class="tableMaterial" mat-header-cell *matHeaderCellDef></th>
+              <td mat-cell *matCellDef="let element">
+                <a [routerLink]="['../edit', element.id]">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-three-dots-vertical"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
+                    />
+                  </svg>
+                </a>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table>
+        </div>
+
+        <ng-template #loading>
+          <div class="loading">
+            <div
+              class="spinner-border text-success"
+              style="width: 3rem; height: 3rem"
+              role="status"
+            >
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+        </ng-template>
+
+        <div class="btn-include-grain">
+          <button
+            type="button"
+            class="btn btn-success btn-lg me-5 mt-4 mb-4"
+            routerLink="/grain/form"
+          >
+            +
+          </button>
+        </div>
+
+        <mat-paginator
+          class="paginator mb-4"
+          [pageSizeOptions]="[5]"
+          aria-label="Select page of periodic elements"
+        >
+        </mat-paginator>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

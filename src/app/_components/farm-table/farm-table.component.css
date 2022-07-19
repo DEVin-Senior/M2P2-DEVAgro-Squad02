@@ -1,0 +1,61 @@
+.hero-table-farm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 500px;
+}
+
+.container-table {
+  border: 1px solid var(--main-color);
+  border-radius: 8px;
+  width: 58vw;
+  height: 95%;
+  background-color: white;
+  margin-left: 3rem;
+  margin-right: 3.5rem;
+}
+
+.container-table > h3 {
+  margin-top: 1rem;
+  padding: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.col-farm,
+.data-col-farm {
+  text-align: left;
+}
+
+.col-prevision,
+.data-col-prevision {
+  text-align: right;
+}
+
+.table {
+  width: 100%;
+}
+
+.table tr > td {
+  color: var(--text-blue-color);
+  font-weight: bold;
+  padding-top: 10px;
+}
+
+table .table-rows:hover {
+  background-color: var(--main-color);
+  cursor: pointer;
+}
+
+table tr:hover td {
+  color: var(--white);
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75%;
+  width: 100%;
+}

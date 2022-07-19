@@ -1,0 +1,70 @@
+<app-sidebar></app-sidebar>
+<app-user-nav-bar [menuName]="menuName"></app-user-nav-bar>
+<div class="container-form">
+    <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+        <div class="mb-5 mt-4 pb-5 ms-4">
+          <form class="needs-validation" (ngSubmit)="saveNewEmployee()" [formGroup]="employeeForm" #formDir="ngForm"
+            [ngClass]="{'was-validated' : employeeForm.invalid && formDir.submitted && !formSended}">
+                <div class="form-employee">
+                  <div class="form-group mt-4 me-4 ms-4">
+                    <label for="name-employee">NOME</label>
+                    <input type="text" class="form-control" id="name-employee" name="name-employee" formControlName="name"
+                        placeholder="Nome" required>
+                    <div *ngIf="name.invalid && formDir.submitted && !formSended">
+                      <small *ngIf="name.errors?.['required']" class="alert-required">O nome do funcionário é obrigatório. </small>
+                    </div>
+                  </div>
+                  <div class="form-group mt-4 me-4 ms-4">
+                    <label for="farm-employee" >FAZENDA</label>
+                    <select class="form-control" id="farm-employee" name="farm-employee" formControlName="farmId" required>
+                      <option selected disabled value="">Selecione a fazenda</option>
+                      <option *ngFor="let farm of farmFromCompany" [value]="farm.id">{{farm.id + ' - ' + farm.name}}</option>
+                    </select>
+                    <div *ngIf="farmId.invalid && formDir.submitted && !formSended">
+                      <small *ngIf="farmId.errors?.['required']" class="alert-required">A fazenda é obrigatória. </small>
+                    </div>
+                  </div>
+                  <div class="form-group mt-4 me-4 ms-4">
+                    <label for="cpf-employee">CPF</label>
+                    <input type="text" class="form-control" id="cpf-employee" name="cpf-employee" formControlName="cpf" [mask]="'000.000.000-99'"
+                        placeholder="CPF" required>
+                    <div *ngIf="cpf.invalid && formDir.submitted && !formSended">
+                      <small *ngIf="cpf.errors?.['pattern']">O CPF precisa corresponder a um formato válido. </small>
+                      <small *ngIf="cpf.errors?.['required']" class="alert-required">O CPF é obrigatório. </small>
+                    </div>
+                  </div>
+                  <div class="form-group mt-4 me-4 ms-4">
+                    <label for="phone-employee">TELEFONE</label>
+                    <input type="text" class="form-control" id="phone-employee" name="phone-employee" formControlName="telephoneNumber" [mask]="'(00)00000-0009'"
+                        placeholder="Telefone" required>
+                    <div *ngIf="telephoneNumber.invalid && formDir.submitted && !formSended">
+                      <small *ngIf="telephoneNumber.errors?.['pattern']">O Telefone precisa corresponder ao formato (XX)12345-1234. </small>
+                      <small *ngIf="telephoneNumber.errors?.['required']" class="alert-required">O telefone é obrigatório. </small>
+                    </div>
+                  </div>
+                  <div class="form-group mt-4 me-4 ms-4">
+                    <label for="occupation-employee">FUNÇÃO PRINCIPAL</label>
+                    <input type="text" class="form-control" id="occupation-employee" name="occupation-employee" formControlName="job"
+                        placeholder="Função principal" required>
+                    <div *ngIf="job.invalid && formDir.submitted && !formSended">
+                      <small *ngIf="job.errors?.['required']" class="alert-required">O cargo é obrigatório. </small>
+                    </div>
+                  </div>
+                  <div class="form-group mt-4 me-4 ms-4">
+                    <label for="active-employee">ATIVO</label>
+                    <div class="form-check form-switch">
+                      <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="container-btn-register mt-4">
+                    <app-button [text]="btnName" class="btn-register"></app-button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>

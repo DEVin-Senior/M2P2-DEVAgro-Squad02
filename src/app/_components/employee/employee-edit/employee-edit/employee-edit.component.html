@@ -1,0 +1,54 @@
+<app-sidebar></app-sidebar>
+<app-user-nav-bar [menuName]="menuName"></app-user-nav-bar>
+<div class="container-form">
+  <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+    <div class="mb-5 mt-4 pb-5 ms-4">
+      <form class="needs-validation was-validated">
+        <div class="form-employee">
+          <div class="form-group mt-4 me-4 ms-4">
+            <label for="name-employee">NOME</label>
+            <input [(ngModel)]="employee.name" type="text" class="form-control" id="name-employee" name="name" placeholder="Nome" required>
+          </div>
+          <div class="form-group mt-4 me-4 ms-4">
+            <label for="farm-employee">FAZENDA</label>
+            <select class="form-control" id="farm-employee" [(ngModel)]="employee.farmId" (keyup)="checkEmployeeFarm()" name="farmId" required>
+             <!--Mantém selecionado por padrão a fazenda atual do funcionário-->
+              <option *ngFor="let farm of allFarmsByCompanyFromEmployee" [value]="farm.id">{{ farm.id + ' - ' + farm.name }}</option>
+            </select>
+          </div>
+          <div class="form-group mt-4 me-4 ms-4">
+            <label for="occupation-employee">FUNÇÃO PRINCIPAL</label>
+            <input [(ngModel)]="employee.job" type="text" class="form-control" id="occupation-employee" name="job"
+              placeholder="Função principal" required>
+          </div>
+          <div class="form-group mt-4 me-4 ms-4">
+            <label for="active-employee">ATIVO</label>
+            <div class="form-check form-switch">
+              <input [(ngModel)]="employee.status" [checked]="employee.status" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" name="status">
+            </div>
+          </div>
+
+          <div class="form-group mt-4 me-4 ms-4">
+            <label for="active-employee">FOTO</label>
+            <div class="container-file-photo">
+              <label class="photo-employee-label" for="photo-employee">
+                <svg width="17" height="21" viewBox="0 0 17 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9.1167 7.10107V1.60107L14.6167 7.10107H9.1167ZM2.1167 0.101074C1.0067 0.101074 0.116699 0.991074 0.116699 2.10107V18.1011C0.116699 18.6315 0.327413 19.1402 0.702486 19.5153C1.07756 19.8904 1.58627 20.1011 2.1167 20.1011H14.1167C14.6471 20.1011 15.1558 19.8904 15.5309 19.5153C15.906 19.1402 16.1167 18.6315 16.1167 18.1011V6.10107L10.1167 0.101074H2.1167Z" fill="white"/>
+                  </svg>
+              </label>
+              <input type="file" id="photo-employee" name="photo-employee">
+            </div>
+          </div>
+
+        </div>
+
+        <div class="container-btn-register mt-4">
+          <app-button [text]="btnName" class="btn-register" (click)="updateEmployee()"></app-button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,96 @@
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="name">
+      <th class="tableMaterial" mat-header-cell *matHeaderCellDef>
+        Detalhe dos Funcionários
+      </th>
+      <td mat-cell *matCellDef="let element" class="cellFormat">
+        <img
+          class="img"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaw4t8DM1Sen3UBSX6yUHK45TYF_yn1dXyNCS8A_cqaHgaS7FrlRKBzwJBwPXKHIJLoyU&usqp=CAU"
+        />
+        <div class="infoUser">
+          {{ element.name }}
+          <p>Cadastrado em {{ element.hiringDate }}</p>
+        </div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="farm">
+      <th class="tableMaterial" mat-header-cell *matHeaderCellDef>
+        Fazenda Alocado
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div *ngIf="element.farmName != undefined" class="farmUser">
+          {{ element.farmName }}
+          <!-- <p>10/10/2010</p> -->
+        </div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="job">
+      <th class="tableMaterial" mat-header-cell *matHeaderCellDef>
+        Função Principal
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.job }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <th class="tableMaterial" mat-header-cell *matHeaderCellDef>Ativo</th>
+      <td mat-cell *matCellDef="let element">
+        <span
+          id="buttonsTable"
+          type="button"
+          *ngIf="element.status"
+          class="btn btn-success"
+        >
+          Sim
+        </span>
+        <span
+          id="buttonsTable"
+          type="button"
+          *ngIf="!element.status"
+          class="btn btn-danger"
+        >
+          Não
+        </span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="edit">
+      <th class="tableMaterial" mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <a [routerLink]="['../edit', element.id]">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-three-dots-vertical"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
+            />
+          </svg>
+        </a>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+  </table>
+
+  <div class="btn-include-grain">
+    <button
+      type="button"
+      class="btn btn-success btn-lg me-4 mt-4 mb-4"
+      routerLink="/employee/form"
+    >
+      +
+    </button>
+  </div>
+
+  <mat-paginator class="paginator" [pageSizeOptions]="[5]"> </mat-paginator>
+</div>

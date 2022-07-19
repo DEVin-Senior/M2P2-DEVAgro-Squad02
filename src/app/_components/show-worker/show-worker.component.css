@@ -1,0 +1,77 @@
+.container-workers {
+  background-color: var(--bg-gray-color);
+  margin-left: 12vw;
+  height: 110vh;
+}
+
+.titulo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.page {
+  margin-left: 3rem;
+}
+
+.page p {
+  font-size: 1.5rem;
+  position: absolute;
+  display: flex;
+  width: 20vw;
+  margin-top: 2rem;
+  color: var(--main-color);
+}
+
+.name {
+  font-size: 1.5rem;
+  width: 50vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.worker {
+  background-color: white;
+  height: auto;
+  max-width: 82vw;
+  margin-top: 3rem;
+  border: 1px solid var(--main-color);
+  border-radius: 5px;
+}
+
+.tittleTable {
+  height: 10vh;
+  width: 76vw;
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+  justify-content: space-between;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td,
+th {
+  width: 25%;
+}
+
+#fa-arrow-down,
+#fa-filter {
+  margin-right: 1rem;
+  color: #c5c7cd;
+}
+
+.notEmployee {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notEmployee span {
+  font-size: 2rem;
+  font-weight: bold;
+}

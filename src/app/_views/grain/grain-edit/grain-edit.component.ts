@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { IAlert } from 'src/app/_interfaces/alert/ialert';
 import { FarmService } from 'src/app/_services/farm/farm.service';
 import { GrainService } from 'src/app/_services/grain/grain.service';
-import { GrainAlert } from 'src/app/_shared/grain/grain-alert';
+import { AlertService } from 'src/app/_shared/alert/alert.service';
 import { ERROR, SUCCESS } from 'src/environments/environment';
 import { IGrainByCompany } from './../../../_interfaces/grain/igrain-by-company';
 
@@ -39,7 +39,7 @@ export class GrainEditComponent implements OnInit {
   constructor(
     private rest: GrainService,
     private fb: FormBuilder,
-    private grainAlert: GrainAlert,
+    private alertService: AlertService,
     private farmService: FarmService,
     private route: ActivatedRoute,
     private redirectRout: Router) { }
@@ -122,17 +122,30 @@ export class GrainEditComponent implements OnInit {
 
   messagePostGrain(result: any) {
     if (result.name) {
-      this.grainAlert.showSucessEdit();
+      this.alertMessage = {
+        title: '',
+        message: 'Grão editado com sucesso!',
+        typeAlert: SUCCESS,
+      };
+      this.alertService.showGenericAlert(this.alertMessage);
       this.grainForm.reset();
 
     } else {
-      this.grainAlert.showAlertEdit(result.name);
+      this.alertMessage = {
+        title: 'Ocorreu um erro ao editar o Grão',
+        message: 'Entre em contato com o administrador do sistema.',
+        typeAlert: ERROR,
+      };
     }
   }
 
   messageErrorPostGrain() {
-    this.grainAlert.showAlertEdit(ERROR);
-
+    this.alertMessage = {
+      title: 'Ocorreu um erro ao editar o Grão',
+      message: 'Entre em contato com o administrador do sistema.',
+      typeAlert: ERROR,
+    };
+    this.alertService.showGenericAlert(this.alertMessage);
   }
 
   getAllfarm() {
