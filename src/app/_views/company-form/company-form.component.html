@@ -1,0 +1,91 @@
+<div class="company-form-hero principal-bg">
+  <div class="container-company-form">
+    <form class="company-form row g-3 needs-validation" (ngSubmit)="submit()" [formGroup]="companyForm"
+      #formDir="ngForm" [ngClass]="{'was-validated' : companyForm.invalid && formDir.submitted && !registerSended}">
+
+      <div class="header-company-form">
+        <div class="logo-dih-forms"></div>
+        <h1 class="mb-3 fw-normal">Dev-Agro</h1>
+        <h4 class="mb-3 fw-normal">Cadastro de empresa</h4>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInputName" placeholder="Nome" formControlName="name"
+          required>
+        <label for="floatingInputName">Nome</label>
+
+        <div *ngIf="name.invalid && formDir.submitted" class="invalid-tooltip">
+          <small *ngIf="name.errors?.['required']">O nome da empresa é obrigatório. </small>
+        </div>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInputCnpj" [mask]="'00.000.000/0000-99'" placeholder="Cnpj"
+          formControlName="cnpj" [pattern]="regexCnpj" required>
+        <label for="floatingInputCnpj">CNPJ</label>
+
+        <div *ngIf="cnpj.invalid && formDir.submitted" class="invalid-tooltip">
+          <small *ngIf="cnpj.errors?.['pattern']">O CNPJ precisa corresponder a um formato válido. </small>
+          <small *ngIf="cnpj.errors?.['required']">O cnpj é obrigatório. </small>
+        </div>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInputAddress" placeholder="Endereço da sede"
+          formControlName="address" required>
+        <label for="floatingInputAddress">Endereço da sede</label>
+
+        <div *ngIf="address.invalid && formDir.submitted" class="invalid-tooltip">
+          <small *ngIf="address.errors?.['required']">O endereço é obrigatório. </small>
+        </div>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="floatingInputEmail" placeholder="E-mail" formControlName="email"
+         [pattern]="regexEmail" required>
+        <label for="floatingInputEmail">E-mail</label>
+
+        <div *ngIf="email.invalid && formDir.submitted" class="invalid-tooltip">
+          <small *ngIf="email.errors?.['required']">O e-mail é obrigatório. </small>
+          <small *ngIf="email.errors?.['pattern']">O e-mail informado é inválido. </small>
+        </div>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="password" class="form-control" id="floatingInputPassword" placeholder="Senha"
+          formControlName="password" [pattern]="regexPassword" data-toggle="tooltip" data-placement="right"
+          title="A senha precisa conter no mínimo um caracter especial [@#$], um caracter maiúsculo [A-Z] e um caracter numérico [0-9]."
+          required>
+        <label for="floatingInputPassword">Senha</label>
+
+        <div *ngIf="password.invalid && formDir.submitted" class="invalid-tooltip">
+          <small *ngIf="password.errors?.['required']">A senha é obrigatória. </small>
+          <small *ngIf="password.errors?.['pattern']">O formato da senha precisa corresponder aos critérios requeridos
+            com no mínimo um caracter especial [@#$], um caracter maiúsculo [A-Z] e um caracter numérico [0-9]. </small>
+          <small *ngIf="password.errors?.['matchPassword']">As senhas informadas são diferentes. </small>
+        </div>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="password" class="form-control" id="floatingInputConfirmPassword" [pattern]="regexPassword"
+          placeholder="Digite novamente a senha" formControlName="confirmPassword" data-toggle="tooltip"
+          data-placement="right"
+          title="A senha precisa conter no mínimo um caracter especial [@#$], um caracter maiúsculo [A-Z] e um caracter numérico [0-9]."
+          required>
+        <label for="floatingInputConfirmPassword">Informe novamente a senha</label>
+
+        <div *ngIf="confirmPassword.invalid && formDir.submitted" class="invalid-tooltip">
+          <small *ngIf="confirmPassword.errors?.['required']">A confirmação da senha é obrigatória. </small>
+          <small *ngIf="confirmPassword.errors?.['pattern']">O formato da senha precisa corresponder aos critérios
+            requeridos com no mínimo um caracter especial [@#$], um caracter maiúsculo [A-Z] e um caracter numérico
+            [0-9]. </small>
+          <small *ngIf="confirmPassword.errors?.['matchPassword']">As senhas informadas são diferentes. </small>
+        </div>
+      </div>
+
+      <div class="col-12 container-btn">
+        <app-button [text]="registerBtn"></app-button>
+      </div>
+    </form>
+  </div>
+</div>

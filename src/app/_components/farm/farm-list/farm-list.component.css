@@ -1,0 +1,38 @@
+.container-btn-new-farm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-new-farm {
+  border-color: var(--main-color);
+  transition: all 0.4s linear;
+}
+
+.navFarm {
+  background-color: var(--bg-gray-color);
+}
+
+.farmBody {
+  background-color: var(--bg-gray-color);
+  height: 100vh;
+  margin-left: 15rem;
+}
+
+@media (max-width: 1400px) {
+  .farmBody {
+    margin-left: 10rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .farmBody {
+    margin-left: 5rem;
+  }
+}
+
+@media (max-width: 830px) {
+  .farmBody {
+    margin-left: 5rem;
+  }
+}

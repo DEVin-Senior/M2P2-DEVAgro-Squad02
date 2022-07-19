@@ -1,0 +1,126 @@
+<app-sidebar></app-sidebar>
+<div class="navFarmForm">
+  <app-user-nav-bar [menuName]="menuName"></app-user-nav-bar>
+</div>
+<div class="container-form">
+  <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+    <div class="mb-5 mt-4 pb-5 ms-4">
+      <form
+        class="needs-validation"
+        (ngSubmit)="saveNewFarm()"
+        [formGroup]="farmForm"
+        #formDir="ngForm"
+        [ngClass]="{
+          'was-validated': farmForm.invalid && formDir.submitted && !formSended
+        }"
+      >
+        <div class="form-farm">
+          <h3>Cadastro Fazenda</h3>
+          <div class="form-group mt-4 me-4 ms-4">
+            <label for="name-farm">NOME</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name-farm"
+              name="name-farm"
+              formControlName="name"
+              placeholder="Nome da fazenda"
+              required
+            />
+            <div *ngIf="name.invalid && formDir.submitted && !formSended">
+              <small *ngIf="name.errors?.['required']" class="alert-required"
+                >O nome da fazenda é obrigatório.
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group mt-4 me-4 ms-4">
+            <label for="address-farm">ENDEREÇO DA FILIAL</label>
+            <input
+              type="text"
+              class="form-control"
+              id="address-farm"
+              name="address-farm"
+              formControlName="address"
+              placeholder="Endereço da filial"
+              required
+            />
+            <div *ngIf="address.invalid && formDir.submitted && !formSended">
+              <small *ngIf="address.errors?.['required']" class="alert-required"
+                >O endereço da fazenda é obrigatório.
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group mt-4 me-4 ms-4">
+            <label for="grain-produced">GRÃO</label>
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              formControlName="grainId"
+              required
+            >
+              <option selected disabled value="">Selecione o grão</option>
+              <option
+                *ngFor="let grain of grainsFromCompany"
+                [value]="grain.id"
+              >
+                {{ grain.id + " - " + grain.name }}
+              </option>
+            </select>
+            <div *ngIf="grainId.invalid && formDir.submitted && !formSended">
+              <small *ngIf="grainId.errors?.['required']" class="alert-required"
+                >O ID do grão é obrigatório.
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group mt-4 mb-4 me-4 ms-4">
+            <label for="last-harvest-date">DATA DA ÚLTIMA COLHEITA</label>
+            <input
+              type="date"
+              class="form-control"
+              id="last-harvest-date"
+              name="last-harvest-date"
+              formControlName="lastHarvest"
+              placeholder="Data dd/mm/aaaa"
+              required
+            />
+            <div
+              *ngIf="lastHarvest.invalid && formDir.submitted && !formSended"
+            >
+              <small
+                *ngIf="lastHarvest.errors?.['required']"
+                class="alert-required"
+                >A data da última colheita é obrigatória.
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group mt-4 me-4 ms-4">
+            <label for="stock">ESTOQUE INICIAL</label>
+            <input
+              type="number"
+              class="form-control"
+              id="stock"
+              name="stock"
+              formControlName="stock"
+              placeholder="Estoque inicial"
+              required=""
+            />
+            <div *ngIf="stock.invalid && formDir.submitted && !formSended">
+              <small *ngIf="stock.errors?.['required']" class="alert-required"
+                >O estoque inicial é obrigatório.
+              </small>
+            </div>
+          </div>
+        </div>
+
+        <div class="container-btn-register mt-4">
+          <app-button [text]="btnName" class="btn-register"></app-button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+</div>

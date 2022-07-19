@@ -1,0 +1,16 @@
+<app-sidebar></app-sidebar>
+<div class="navFarm">
+  <app-user-nav-bar [menuName]="'Fazendas'"></app-user-nav-bar>
+</div>
+<div class="farmBody">
+  <app-farm-table></app-farm-table>
+  <div class="container-btn-new-farm mt-4">
+    <app-button
+      [text]="btnNewFarm"
+      class="btn-new-farm"
+      routerLink="/farm/form"
+    ></app-button>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

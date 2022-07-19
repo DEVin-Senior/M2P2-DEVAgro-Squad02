@@ -1,0 +1,128 @@
+table {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.img {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.container-body {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.container-table {
+  height: 75vh;
+  width: 100%;
+
+}
+
+.container-main {
+  width: 84vw;
+  border-radius: 5px;
+  margin-left: 12%;
+  height: 80vh;
+  border: 1px solid var(--light-gray);
+  background-color: white;
+  border: 1px solid var(--main-color);
+  border-radius: 5px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.edit-grain {
+  color: black;
+}
+
+.header-title-table {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+table tr {
+  height: 80px;
+  width: 100%;
+}
+
+table td {
+  height: 80px;
+}
+
+::ng-deep td.mat-cell:first-of-type {
+  display: flex;
+  flex-direction: row;
+}
+
+::ng-deep .mat-paginator-page-size {
+  opacity: 0;
+}
+
+::ng-deep .mat-icon-button {
+  background-color: white;
+}
+
+::ng-deep tbody {
+  border: #dfe0eb;
+}
+/* .img {
+  height: 30px;
+  border-radius: 50%;
+} */
+
+.btn {
+  background-color: green;
+}
+
+.btn-include-grain {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-include-grain > button {
+  background-color: var(--main-color);
+  border-radius: 50%;
+}
+
+.paginator {
+  margin-right: 4rem;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  width: 100%;
+}
+
+.columnPhoto {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  text-align: center;
+  margin-right: 10px;
+  background-color: var(--light-gray);
+  width: 15%;
+  border-radius: 100%;
+}
+
+#btnHarvestedSucess {
+  border-radius: 50px;
+}
+
+#btnHarvestedError {
+  background-color: #ff0000;
+  border-radius: 50px;
+}

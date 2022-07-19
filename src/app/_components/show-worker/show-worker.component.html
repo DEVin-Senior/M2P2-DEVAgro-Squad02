@@ -1,0 +1,21 @@
+<app-sidebar></app-sidebar>
+<div class="container-workers">
+  <div class="page">
+    <p>Funcionários</p>
+    <app-user-nav-bar></app-user-nav-bar>
+
+    <div class="worker">
+      <div class="tittleTable">
+        <h4><b>Funcionários da Empresa</b></h4>
+        <div class="filters">
+          <i class="fa-solid fa-arrow-down-short-wide" id="fa-arrow-down"></i
+          ><span class="me-2">Ordernar</span
+          ><i class="fa-solid fa-filter ms-1" id="fa-filter"></i>
+          <span class="me-2">Filtrar</span>
+        </div>
+      </div>
+      <app-list [employeesList]="employees"></app-list>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
